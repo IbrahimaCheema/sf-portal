@@ -1,27 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Array of all 19 Revolution Slider images from sf.org.pk
+// Array of all 19 Revolution Slider images delivered via Cloudflare R2 / CDN
 const sliderImages = [
-  { src: '/images/slider_1.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-11.44.49-AM.jpeg', title: 'Inaugural Ceremony of Shakarganj Foundation & Fitwell Hub' },
-  { src: '/images/slider_2.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-27.png', title: 'Shakarganj Community Banner' },
-  { src: '/images/slider_3.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/09/Shakarganj-Foundation-Adds-Gynaecologist-to-Healthcare-Team-1150-x-600-px.png', title: 'Healthcare Gynaecologist Addition' },
-  { src: '/images/slider_4.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-29.png', title: 'Shakarganj Foundation Initiative' },
-  { src: '/images/slider_5.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-1.png', title: 'Shakarganj Vocational Lab 1' },
-  { src: '/images/slider_6.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/SF-Website-Slider-Pic-1200-x-600-px-3.png', title: 'Shakarganj Slider Picture 3' },
-  { src: '/images/slider_7.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/RUFT-Design-3.png', title: 'RUFT Design Banner' },
-  { src: '/images/slider_8.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px.png', title: 'Shakarganj Vocational Lab 2' },
-  { src: '/images/slider_9.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/Copy-of-SF-Website-Slider-Pic-1200-x-600-px-2.png', title: 'Shakarganj Slider Picture 2' },
-  { src: '/images/slider_10.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-2.png', title: 'Shakarganj Vocational Lab 3' },
-  { src: '/images/slider_11.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Untitled-design.png', title: 'Shakarganj Educational Drive' },
-  { src: '/images/slider_12.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/02/479389759_599852552931525_3865703827591218268_n.jpg', title: 'Shakarganj Event Highlight' },
-  { src: '/images/slider_13.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/slider-20240228.png', title: 'Shakarganj Banner 2024' },
-  { src: '/images/slider_14.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-28-at-3.15.30-PM.jpeg', title: 'Community Distribution Ceremony' },
-  { src: '/images/slider_15.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-2.png', title: 'Healthcare Support Program' },
-  { src: '/images/slider_16.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-26-at-5.27.32-PM.jpeg', title: 'Shakarganj Field Activity' },
-  { src: '/images/slider_17.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/food-drive-slider1.png', title: 'Food Drive Campaign' },
-  { src: '/images/slider_18.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-1.png', title: 'Education Support Drive' },
-  { src: '/images/slider_19.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/fashion-slider-1.jpg', title: 'Jhang Art & Vocational Crafts' }
+  { src: 'https://docs.sf.org.pk/images/slider_1.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-11.44.49-AM.jpeg', title: 'Inaugural Ceremony of Shakarganj Foundation & Fitwell Hub' },
+  { src: 'https://docs.sf.org.pk/images/slider_2.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-27.png', title: 'Shakarganj Community Banner' },
+  { src: 'https://docs.sf.org.pk/images/slider_3.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/09/Shakarganj-Foundation-Adds-Gynaecologist-to-Healthcare-Team-1150-x-600-px.png', title: 'Healthcare Gynaecologist Addition' },
+  { src: 'https://docs.sf.org.pk/images/slider_4.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-29.png', title: 'Shakarganj Foundation Initiative' },
+  { src: 'https://docs.sf.org.pk/images/slider_5.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-1.png', title: 'Shakarganj Vocational Lab 1' },
+  { src: 'https://docs.sf.org.pk/images/slider_6.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/SF-Website-Slider-Pic-1200-x-600-px-3.png', title: 'Shakarganj Slider Picture 3' },
+  { src: 'https://docs.sf.org.pk/images/slider_7.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/RUFT-Design-3.png', title: 'RUFT Design Banner' },
+  { src: 'https://docs.sf.org.pk/images/slider_8.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px.png', title: 'Shakarganj Vocational Lab 2' },
+  { src: 'https://docs.sf.org.pk/images/slider_9.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/Copy-of-SF-Website-Slider-Pic-1200-x-600-px-2.png', title: 'Shakarganj Slider Picture 2' },
+  { src: 'https://docs.sf.org.pk/images/slider_10.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-2.png', title: 'Shakarganj Vocational Lab 3' },
+  { src: 'https://docs.sf.org.pk/images/slider_11.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Untitled-design.png', title: 'Shakarganj Educational Drive' },
+  { src: 'https://docs.sf.org.pk/images/slider_12.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/02/479389759_599852552931525_3865703827591218268_n.jpg', title: 'Shakarganj Event Highlight' },
+  { src: 'https://docs.sf.org.pk/images/slider_13.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/slider-20240228.png', title: 'Shakarganj Banner 2024' },
+  { src: 'https://docs.sf.org.pk/images/slider_14.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-28-at-3.15.30-PM.jpeg', title: 'Community Distribution Ceremony' },
+  { src: 'https://docs.sf.org.pk/images/slider_15.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-2.png', title: 'Healthcare Support Program' },
+  { src: 'https://docs.sf.org.pk/images/slider_16.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-26-at-5.27.32-PM.jpeg', title: 'Shakarganj Field Activity' },
+  { src: 'https://docs.sf.org.pk/images/slider_17.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/food-drive-slider1.png', title: 'Food Drive Campaign' },
+  { src: 'https://docs.sf.org.pk/images/slider_18.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-1.png', title: 'Education Support Drive' },
+  { src: 'https://docs.sf.org.pk/images/slider_19.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/fashion-slider-1.jpg', title: 'Jhang Art & Vocational Crafts' }
 ];
 ---
 
@@ -77,7 +77,7 @@ const sliderImages = [
         <a href="/education" class="program-card">
           <div class="card-bg-wrapper">
             <img 
-              src="/images/card_education.png" 
+              src="https://docs.sf.org.pk/images/card_education.png" 
               alt="Education Program - Adopted Schools" 
               class="card-bg-img" 
               onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/07/education-1-350x250.png'"
@@ -109,7 +109,7 @@ const sliderImages = [
         <a href="/healthcare" class="program-card">
           <div class="card-bg-wrapper">
             <img 
-              src="/images/card_healthcare.jpg" 
+              src="https://docs.sf.org.pk/images/card_healthcare.jpg" 
               alt="Healthcare Program - Free Dispensaries" 
               class="card-bg-img" 
               onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/09/373330647_268655812717869_6430380279538548162_n-1-e1694156256909-350x250.jpg'"
@@ -141,7 +141,7 @@ const sliderImages = [
         <a href="/jhang-art-gallery" class="program-card">
           <div class="card-bg-wrapper">
             <img 
-              src="/images/card_art.png" 
+              src="https://docs.sf.org.pk/images/card_art.png" 
               alt="Jhang Art Gallery - Fine Arts and Crafts" 
               class="card-bg-img" 
               onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/07/art-1-350x250.png'"
@@ -303,7 +303,7 @@ const sliderImages = [
           </div>
         </div>
 
-        <!-- 6. Recent Projects -->
+        <!-- 6. Recent Projects (Handshake Icon matching sf.org.pk original) -->
         <div class="glance-item">
           <div class="glance-icon-box">
             <svg viewBox="0 0 100 100" width="60" height="60" class="hex-svg">

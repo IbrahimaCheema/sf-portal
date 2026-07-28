@@ -17,3 +17,11 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# 🖼️ NEVER UPLOAD MEDIA / ASSETS TO GIT
+public/images/
+public/*.png
+public/*.jpg
+public/*.jpeg
+public/*.webp
+public/*.gif
