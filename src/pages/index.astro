@@ -244,12 +244,22 @@ const sliderImages = [
           </div>
         </div>
 
-        <!-- 3. Our Community -->
+        <!-- 3. Our Community (Group of People / Users SVG) -->
         <div class="glance-item">
           <div class="glance-icon-box">
             <svg viewBox="0 0 100 100" width="60" height="60" class="hex-svg">
               <polygon points="50,5 93,26 93,74 50,95 7,74 7,26" fill="none" stroke="#ffa735" stroke-width="5"/>
-              <path d="M35 55c-4 0-10 2-10 6v4h20v-4c0-4-6-6-10-6zm30 0c-4 0-10 2-10 6v4h20v-4c0-4-6-6-10-6zm-15-5c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" fill="#ffa735"/>
+              <g fill="#ffa735">
+                <!-- Center Person -->
+                <circle cx="50" cy="37" r="6.5"/>
+                <path d="M38 59c0-6.6 5.4-12 12-12s12 5.4 12 12v3H38v-3z"/>
+                <!-- Left Person -->
+                <circle cx="34" cy="41" r="5"/>
+                <path d="M24 59c0-5 4-9 9-9h2c1.3 0 2.6.3 3.8.8-1.7 2.1-2.8 4.7-2.8 7.7v3.5H24V59z"/>
+                <!-- Right Person -->
+                <circle cx="66" cy="41" r="5"/>
+                <path d="M67 50.8c4.8 0 8.8 3.9 8.8 8.7v3.5H63.8v-3.5c0-3-1.1-5.6-2.8-7.7 1.2-.5 2.5-.8 3.8-.8h2.2z"/>
+              </g>
             </svg>
           </div>
           <div class="glance-text">
