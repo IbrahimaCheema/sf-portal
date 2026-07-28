@@ -6,67 +6,37 @@ import Layout from '../layouts/Layout.astro';
   title="Shakarganj Foundation – Uplifting Communities & Transforming Lives"
   description="Shakarganj Foundation is dedicated to providing quality education, affordable healthcare, child nutrition, and socio-economic support across Pakistan."
 >
-  <!-- 🎠 Hero Carousel Section -->
+  <!-- 🎠 Naked Image Hero Carousel Section (100% Original Photo View) -->
   <section class="hero-slider-section">
     <div class="slider-container">
       <div class="slide active" id="slide-1">
-        <div class="slide-overlay"></div>
         <img 
-          src="https://docs.sf.org.pk/images/hero_slide_1.jpg" 
-          alt="Shakarganj Foundation Healthcare & Medical Team" 
+          src="/images/hero_slide_1.jpg" 
+          alt="Inaugural Ceremony of Shakarganj Foundation & Fitwell Hub Collaboration" 
           class="slide-img"
-          onerror="this.src='/images/hero_slide_1.jpg'"
+          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-11.44.49-AM.jpeg'"
         />
-        <div class="container slide-content">
-          <span class="badge badge-accent">COMMUNITY HEALTHCARE</span>
-          <h1 class="slide-title">Accessible Healthcare & Specialist Medical Support</h1>
-          <p class="slide-desc">Providing high-quality medical services, maternal healthcare, and free clinics to underserved families in Jhang and beyond.</p>
-          <div class="slide-actions">
-            <a href="/healthcare" class="btn btn-primary">Our Healthcare Programs</a>
-            <a href="/donate-now" class="btn btn-accent">Support Free Clinics</a>
-          </div>
-        </div>
       </div>
 
       <div class="slide" id="slide-2">
-        <div class="slide-overlay"></div>
         <img 
-          src="https://docs.sf.org.pk/images/hero_slide_2.png" 
-          alt="Education Scholarships and Prize Distribution" 
+          src="/images/hero_slide_2.png" 
+          alt="Education Scholarships and Prize Distribution Ceremony" 
           class="slide-img"
-          onerror="this.src='/images/hero_slide_2.png'"
+          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2024/11/slider-27.png'"
         />
-        <div class="container slide-content">
-          <span class="badge badge-accent">EDUCATIONAL EMPOWERMENT</span>
-          <h1 class="slide-title">Empowering the Next Generation Through Knowledge</h1>
-          <p class="slide-desc">Rewarding academic merit through the Talib Hussain Education Scholarship and annual prize distribution ceremonies.</p>
-          <div class="slide-actions">
-            <a href="/education" class="btn btn-primary">Explore Scholarships</a>
-            <a href="/whyeducation" class="btn btn-outline-white">Why Education Matters</a>
-          </div>
-        </div>
       </div>
 
       <div class="slide" id="slide-3">
-        <div class="slide-overlay"></div>
         <img 
-          src="https://docs.sf.org.pk/images/hero_slide_3.png" 
+          src="/images/hero_slide_3.png" 
           alt="Shakarganj Foundation Adds Gynaecologist to Healthcare Team" 
           class="slide-img"
-          onerror="this.src='/images/hero_slide_3.png'"
+          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2024/09/Shakarganj-Foundation-Adds-Gynaecologist-to-Healthcare-Team-1150-x-600-px.png'"
         />
-        <div class="container slide-content">
-          <span class="badge badge-accent">MATERNAL HEALTH</span>
-          <h1 class="slide-title">Expanding Maternal & Child Healthcare</h1>
-          <p class="slide-desc">Welcoming specialist medical experts and gynaecologists to elevate health standards for mothers and children.</p>
-          <div class="slide-actions">
-            <a href="/sf-tmsg-fight-against-malnutrition" class="btn btn-primary">Fight Against Malnutrition</a>
-            <a href="/contact-us" class="btn btn-accent">Get Involved</a>
-          </div>
-        </div>
       </div>
 
-      <!-- Slider Controls -->
+      <!-- Slider Navigation Controls -->
       <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous Slide">❮</button>
       <button class="slider-btn next-btn" id="nextSlide" aria-label="Next Slide">❯</button>
       
@@ -192,19 +162,27 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <style>
-    /* 🎠 Slider Styles */
+    /* 🎠 Naked Slider Styles (No dark overlays, 100% full original image view) */
     .hero-slider-section {
       position: relative;
-      background-color: var(--primary-dark);
-      color: #ffffff;
+      background-color: #ffffff;
+      padding: 20px 0;
       overflow: hidden;
     }
 
     .slider-container {
       position: relative;
-      min-height: 520px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 480px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      background: #f0f4f0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
 
     .slide {
@@ -212,9 +190,10 @@ import Layout from '../layouts/Layout.astro';
       inset: 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     .slide.active {
@@ -223,47 +202,10 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .slide-img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.45);
-    }
-
-    .slide-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(0, 43, 0, 0.85) 0%, rgba(0, 43, 0, 0.4) 100%);
-      z-index: 1;
-    }
-
-    .slide-content {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    .slide-title {
-      font-size: 42px;
-      color: #ffffff;
-      margin: 15px 0;
-      line-height: 1.25;
-    }
-
-    .slide-desc {
-      font-size: 18px;
-      color: #e0f0e0;
-      margin-bottom: 30px;
-      max-width: 650px;
-    }
-
-    .slide-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: block;
     }
 
     .slider-btn {
@@ -271,18 +213,19 @@ import Layout from '../layouts/Layout.astro';
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 77, 0, 0.7);
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 48px;
-      height: 48px;
+      border: none;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition-fast);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .slider-btn:hover {
@@ -290,45 +233,46 @@ import Layout from '../layouts/Layout.astro';
       color: #000000;
     }
 
-    .prev-btn { left: 20px; }
-    .next-btn { right: 20px; }
+    .prev-btn { left: 16px; }
+    .next-btn { right: 16px; }
 
     .slider-dots {
       position: absolute;
-      bottom: 20px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .dot {
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--primary-color);
       cursor: pointer;
       transition: var(--transition-fast);
     }
 
     .dot.active {
       background: var(--accent-gold);
-      width: 30px;
+      border-color: var(--accent-gold);
+      width: 28px;
       border-radius: 6px;
     }
 
     /* 📊 Stats Section */
     .stats-section {
-      padding: 50px 0;
-      margin-top: -30px;
+      padding: 40px 0;
       position: relative;
       z-index: 15;
     }
 
     /* 💡 Focus Section */
     .focus-section {
-      padding: 70px 0;
+      padding: 60px 0;
     }
 
     .focus-card {
@@ -370,7 +314,7 @@ import Layout from '../layouts/Layout.astro';
     .vision-banner {
       background: linear-gradient(135deg, #004d00 0%, #001a00 100%);
       color: #ffffff;
-      padding: 80px 0;
+      padding: 70px 0;
       text-align: center;
     }
 
@@ -380,12 +324,12 @@ import Layout from '../layouts/Layout.astro';
 
     .vision-text h2 {
       color: #ffffff;
-      font-size: 34px;
+      font-size: 32px;
       margin: 15px 0 20px;
     }
 
     .vision-quote {
-      font-size: 20px;
+      font-size: 19px;
       font-style: italic;
       line-height: 1.6;
       color: #e0f2e0;
@@ -407,7 +351,7 @@ import Layout from '../layouts/Layout.astro';
 
     /* 💳 Donate CTA Card */
     .donate-cta-section {
-      padding: 70px 0;
+      padding: 60px 0;
     }
 
     .donate-cta-card {
@@ -415,16 +359,16 @@ import Layout from '../layouts/Layout.astro';
       border: 2px solid var(--border-light);
       border-left: 6px solid var(--accent-gold);
       border-radius: var(--radius-md);
-      padding: 40px;
+      padding: 35px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 35px;
       align-items: center;
       box-shadow: var(--shadow-md);
     }
 
     .cta-info h2 {
-      font-size: 28px;
+      font-size: 26px;
       color: var(--primary-dark);
       margin-bottom: 12px;
     }
@@ -476,7 +420,6 @@ import Layout from '../layouts/Layout.astro';
     }
 
     @media (max-width: 768px) {
-      .slide-title { font-size: 28px; }
       .donate-cta-card { grid-template-columns: 1fr; }
       .slider-btn { display: none; }
     }
@@ -532,7 +475,7 @@ import Layout from '../layouts/Layout.astro';
     });
 
     function startTimer() {
-      autoSlideInterval = setInterval(nextSlide, 6000);
+      autoSlideInterval = setInterval(nextSlide, 5000);
     }
 
     function resetTimer() {
