@@ -57,6 +57,17 @@ const sliderImages = [
     </div>
   </section>
 
+  <!-- 🌿 25 Years of Community Service Banner (Immediately after Slider) -->
+  <section class="anniversary-banner">
+    <div class="particles-bg"></div>
+    <div class="container banner-content">
+      <h2 class="banner-title">25 Years of Community Service</h2>
+      <p class="banner-desc">
+        Shakarganj Foundation has been providing free of cost education assistance, healthcare services and practical home economics programs in remote areas of Pakistan’s Punjab province for over two decades
+      </p>
+    </div>
+  </section>
+
   <!-- 📈 Key Stat Counters -->
   <section class="stats-section">
     <div class="container">
@@ -175,7 +186,7 @@ const sliderImages = [
     .hero-slider-section {
       position: relative;
       background-color: #ffffff;
-      padding: 15px 0;
+      padding: 15px 0 0;
       overflow: hidden;
     }
 
@@ -189,7 +200,7 @@ const sliderImages = [
       align-items: center;
       justify-content: center;
       background: #f0f4f0;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
       overflow: hidden;
       box-shadow: var(--shadow-sm);
     }
@@ -275,9 +286,60 @@ const sliderImages = [
       border-radius: 5px;
     }
 
+    /* 🌿 25 Years Anniversary Banner */
+    .anniversary-banner {
+      position: relative;
+      background-color: #74ad66;
+      color: #ffffff;
+      padding: 35px 20px;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .particles-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .banner-title {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffa735;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+      letter-spacing: -0.3px;
+    }
+
+    .banner-desc {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.65;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
     /* 📊 Stats Section */
     .stats-section {
-      padding: 40px 0;
+      padding: 30px 0;
       position: relative;
       z-index: 15;
     }
@@ -432,6 +494,8 @@ const sliderImages = [
     }
 
     @media (max-width: 768px) {
+      .banner-title { font-size: 28px; }
+      .banner-desc { font-size: 14px; }
       .donate-cta-card { grid-template-columns: 1fr; }
       .slider-btn { display: none; }
     }
