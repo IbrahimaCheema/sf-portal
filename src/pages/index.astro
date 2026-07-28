@@ -68,7 +68,7 @@ const sliderImages = [
     </div>
   </section>
 
-  <!-- 🖼️ 3 Interactive Program Cards Section (Hover / Tap Text Emerges) -->
+  <!-- 🖼️ 3 Interactive Program Cards Section (Exact Original Images) -->
   <section class="program-cards-section">
     <div class="container">
       <div class="program-cards-grid">
@@ -76,7 +76,12 @@ const sliderImages = [
         <!-- Card 1: Education -->
         <a href="/education" class="program-card">
           <div class="card-bg-wrapper">
-            <img src="/images/slider_18.png" alt="Education Program - Adopted Schools" class="card-bg-img" />
+            <img 
+              src="/images/card_education.png" 
+              alt="Education Program - Adopted Schools" 
+              class="card-bg-img" 
+              onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/07/education-1-350x250.png'"
+            />
             <div class="card-default-bar">
               <div class="card-icon book-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
@@ -103,7 +108,12 @@ const sliderImages = [
         <!-- Card 2: Healthcare -->
         <a href="/healthcare" class="program-card">
           <div class="card-bg-wrapper">
-            <img src="/images/slider_3.png" alt="Healthcare Program - Free Dispensaries" class="card-bg-img" />
+            <img 
+              src="/images/card_healthcare.jpg" 
+              alt="Healthcare Program - Free Dispensaries" 
+              class="card-bg-img" 
+              onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/09/373330647_268655812717869_6430380279538548162_n-1-e1694156256909-350x250.jpg'"
+            />
             <div class="card-default-bar">
               <div class="card-icon med-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6h-3V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-9-2h4v2h-4V4zm8 16H6V8h13v12zm-5-7h-2v-2H11v2H9v2h2v2h2v-2h2v-2z"/></svg>
@@ -130,7 +140,12 @@ const sliderImages = [
         <!-- Card 3: Jhang Art Gallery -->
         <a href="/jhang-art-gallery" class="program-card">
           <div class="card-bg-wrapper">
-            <img src="/images/slider_19.jpg" alt="Jhang Art Gallery - Fine Arts and Crafts" class="card-bg-img" />
+            <img 
+              src="/images/card_art.png" 
+              alt="Jhang Art Gallery - Fine Arts and Crafts" 
+              class="card-bg-img" 
+              onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2023/07/art-1-350x250.png'"
+            />
             <div class="card-default-bar">
               <div class="card-icon gallery-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
@@ -157,7 +172,7 @@ const sliderImages = [
     </div>
   </section>
 
-  <!-- 📊 Warm Orange Animated Counter Section (Directly after Cards) -->
+  <!-- 📊 Warm Orange Animated Counter Section -->
   <section class="animated-counter-section">
     <div class="container">
       <div class="counter-grid">
