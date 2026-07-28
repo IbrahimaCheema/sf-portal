@@ -23,6 +23,35 @@ const sliderImages = [
   { src: 'https://docs.sf.org.pk/images/slider_18.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-1.png', title: 'Education Support Drive' },
   { src: 'https://docs.sf.org.pk/images/slider_19.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/fashion-slider-1.jpg', title: 'Jhang Art & Vocational Crafts' }
 ];
+
+// Array of ALL 25 Collaboration Partner Logos from sf.org.pk
+const collaborationLogos = [
+  { name: 'Shakarganj Mills Limited (SML)', src: 'https://docs.sf.org.pk/images/sml_logo.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/sml-logo1.png' },
+  { name: 'Fatima Group', src: 'https://docs.sf.org.pk/images/fatima_group.jpeg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/fatima-2.jpeg' },
+  { name: 'Lions Club', src: 'https://docs.sf.org.pk/images/lions_club.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/lions-club.png' },
+  { name: 'DHQ Hospital', src: 'https://docs.sf.org.pk/images/dhq_hospital.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/dhq-3.png' },
+  { name: 'Indus Hospital & Health Network', src: 'https://docs.sf.org.pk/images/indus_hospital.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/indus-2.png' },
+  { name: 'Shaigan Pharmaceuticals', src: 'https://docs.sf.org.pk/images/shaigan.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/shaigan-2.png' },
+  { name: 'Searle Company Limited', src: 'https://docs.sf.org.pk/images/searle.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/searle-2.png' },
+  { name: 'Asian Food Industries', src: 'https://docs.sf.org.pk/images/asian_food.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/asian-2.png' },
+  { name: 'TMSG', src: 'https://docs.sf.org.pk/images/tmsg.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/tmsg-2.png' },
+  { name: 'IWH', src: 'https://docs.sf.org.pk/images/iwh.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/iwh-2.png' },
+  { name: 'Getz Pharma', src: 'https://docs.sf.org.pk/images/getz_pharma.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/getz-2.png' },
+  { name: 'Atco Laboratories', src: 'https://docs.sf.org.pk/images/atco_lab.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/atco-2.png' },
+  { name: 'Bilal Medical Complex (BMC)', src: 'https://docs.sf.org.pk/images/bmc.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/bmc-2.png' },
+  { name: 'Muhammad Medical Complex (MMC)', src: 'https://docs.sf.org.pk/images/mmc.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/12/mc-2.png' },
+  { name: 'PBM Sweet Home', src: 'https://docs.sf.org.pk/images/sweet_home.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/psh11_180x180.png' },
+  { name: 'Genix Pharma', src: 'https://docs.sf.org.pk/images/genix.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/genix-250x250-1.png' },
+  { name: 'PharmEvo', src: 'https://docs.sf.org.pk/images/pharmevo.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/Pharmevo-220x220-1.png' },
+  { name: 'Standpharm Pakistan', src: 'https://docs.sf.org.pk/images/standpharm.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/standpharm-200x200-1.png' },
+  { name: 'Hirani Pharmaceuticals', src: 'https://docs.sf.org.pk/images/hirani.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/03/hirani.jpg' },
+  { name: 'Solace Pharma', src: 'https://docs.sf.org.pk/images/solace.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/03/solace-pharma.png' },
+  { name: 'Saffron Pharma', src: 'https://docs.sf.org.pk/images/saffron.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-19-at-3.34.57-PM.jpg' },
+  { name: 'Cell Laboratories', src: 'https://docs.sf.org.pk/images/cell_lab.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-19-at-3.34.49-PM-1.jpg' },
+  { name: 'Hilton Pharma', src: 'https://docs.sf.org.pk/images/hilton.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-19-at-3.34.42-PM.jpg' },
+  { name: 'Highnoon Laboratories', src: 'https://docs.sf.org.pk/images/highnoon.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-19-at-3.34.43-PM.jpg' },
+  { name: 'Tabros Pharma', src: 'https://docs.sf.org.pk/images/tabros.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/08/tabrospharm200.png' }
+];
 ---
 
 <Layout 
@@ -204,7 +233,7 @@ const sliderImages = [
     </div>
   </section>
 
-  <!-- 🔍 At A Glance Section (Directly before Footer) -->
+  <!-- 🔍 At A Glance Section -->
   <section class="at-a-glance-section">
     <div class="container">
       <h2 class="glance-title">At A Glance</h2>
@@ -303,7 +332,7 @@ const sliderImages = [
           </div>
         </div>
 
-        <!-- 6. Recent Projects (Handshake Icon matching sf.org.pk original) -->
+        <!-- 6. Recent Projects -->
         <div class="glance-item">
           <div class="glance-icon-box">
             <svg viewBox="0 0 100 100" width="60" height="60" class="hex-svg">
@@ -348,6 +377,32 @@ const sliderImages = [
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- 🤝 Collaborations Infinite Moving Logo Marquee Section (Directly before Footer) -->
+  <section class="collaborations-section">
+    <div class="container">
+      <h2 class="collab-title">Collaborations</h2>
+      <div class="collab-decorator"></div>
+    </div>
+
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <!-- Duplicated array for seamless 100% infinite left-to-right marquee scroll -->
+        {[...collaborationLogos, ...collaborationLogos].map((logo, index) => (
+          <div class="logo-item" key={index}>
+            <img 
+              src={logo.src} 
+              alt={logo.name} 
+              title={logo.name}
+              class="collab-logo-img" 
+              onerror={`this.src='${logo.fallback}'`}
+              loading="lazy"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -692,7 +747,7 @@ const sliderImages = [
 
     /* 🔍 At A Glance Section */
     .at-a-glance-section {
-      padding: 65px 0;
+      padding: 65px 0 50px;
       background-color: #ffffff;
     }
 
@@ -785,6 +840,92 @@ const sliderImages = [
       color: #ffa735;
     }
 
+    /* 🤝 Collaborations Moving Logo Marquee Section */
+    .collaborations-section {
+      padding: 55px 0 65px;
+      background-color: #ffffff;
+      overflow: hidden;
+      border-top: 1px solid #f0f4f0;
+    }
+
+    .collab-title {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 800;
+      color: #ffa735;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .collab-decorator {
+      width: 45px;
+      height: 4px;
+      background: #d92525;
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .logo-item {
+      flex-shrink: 0;
+      width: 170px;
+      height: 95px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .logo-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .collab-logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(15%) contrast(105%);
+      transition: filter 0.25s ease;
+    }
+
+    .logo-item:hover .collab-logo-img {
+      filter: grayscale(0%) contrast(100%);
+    }
+
+    /* Moving Left to Right infinite marquee loop */
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
     @media (max-width: 992px) {
       .program-cards-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -814,6 +955,10 @@ const sliderImages = [
       .glance-grid {
         grid-template-columns: 1fr;
         gap: 30px;
+      }
+      .logo-item {
+        width: 130px;
+        height: 75px;
       }
     }
   </style>
