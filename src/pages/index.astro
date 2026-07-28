@@ -29,7 +29,7 @@ const sliderImages = [
   title="Shakarganj Foundation – Uplifting Communities & Transforming Lives"
   description="Shakarganj Foundation is dedicated to providing quality education, affordable healthcare, child nutrition, and socio-economic support across Pakistan."
 >
-  <!-- 🎠 Naked Image Hero Carousel Section (All 19 Slides, 100% Original Photo View) -->
+  <!-- 🎠 Naked Image Hero Carousel Section -->
   <section class="hero-slider-section">
     <div class="slider-container">
       {sliderImages.map((img, index) => (
@@ -68,25 +68,33 @@ const sliderImages = [
     </div>
   </section>
 
-  <!-- 📈 Key Stat Counters -->
-  <section class="stats-section">
+  <!-- 📊 Warm Orange Animated Counter Section (Directly after Banner) -->
+  <section class="animated-counter-section">
     <div class="container">
-      <div class="grid-4">
-        <div class="stat-card">
-          <div class="stat-number">25,000+</div>
-          <div class="stat-label">Students Supported</div>
+      <div class="counter-grid">
+        <div class="counter-item">
+          <div class="counter-number" data-target="22">0</div>
+          <div class="counter-label">SCHOOLS</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">150+</div>
-          <div class="stat-label">Schools & Centers</div>
+
+        <div class="counter-item">
+          <div class="counter-number" data-target="5304">0</div>
+          <div class="counter-label">STUDENTS</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">50,000+</div>
-          <div class="stat-label">Medical Beneficiaries</div>
+
+        <div class="counter-item">
+          <div class="counter-number" data-target="208">0</div>
+          <div class="counter-label">TEACHERS</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Non-Profit Commitment</div>
+
+        <div class="counter-item">
+          <div class="counter-number" data-target="6">0</div>
+          <div class="counter-label">DISPENSARIES</div>
+        </div>
+
+        <div class="counter-item">
+          <div class="counter-number" data-target="2023450">0</div>
+          <div class="counter-label">FUNDS RAISED 2025-2026</div>
         </div>
       </div>
     </div>
@@ -337,11 +345,48 @@ const sliderImages = [
       margin: 0 auto;
     }
 
-    /* 📊 Stats Section */
-    .stats-section {
-      padding: 35px 0;
-      position: relative;
-      z-index: 15;
+    /* 📊 Warm Orange Animated Counter Section */
+    .animated-counter-section {
+      background-color: #ffa735;
+      color: #ffffff;
+      padding: 45px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .counter-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .counter-number {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .counter-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      line-height: 1.3;
     }
 
     /* 💡 Focus Section */
@@ -493,11 +538,24 @@ const sliderImages = [
       font-size: 16px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
+      .counter-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
       .banner-title { font-size: 26px; }
       .banner-desc { font-size: 14px; }
       .donate-cta-card { grid-template-columns: 1fr; }
       .slider-btn { display: none; }
+      .counter-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .counter-number {
+        font-size: 40px;
+      }
     }
   </style>
 
@@ -560,5 +618,54 @@ const sliderImages = [
     }
 
     startTimer();
+
+    // 🔢 Number Formatting & Incremental Counter Animation
+    function formatNumberWithCommas(num: number): string {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter-number');
+      const duration = 2200; // 2.2 seconds smooth animation
+
+      counters.forEach((counter) => {
+        const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+        const startTime = performance.now();
+
+        function updateCount(currentTime: number) {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / duration, 1);
+          // Smooth easeOutCubic curve
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = Math.floor(easeProgress * target);
+
+          counter.textContent = formatNumberWithCommas(currentVal);
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.textContent = formatNumberWithCommas(target);
+          }
+        }
+
+        requestAnimationFrame(updateCount);
+      });
+    }
+
+    // Trigger animation when counter section scrolls into view
+    const counterSection = document.querySelector('.animated-counter-section');
+    if (counterSection && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(counterSection);
+    } else {
+      animateCounters();
+    }
   </script>
 </Layout>
