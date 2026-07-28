@@ -1,49 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Array of all 19 Revolution Slider images from sf.org.pk
+const sliderImages = [
+  { src: '/images/slider_1.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-11.44.49-AM.jpeg', title: 'Inaugural Ceremony of Shakarganj Foundation & Fitwell Hub' },
+  { src: '/images/slider_2.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-27.png', title: 'Shakarganj Community Banner' },
+  { src: '/images/slider_3.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/09/Shakarganj-Foundation-Adds-Gynaecologist-to-Healthcare-Team-1150-x-600-px.png', title: 'Healthcare Gynaecologist Addition' },
+  { src: '/images/slider_4.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/slider-29.png', title: 'Shakarganj Foundation Initiative' },
+  { src: '/images/slider_5.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-1.png', title: 'Shakarganj Vocational Lab 1' },
+  { src: '/images/slider_6.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/SF-Website-Slider-Pic-1200-x-600-px-3.png', title: 'Shakarganj Slider Picture 3' },
+  { src: '/images/slider_7.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/RUFT-Design-3.png', title: 'RUFT Design Banner' },
+  { src: '/images/slider_8.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px.png', title: 'Shakarganj Vocational Lab 2' },
+  { src: '/images/slider_9.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/11/Copy-of-SF-Website-Slider-Pic-1200-x-600-px-2.png', title: 'Shakarganj Slider Picture 2' },
+  { src: '/images/slider_10.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Shakarganj-Vocational-Lab-Instagram-Post-45-1200-x-600-px-2.png', title: 'Shakarganj Vocational Lab 3' },
+  { src: '/images/slider_11.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/12/Untitled-design.png', title: 'Shakarganj Educational Drive' },
+  { src: '/images/slider_12.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2025/02/479389759_599852552931525_3865703827591218268_n.jpg', title: 'Shakarganj Event Highlight' },
+  { src: '/images/slider_13.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/slider-20240228.png', title: 'Shakarganj Banner 2024' },
+  { src: '/images/slider_14.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/02/WhatsApp-Image-2024-02-28-at-3.15.30-PM.jpeg', title: 'Community Distribution Ceremony' },
+  { src: '/images/slider_15.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-2.png', title: 'Healthcare Support Program' },
+  { src: '/images/slider_16.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-26-at-5.27.32-PM.jpeg', title: 'Shakarganj Field Activity' },
+  { src: '/images/slider_17.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/food-drive-slider1.png', title: 'Food Drive Campaign' },
+  { src: '/images/slider_18.png', fallback: 'https://www.sf.org.pk/wp-content/uploads/2023/09/slider-1.png', title: 'Education Support Drive' },
+  { src: '/images/slider_19.jpg', fallback: 'https://www.sf.org.pk/wp-content/uploads/2024/01/fashion-slider-1.jpg', title: 'Jhang Art & Vocational Crafts' }
+];
 ---
 
 <Layout 
   title="Shakarganj Foundation – Uplifting Communities & Transforming Lives"
   description="Shakarganj Foundation is dedicated to providing quality education, affordable healthcare, child nutrition, and socio-economic support across Pakistan."
 >
-  <!-- 🎠 Naked Image Hero Carousel Section (100% Original Photo View) -->
+  <!-- 🎠 Naked Image Hero Carousel Section (All 19 Slides, 100% Original Photo View) -->
   <section class="hero-slider-section">
     <div class="slider-container">
-      <div class="slide active" id="slide-1">
-        <img 
-          src="/images/hero_slide_1.jpg" 
-          alt="Inaugural Ceremony of Shakarganj Foundation & Fitwell Hub Collaboration" 
-          class="slide-img"
-          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-11.44.49-AM.jpeg'"
-        />
-      </div>
+      {sliderImages.map((img, index) => (
+        <div class={`slide ${index === 0 ? 'active' : ''}`} data-slide-index={index}>
+          <img 
+            src={img.src} 
+            alt={img.title} 
+            class="slide-img"
+            onerror={`this.src='${img.fallback}'`}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        </div>
+      ))}
 
-      <div class="slide" id="slide-2">
-        <img 
-          src="/images/hero_slide_2.png" 
-          alt="Education Scholarships and Prize Distribution Ceremony" 
-          class="slide-img"
-          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2024/11/slider-27.png'"
-        />
-      </div>
-
-      <div class="slide" id="slide-3">
-        <img 
-          src="/images/hero_slide_3.png" 
-          alt="Shakarganj Foundation Adds Gynaecologist to Healthcare Team" 
-          class="slide-img"
-          onerror="this.src='https://www.sf.org.pk/wp-content/uploads/2024/09/Shakarganj-Foundation-Adds-Gynaecologist-to-Healthcare-Team-1150-x-600-px.png'"
-        />
-      </div>
-
-      <!-- Slider Navigation Controls -->
+      <!-- Slider Controls -->
       <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous Slide">❮</button>
       <button class="slider-btn next-btn" id="nextSlide" aria-label="Next Slide">❯</button>
       
+      <!-- Dots Indicator -->
       <div class="slider-dots" id="sliderDots">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
+        {sliderImages.map((_, index) => (
+          <span class={`dot ${index === 0 ? 'active' : ''}`} data-index={index}></span>
+        ))}
       </div>
     </div>
   </section>
@@ -162,11 +171,11 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <style>
-    /* 🎠 Naked Slider Styles (No dark overlays, 100% full original image view) */
+    /* 🎠 Naked Slider Styles for All 19 Slides */
     .hero-slider-section {
       position: relative;
       background-color: #ffffff;
-      padding: 20px 0;
+      padding: 15px 0;
       overflow: hidden;
     }
 
@@ -213,19 +222,19 @@ import Layout from '../layouts/Layout.astro';
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;
-      background: rgba(0, 77, 0, 0.7);
+      background: rgba(0, 77, 0, 0.75);
       color: #ffffff;
       border: none;
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      font-size: 18px;
+      font-size: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition-fast);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
     .slider-btn:hover {
@@ -238,19 +247,22 @@ import Layout from '../layouts/Layout.astro';
 
     .slider-dots {
       position: absolute;
-      bottom: 16px;
+      bottom: 14px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
       display: flex;
-      gap: 8px;
+      gap: 6px;
+      max-width: 90%;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       border: 1px solid var(--primary-color);
       cursor: pointer;
       transition: var(--transition-fast);
@@ -259,8 +271,8 @@ import Layout from '../layouts/Layout.astro';
     .dot.active {
       background: var(--accent-gold);
       border-color: var(--accent-gold);
-      width: 28px;
-      border-radius: 6px;
+      width: 22px;
+      border-radius: 5px;
     }
 
     /* 📊 Stats Section */
@@ -426,7 +438,7 @@ import Layout from '../layouts/Layout.astro';
   </style>
 
   <script>
-    // Interactive Hero Carousel Logic
+    // Interactive Hero Carousel Logic for 19 Slides
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.getElementById('prevSlide');
