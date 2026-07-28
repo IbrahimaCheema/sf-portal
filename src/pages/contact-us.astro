@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Contact Us – Shakarganj Foundation"
+  description="Get in touch with Shakarganj Foundation. Contact info, office location, email, and phone contact details."
+>
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span class="current">Contact Us</span>
+      </div>
+      <h1 class="hero_page_title">Contact Shakarganj Foundation</h1>
+      <p class="hero_subtitle">We are here to answer your questions, welcome partnerships, and support community initiatives.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card contact-info-card">
+          <div class="card-body">
+            <span class="badge badge-primary">REACH OUT</span>
+            <h2>Office & Communication Details</h2>
+            <p>Feel free to reach out to our team via phone, email, or visit our head offices.</p>
+
+            <div class="info-list">
+              <div class="info-box">
+                <strong>📍 Address</strong>
+                <p>Shakarganj Foundation Head Office, Jhang, Punjab, Pakistan</p>
+              </div>
+
+              <div class="info-box">
+                <strong>📞 Telephone</strong>
+                <p>+92 47 763 1001</p>
+              </div>
+
+              <div class="info-box">
+                <strong>✉️ Email Address</strong>
+                <p><a href="mailto:info@sf.org.pk">info@sf.org.pk</a></p>
+              </div>
+
+              <div class="info-box">
+                <strong>💳 Donation Account</strong>
+                <p>MCB Bank: <strong>0124301010014225</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card contact-form-card">
+          <div class="card-body">
+            <span class="badge badge-accent">SEND A MESSAGE</span>
+            <h2>Direct Inquiry Form</h2>
+            
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="cName">Your Name *</label>
+                <input type="text" id="cName" required class="form-control" placeholder="Enter your full name" />
+              </div>
+
+              <div class="form-group">
+                <label for="cEmail">Email Address *</label>
+                <input type="email" id="cEmail" required class="form-control" placeholder="name@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="cSubject">Subject</label>
+                <input type="text" id="cSubject" class="form-control" placeholder="General Inquiry / Partnership / Education" />
+              </div>
+
+              <div class="form-group">
+                <label for="cMessage">Message *</label>
+                <textarea id="cMessage" rows="5" required class="form-control" placeholder="Write your message here..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+
+            <div class="toast-success" id="contactToast">
+              ✓ Message sent successfully! Our representative will respond shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .contact-section {
+      padding: 70px 0;
+    }
+    .contact-info-card {
+      border-top: 5px solid var(--primary-color);
+    }
+    .contact-form-card {
+      border-top: 5px solid var(--accent-gold);
+    }
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 25px;
+    }
+    .info-box {
+      background: var(--bg-light);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary-color);
+    }
+    .info-box strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+    .info-box p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .form-control {
+      padding: 10px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+    .btn-block {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .toast-success {
+      display: none;
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+    }
+  </style>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('contactToast');
+    if (form && toast) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        toast.style.display = 'block';
+        form.reset();
+      });
+    }
+  </script>
+</Layout>

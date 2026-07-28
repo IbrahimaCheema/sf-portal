@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Mission & Vision – Shakarganj Foundation"
+  description="Learn about the strategic mission, core vision, and ethical principles guiding Shakarganj Foundation."
+>
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>About Us</span> <span>›</span>
+        <span class="current">Mission & Vision</span>
+      </div>
+      <h1 class="hero_page_title">Mission & Vision</h1>
+      <p class="hero_subtitle">Guiding our commitment to sustainable community empowerment, healthcare excellence, and education for all.</p>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card mission-card">
+          <div class="card-body">
+            <span class="badge badge-primary">OUR MISSION</span>
+            <h2>Transforming Communities</h2>
+            <p>
+              To uplift underprivileged communities by providing access to high-quality educational opportunities, comprehensive healthcare services, and sustainable socio-economic development initiatives.
+            </p>
+          </div>
+        </div>
+
+        <div class="card vision-card">
+          <div class="card-body">
+            <span class="badge badge-accent">OUR VISION</span>
+            <h2>A Dignified Future</h2>
+            <p>
+              A self-reliant society where every individual has equal opportunity to thrive through education, optimal health, cultural enrichment, and economic dignity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .mission-section {
+      padding: 70px 0;
+    }
+    .mission-card {
+      border-top: 5px solid var(--primary-color);
+      height: 100%;
+    }
+    .vision-card {
+      border-top: 5px solid var(--accent-gold);
+      height: 100%;
+    }
+    .mission-card h2, .vision-card h2 {
+      font-size: 26px;
+      margin: 15px 0;
+      color: var(--primary-dark);
+    }
+    .mission-card p, .vision-card p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  </style>
+</Layout>

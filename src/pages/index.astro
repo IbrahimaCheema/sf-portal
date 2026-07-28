@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Shakarganj Foundation – Uplifting Communities & Transforming Lives"
+  description="Shakarganj Foundation is dedicated to providing quality education, affordable healthcare, child nutrition, and socio-economic support across Pakistan."
+>
+  <!-- 🎠 Hero Carousel Section -->
+  <section class="hero-slider-section">
+    <div class="slider-container">
+      <div class="slide active" id="slide-1">
+        <div class="slide-overlay"></div>
+        <img 
+          src="https://docs.sf.org.pk/images/hero_slide_1.jpg" 
+          alt="Shakarganj Foundation Healthcare & Medical Team" 
+          class="slide-img"
+          onerror="this.src='/images/hero_slide_1.jpg'"
+        />
+        <div class="container slide-content">
+          <span class="badge badge-accent">COMMUNITY HEALTHCARE</span>
+          <h1 class="slide-title">Accessible Healthcare & Specialist Medical Support</h1>
+          <p class="slide-desc">Providing high-quality medical services, maternal healthcare, and free clinics to underserved families in Jhang and beyond.</p>
+          <div class="slide-actions">
+            <a href="/healthcare" class="btn btn-primary">Our Healthcare Programs</a>
+            <a href="/donate-now" class="btn btn-accent">Support Free Clinics</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="slide-2">
+        <div class="slide-overlay"></div>
+        <img 
+          src="https://docs.sf.org.pk/images/hero_slide_2.png" 
+          alt="Education Scholarships and Prize Distribution" 
+          class="slide-img"
+          onerror="this.src='/images/hero_slide_2.png'"
+        />
+        <div class="container slide-content">
+          <span class="badge badge-accent">EDUCATIONAL EMPOWERMENT</span>
+          <h1 class="slide-title">Empowering the Next Generation Through Knowledge</h1>
+          <p class="slide-desc">Rewarding academic merit through the Talib Hussain Education Scholarship and annual prize distribution ceremonies.</p>
+          <div class="slide-actions">
+            <a href="/education" class="btn btn-primary">Explore Scholarships</a>
+            <a href="/whyeducation" class="btn btn-outline-white">Why Education Matters</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="slide-3">
+        <div class="slide-overlay"></div>
+        <img 
+          src="https://docs.sf.org.pk/images/hero_slide_3.png" 
+          alt="Shakarganj Foundation Adds Gynaecologist to Healthcare Team" 
+          class="slide-img"
+          onerror="this.src='/images/hero_slide_3.png'"
+        />
+        <div class="container slide-content">
+          <span class="badge badge-accent">MATERNAL HEALTH</span>
+          <h1 class="slide-title">Expanding Maternal & Child Healthcare</h1>
+          <p class="slide-desc">Welcoming specialist medical experts and gynaecologists to elevate health standards for mothers and children.</p>
+          <div class="slide-actions">
+            <a href="/sf-tmsg-fight-against-malnutrition" class="btn btn-primary">Fight Against Malnutrition</a>
+            <a href="/contact-us" class="btn btn-accent">Get Involved</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous Slide">❮</button>
+      <button class="slider-btn next-btn" id="nextSlide" aria-label="Next Slide">❯</button>
+      
+      <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📈 Key Stat Counters -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-number">25,000+</div>
+          <div class="stat-label">Students Supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Schools & Centers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label">Medical Beneficiaries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Non-Profit Commitment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💡 Strategic Focus Areas -->
+  <section class="focus-section">
+    <div class="container">
+      <h2 class="section-title">Our Strategic Focus Areas</h2>
+      <div class="title-decorator"></div>
+      <p class="section-subtitle">Dedicated to creating holistic socio-economic impact through structured development initiatives.</p>
+
+      <div class="grid-3">
+        <!-- Focus 1: Education -->
+        <div class="card focus-card">
+          <div class="focus-icon-wrapper">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">PRIMARY & HIGHER ED</span>
+            <h3>Education & Scholarships</h3>
+            <p>Providing financial assistance, school supplies, and merit scholarships to promising students across rural and urban districts.</p>
+            <a href="/education" class="card-link">Learn More ➔</a>
+          </div>
+        </div>
+
+        <!-- Focus 2: Healthcare -->
+        <div class="card focus-card">
+          <div class="focus-icon-wrapper">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">HEALTH & WELLNESS</span>
+            <h3>Healthcare & Nutrition</h3>
+            <p>Delivering medical consultations, maternal healthcare, and structured nutritional campaigns to eradicate child malnutrition.</p>
+            <a href="/healthcare" class="card-link">Learn More ➔</a>
+          </div>
+        </div>
+
+        <!-- Focus 3: Art & Culture -->
+        <div class="card focus-card">
+          <div class="focus-icon-wrapper">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">HERITAGE PRESERVATION</span>
+            <h3>Jhang Art Gallery</h3>
+            <p>Promoting local artisans, preserving traditional Pakistani craftsmanship, and fostering regional artistic heritage.</p>
+            <a href="/jhang-art-gallery" class="card-link">Learn More ➔</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏛️ Founder's Vision Banner -->
+  <section class="vision-banner">
+    <div class="container vision-content">
+      <div class="vision-text">
+        <span class="badge badge-accent">FOUNDER'S LEGACY</span>
+        <h2>Driven by Compassion & Service</h2>
+        <p class="vision-quote">
+          "True progress is achieved when every individual, regardless of background, has access to quality education, proper health management, and dignified opportunity."
+        </p>
+        <p class="vision-author">— Shakarganj Foundation Leadership</p>
+        <div class="vision-actions">
+          <a href="/founder" class="btn btn-accent">Read Founder's Story</a>
+          <a href="/board-of-governors" class="btn btn-outline-white">Board of Governors</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💳 Direct Donation Call-To-Action Card -->
+  <section class="donate-cta-section">
+    <div class="container">
+      <div class="donate-cta-card">
+        <div class="cta-info">
+          <h2>Make a Lasting Impact Today</h2>
+          <p>Your support provides essential healthcare supplies, educational grants, and vital nutrition to families in need.</p>
+        </div>
+        <div class="cta-bank">
+          <div class="bank-box">
+            <span class="label">Official Donation Account:</span>
+            <div class="bank-name">MCB Bank Limited</div>
+            <div class="account-num">0124301010014225</div>
+            <span class="account-title">Account Title: Shakarganj Foundation</span>
+          </div>
+          <a href="/donate-now" class="btn btn-accent btn-lg">Donate Online Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* 🎠 Slider Styles */
+    .hero-slider-section {
+      position: relative;
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 43, 0, 0.85) 0%, rgba(0, 43, 0, 0.4) 100%);
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .slide-title {
+      font-size: 42px;
+      color: #ffffff;
+      margin: 15px 0;
+      line-height: 1.25;
+    }
+
+    .slide-desc {
+      font-size: 18px;
+      color: #e0f0e0;
+      margin-bottom: 30px;
+      max-width: 650px;
+    }
+
+    .slide-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .slider-btn:hover {
+      background: var(--accent-gold);
+      color: #000000;
+    }
+
+    .prev-btn { left: 20px; }
+    .next-btn { right: 20px; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .dot.active {
+      background: var(--accent-gold);
+      width: 30px;
+      border-radius: 6px;
+    }
+
+    /* 📊 Stats Section */
+    .stats-section {
+      padding: 50px 0;
+      margin-top: -30px;
+      position: relative;
+      z-index: 15;
+    }
+
+    /* 💡 Focus Section */
+    .focus-section {
+      padding: 70px 0;
+    }
+
+    .focus-card {
+      text-align: left;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .focus-icon-wrapper {
+      padding: 24px 24px 0;
+      color: var(--primary-color);
+    }
+
+    .focus-card h3 {
+      font-size: 20px;
+      margin: 12px 0;
+    }
+
+    .focus-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-link {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--primary-color);
+      margin-top: auto;
+    }
+
+    .card-link:hover {
+      color: var(--accent-gold);
+    }
+
+    /* 🏛️ Vision Banner */
+    .vision-banner {
+      background: linear-gradient(135deg, #004d00 0%, #001a00 100%);
+      color: #ffffff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .vision-content {
+      max-width: 850px;
+    }
+
+    .vision-text h2 {
+      color: #ffffff;
+      font-size: 34px;
+      margin: 15px 0 20px;
+    }
+
+    .vision-quote {
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.6;
+      color: #e0f2e0;
+      margin-bottom: 15px;
+    }
+
+    .vision-author {
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 30px;
+    }
+
+    .vision-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* 💳 Donate CTA Card */
+    .donate-cta-section {
+      padding: 70px 0;
+    }
+
+    .donate-cta-card {
+      background: #ffffff;
+      border: 2px solid var(--border-light);
+      border-left: 6px solid var(--accent-gold);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-info h2 {
+      font-size: 28px;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .cta-info p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .bank-box {
+      background: var(--bg-light);
+      border: 1px dashed var(--primary-light);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+    }
+
+    .bank-box .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .bank-name {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 16px;
+      margin-top: 4px;
+    }
+
+    .account-num {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+
+    .account-title {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .btn-lg {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .slide-title { font-size: 28px; }
+      .donate-cta-card { grid-template-columns: 1fr; }
+      .slider-btn { display: none; }
+    }
+  </style>
+
+  <script>
+    // Interactive Hero Carousel Logic
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      let next = (currentIndex + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      let prev = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(prev);
+    }
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+      });
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const index = parseInt(target.getAttribute('data-index') || '0', 10);
+        showSlide(index);
+        resetTimer();
+      });
+    });
+
+    function startTimer() {
+      autoSlideInterval = setInterval(nextSlide, 6000);
+    }
+
+    function resetTimer() {
+      clearInterval(autoSlideInterval);
+      startTimer();
+    }
+
+    startTimer();
+  </script>
+</Layout>

@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Education Initiatives & Scholarships – Shakarganj Foundation"
+  description="Discover Shakarganj Foundation's educational programs, prize distribution ceremonies, and Talib Hussain Education Scholarship."
+>
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>Our Work</span> <span>›</span>
+        <span class="current">Education</span>
+      </div>
+      <h1 class="hero_page_title">Education & Academic Grants</h1>
+      <p class="hero_subtitle">Investing in minds, building schools, and empowering youth through academic scholarships and merit rewards.</p>
+    </div>
+  </section>
+
+  <section class="edu-section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="edu-card card">
+          <div class="card-body">
+            <span class="badge badge-accent">MERIT SCHOLARSHIPS</span>
+            <h2>Talib Hussain Education Scholarship</h2>
+            <p>
+              The Talib Hussain Education Scholarship provides comprehensive financial grants to high-achieving, underprivileged students across schools, colleges, and universities.
+            </p>
+            <a href="/education-scholarship" class="btn btn-primary">Scholarship Details ➔</a>
+          </div>
+        </div>
+
+        <div class="edu-card card">
+          <div class="card-body">
+            <span class="badge badge-primary">ACADEMIC RECOGNITION</span>
+            <h2>Prize Distribution Ceremonies</h2>
+            <p>
+              Annual events celebrating academic excellence, honoring top performers, teachers, and schools with cash awards and certificates.
+            </p>
+            <a href="/prize-distribution-ceremonies" class="btn btn-outline">Ceremony Highlights ➔</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .edu-section {
+      padding: 70px 0;
+    }
+    .edu-card {
+      border-top: 4px solid var(--primary-color);
+      height: 100%;
+    }
+    .edu-card h2 {
+      font-size: 24px;
+      margin: 15px 0;
+      color: var(--primary-dark);
+    }
+    .edu-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+  </style>
+</Layout>
