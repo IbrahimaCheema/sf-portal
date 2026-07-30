@@ -21,22 +21,16 @@ function cleanText(text) {
 
 function extractDate(desc) {
   if (!desc) return '';
-  
-  // Pattern 1: March 5th – 2026 or March 5, 2026 or March 5th 2026
   const p1 = desc.match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?(?:\s*[\–\-,\s]\s*)\d{4}/i);
   if (p1) {
-    let clean = p1[0].replace(/[\–\-]/g, ',').replace(/\s+/g, ' ');
-    return clean;
+    return p1[0].replace(/[\–\-]/g, ',').replace(/\s+/g, ' ');
   }
 
-  // Pattern 2: 5th December – 2024 or 5th – March 2024
   const p2 = desc.match(/(\d{1,2}(?:st|nd|rd|th)?(?:\s*[\–\-,\s]\s*))?(January|February|March|April|May|June|July|August|September|October|November|December)(?:\s*[\–\-,\s]\s*)\d{4}/i);
   if (p2) {
-    let clean = p2[0].replace(/[\–\-]/g, ' ').replace(/\s+/g, ' ');
-    return clean;
+    return p2[0].replace(/[\–\-]/g, ' ').replace(/\s+/g, ' ');
   }
 
-  // Pattern 3: Date like 2026 or 2025 or 2024 or 2023 or 2022
   const p3 = desc.match(/\b(202[1-6])\b/);
   if (p3) {
     return `Annual Drive ${p3[1]}`;
@@ -45,8 +39,9 @@ function extractDate(desc) {
   return '';
 }
 
-function getFullResUrl(url) {
+function getOriginalFullResUrl(url) {
   if (!url) return '';
+  // Strip any WP resized dimension suffix e.g. -1024x768, -150x150, -300x300 etc. to get original photo
   return url.replace(/-\d+x\d+(\.(?:jpg|jpeg|png|webp))/i, '$1');
 }
 
@@ -72,12 +67,12 @@ blocks.forEach((block, idx) => {
   }
 
   const galleryMatches = [...block.matchAll(/<a class="prettyphoto" href="(https:\/\/www\.sf\.org\.pk\/wp-content\/uploads\/[^"]+)"/gi)];
-  const gallery = galleryMatches.map(m => getFullResUrl(m[1]));
+  const gallery = galleryMatches.map(m => getOriginalFullResUrl(m[1]));
 
   const mainImgMatch = block.match(/<img[^>]+src="(https:\/\/www\.sf\.org\.pk\/wp-content\/uploads\/[^"]+)"/i);
   let rawMainImg = mainImgMatch ? mainImgMatch[1] : '';
 
-  let mainImg = gallery.length > 0 ? gallery[0] : getFullResUrl(rawMainImg);
+  let mainImg = gallery.length > 0 ? gallery[0] : getOriginalFullResUrl(rawMainImg);
 
   let category = 'Community Welfare';
   const lowerTitle = rawTitle.toLowerCase();
@@ -102,7 +97,7 @@ blocks.forEach((block, idx) => {
       title: rawTitle,
       category,
       date: dateStr,
-      desc: desc.substring(0, 320) + (desc.length > 320 ? '...' : ''),
+      desc: desc.substring(0, 260) + (desc.length > 260 ? '...' : ''),
       fullDesc: desc,
       mainImg: mainImg,
       gallery: gallery
@@ -114,14 +109,13 @@ blocks.forEach((block, idx) => {
     if (!existing.date && dateStr) existing.date = dateStr;
     if (desc.length > existing.fullDesc.length) {
       existing.fullDesc = desc;
-      existing.desc = desc.substring(0, 320) + (desc.length > 320 ? '...' : '');
+      existing.desc = desc.substring(0, 260) + (desc.length > 260 ? '...' : '');
     }
   }
 });
 
 const campaigns = Array.from(campaignsMap.values());
 
-// Ensure EVERY campaign has a date! If missing, assign based on drive number or year
 campaigns.forEach((c, index) => {
   if (!c.date) {
     if (c.title.includes('24') || c.title.includes('23') || c.title.includes('13')) {
@@ -138,7 +132,7 @@ campaigns.forEach((c, index) => {
   }
 });
 
-console.log(`Deduplicated to ${campaigns.length} unique master campaigns with 100% formatted dates.`);
+console.log(`Deduplicated to ${campaigns.length} unique campaigns with true original uncompressed photo URLs.`);
 fs.mkdirSync('src/data', { recursive: true });
 fs.writeFileSync('src/data/campaigns.json', JSON.stringify(campaigns, null, 2));
-console.log('Saved clean dataset with dates for ALL campaigns to src/data/campaigns.json');
+console.log('Saved original full-res dataset to src/data/campaigns.json');

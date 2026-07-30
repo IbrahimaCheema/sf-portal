@@ -318,8 +318,8 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
 
     .campaigns-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
     .campaign-card {
       background: #ffffff;
@@ -329,14 +329,14 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
       transition: var(--transition-fast);
     }
     .campaign-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-md);
       border-top-color: var(--accent-gold);
     }
     .card-img-wrapper {
       position: relative;
       background: #f8faf8;
-      height: 220px;
+      height: 175px;
       overflow: hidden;
     }
     .card-img-wrapper img {
@@ -560,7 +560,12 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
     }
 
     /* Responsive */
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
+      .campaigns-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 900px) {
       .campaigns-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -568,7 +573,7 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .campaigns-grid {
         grid-template-columns: 1fr;
       }
