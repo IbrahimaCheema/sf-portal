@@ -56,18 +56,8 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
   <section class="campaigns-explorer-section">
     <div class="container">
       
-      <!-- Filter Bar & Search -->
+      <!-- Filter Bar -->
       <div class="explorer-control-bar">
-        <div class="search-box">
-          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input 
-            type="text" 
-            id="campaign-search" 
-            placeholder="Search 69+ campaigns by title, school, date, or topic..."
-          />
-          <button id="clear-search" class="clear-btn" style="display: none;">✕</button>
-        </div>
-
         <div class="filter-pills" id="filter-pills">
           <button class="pill-btn active" data-category="all">
             <span>All Campaigns</span>
@@ -607,8 +597,6 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
   <!-- Client-side Filtering & Modal Script -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('campaign-search');
-      const clearBtn = document.getElementById('clear-search');
       const pillBtns = document.querySelectorAll('.pill-btn');
       const campaignCards = document.querySelectorAll('.campaign-card');
       const countText = document.getElementById('results-count-text');
@@ -632,20 +620,15 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
       const campaignsList = JSON.parse(document.getElementById('campaigns-json-data').textContent);
 
       let activeCategory = 'all';
-      let activeQuery = '';
 
       function filterCampaigns() {
         let visibleCount = 0;
 
         campaignCards.forEach((card) => {
           const category = card.getAttribute('data-category');
-          const title = card.getAttribute('data-title');
-          const desc = card.getAttribute('data-desc');
-
           const matchesCategory = (activeCategory === 'all' || category === activeCategory);
-          const matchesQuery = !activeQuery || title.includes(activeQuery) || desc.includes(activeQuery);
 
-          if (matchesCategory && matchesQuery) {
+          if (matchesCategory) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -662,20 +645,6 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
         }
       }
 
-      // Search Handler
-      searchInput.addEventListener('input', (e) => {
-        activeQuery = e.target.value.toLowerCase().trim();
-        clearBtn.style.display = activeQuery ? 'flex' : 'none';
-        filterCampaigns();
-      });
-
-      clearBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        activeQuery = '';
-        clearBtn.style.display = 'none';
-        filterCampaigns();
-      });
-
       // Category Pill Handler
       pillBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -688,9 +657,6 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
 
       resetFilterBtn.addEventListener('click', () => {
         activeCategory = 'all';
-        activeQuery = '';
-        searchInput.value = '';
-        clearBtn.style.display = 'none';
         pillBtns.forEach(b => b.classList.remove('active'));
         pillBtns[0].classList.add('active');
         filterCampaigns();
