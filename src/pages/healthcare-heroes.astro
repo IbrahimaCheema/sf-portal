@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const heroes = [
+  {
+    name: "Dr. Muhammad Aamir",
+    title: "Manager (Public Health) & Medical Officer",
+    qualifications: "MD (MBBS) DTCD PK",
+    r2: "https://docs.sf.org.pk/images/hero_dr_aamir.jpg",
+    local: "/images/hero_dr_aamir.jpg",
+    bio: [
+      "In 2007, Dr. Muhammad Aamir joined Shakarganj Limited as a Medical Officer in the Social Action Program and was later promoted to Manager (Public Health). Since 2011, he has been serving at the Muhammad Yar Rahi Stationed Free Dispensary at SML I Jhang, managing healthcare activities for employees and rural residents across Jhang.",
+      "Additionally, Dr. Aamir serves as a Family Physician at Ismail Medicare. He gained extensive clinical experience as a House Officer at Allied Hospital Faisalabad (1999–2000), Medical Officer at DHQ Hospital Jhang (2000–2004), and Chest Physician at Ismail Welfare Hospital (2004–2007)."
+    ],
+    badge: "PUBLIC HEALTH MANAGER"
+  },
+  {
+    name: "Dr. Ijaz Sultan",
+    title: "Ophthalmologist & Gold Medalist",
+    qualifications: "Gold Medalist Ophthalmologist",
+    r2: "https://docs.sf.org.pk/images/hero_dr_ejaz.jpg",
+    local: "/images/hero_dr_ejaz.jpg",
+    bio: [
+      "Dr. Ijaz Sultan is an accomplished Ophthalmologist contributing his specialist expertise at Ismail Welfare Hospital in Jhang.",
+      "During the inaugural Eye Examination Camp on November 22, 2022, Dr. Ijaz Sultan alongside Dr. Naila (MO Ophthalmologist) and Mr. Liaqat Ali (Technician) conducted comprehensive complimentary eye examinations for students at Shakarganj Foundation's Adopted School (SAS) #01, exemplifying compassion and dedication to community eye care."
+    ],
+    badge: "OPHTHALMOLOGY HERO"
+  },
+  {
+    name: "Dr. Sabika Zia",
+    title: "Consultant Nutritionist",
+    qualifications: "Masters in Food & Nutrition (University of Sargodha)",
+    r2: "https://docs.sf.org.pk/images/hero_dr_sabika.png",
+    local: "/images/hero_dr_sabika.png",
+    bio: [
+      "Dr. Sabika Zia holds a Masters in Food and Nutrition from the University of Sargodha. She serves as a Nutrition Intern at Fatima Memorial Hospital Lahore, Nutrition Supervisor at Sabzazaar Hospital (Indus Hospital) Lahore, and Consultant Nutritionist at Zubair Mother Care and Aspire College in Jhang.",
+      "Dr. Sabika Zia’s volunteer service with Shakarganj Foundation is exemplary. She engaged students at SAS #02 (Dec 14, 2022), spearheaded Fruit Distribution Drive #02 at SAS #01 during the 2nd Nutrition Camp (Jan 18, 2023), and led health sessions at SAS #03 during the 3rd Nutrition Camp (Sep 1, 2023)."
+    ],
+    badge: "NUTRITION SPECIALIST"
+  },
+  {
+    name: "Dr. Talal Mazhar",
+    title: "Dental Surgeon",
+    qualifications: "BDS (LM&DC Lahore), RDS, C. Ortho (IDE), D. Ortho (UK), C. Implant",
+    r2: "https://docs.sf.org.pk/images/hero_dr_talal.png",
+    local: "/images/hero_dr_talal.png",
+    bio: [
+      "Dr. Talal Mazhar is a highly qualified dental surgeon practicing at Bilal Medical Complex in Jhang.",
+      "Demonstrating strong commitment to oral healthcare, Dr. Mazhar conducted free dental examinations for students at SAS #02 (Chah Balochan) during the 1st Dental Camp (Jan 12, 2023) and at SAS #01 (SML I Jhang) during the 2nd Dental Camp (Feb 21, 2023), along with his clinical team."
+    ],
+    badge: "DENTAL SURGEON"
+  },
+  {
+    name: "Dr. Luqman Ali",
+    title: "Consultant Dermatologist",
+    qualifications: "MBBS (BKK), CFM (UHS), Consultant Dermatologist DHQ Hospital Jhang",
+    r2: "https://docs.sf.org.pk/images/hero_dr_luqman.png",
+    local: "/images/hero_dr_luqman.png",
+    bio: [
+      "Dr. Luqman Ali conducted the first-ever Free Dermatology Camp for students at Shakarganj Adopted School (SAS) #01 – SML Campus on September 6th, 2023.",
+      "A total of 133 students were examined, out of which 54 students were diagnosed and prescribed essential dermatological treatments (including Hedrien Lice solution and Kanadex/Polyfax ointments) for hair and skin conditions."
+    ],
+    badge: "DERMATOLOGY CONSULTANT"
+  },
+  {
+    name: "Dr. Muhammad Javed Chaudhry",
+    title: "Medical Specialist & General Practitioner",
+    qualifications: "MD (MBBS), RMP (PK)",
+    r2: "https://docs.sf.org.pk/images/hero_dr_javed.png",
+    local: "/images/hero_dr_javed.png",
+    bio: [
+      "Dr. Muhammad Javed Chaudhry and his dedicated medical team organized a Free Dermatology & General Health Camp at Shakarganj Adopted School (SAS) #02 and the Muhammad Yar Rahi Stationed Free Dispensary (SML I Jhang) on September 27th, 2023.",
+      "Their selfless efforts have profoundly impacted the health and well-being of hundreds of underprivileged residents across Jhang."
+    ],
+    badge: "COMMUNITY HEALTH HERO"
+  },
+  {
+    name: "Dr. Danyal Mazhar",
+    title: "Family Physician & Gastro Specialist",
+    qualifications: "MBBS, MS-MD (Part-1) Qualified Family Physician",
+    r2: "https://docs.sf.org.pk/images/hero_dr_danyal.png",
+    local: "/images/hero_dr_danyal.png",
+    bio: [
+      "Dr. Danyal Mazhar is a qualified Family Physician practicing at Ismail Medicare in Jhang.",
+      "Dr. Danyal conducted a Free Gastro & Diabetes Screening Camp at Shakarganj Limited (SML) II Bhone Stationed Free Dispensary on January 18th, 2024, providing diagnostic screenings and medical counseling to vulnerable rural patients."
+    ],
+    badge: "GASTRO & DIABETES HERO"
+  },
+  {
+    name: "Dr. Muhammad Asim Qayyum",
+    title: "Physician & Surgeon",
+    qualifications: "MD (MBBS), Medical Officer DHQ Hospital Toba Tek Singh",
+    r2: "https://docs.sf.org.pk/images/hero_dr_asim.jpg",
+    local: "/images/hero_dr_asim.jpg",
+    bio: [
+      "Dr. Muhammad Asim Qayyum serves as Medical Officer at DHQ Hospital Toba Tek Singh.",
+      "Dr. Asim conducted a Free General Medical Camp at SML II Bhone Free Dispensary on January 24th, 2024, providing OPD consultations, vital checks, and free medicines to rural families."
+    ],
+    badge: "MEDICAL OFFICER"
+  },
+  {
+    name: "Dr. Shahid Adeel",
+    title: "General Medical Officer & Eye Specialist",
+    qualifications: "MBBS DOMS, Ex-PGR Anwa Medical & Research Center Faisalabad, MO DHQ Hospital Jhang",
+    r2: "https://docs.sf.org.pk/images/hero_dr_shahid.jpg",
+    local: "/images/hero_dr_shahid.jpg",
+    bio: [
+      "Dr. Shahid Adeel is an experienced medical officer serving at DHQ Hospital Jhang.",
+      "In collaboration with Hirani Pharma, Dr. Shahid Adeel conducted a Free General Medical Camp at the Kot Lakhnana Mobile/Stationed Free Dispensary on March 11th, 2024, distributing free therapeutic medicines and performing general physical checkups."
+    ],
+    badge: "OUTREACH HERO"
+  }
+];
+---
+
+<Layout 
+  title="Healthcare Heroes – Shakarganj Foundation"
+  description="Meet the dedicated doctors, medical officers, and specialists volunteering their medical services for Shakarganj Foundation."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/healthcare/">Healthcare</a> <span>›</span>
+        <span class="current">Healthcare Heroes</span>
+      </div>
+      <h1 class="hero_page_title">Healthcare Heroes</h1>
+      <p class="hero_subtitle">Honoring the selfless doctors, surgeons, and nutritionists bringing specialized medical care to rural communities.</p>
+    </div>
+  </section>
+
+  <!-- Intro Callout -->
+  <section class="heroes-intro-section">
+    <div class="container">
+      <div class="intro-box card">
+        <div class="intro-content">
+          <span class="badge badge-accent">VOLUNTEER MEDICAL FACULTY</span>
+          <h2>Dedicated Professionals Transforming Lives</h2>
+          <p>
+            Shakarganj Foundation extends its deepest appreciation to the esteemed physicians, surgeons, nutritionists, and health officers who generously contribute their time, skills, and compassion. Through medical camps, school health screenings, and dispensary OPDs, our Healthcare Heroes ensure that quality medical treatment reaches every individual in need across District Jhang and surrounding rural regions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heroes Roster Section -->
+  <section class="heroes-roster-section">
+    <div class="container">
+      
+      <div class="heroes-grid">
+        {heroes.map((hero) => (
+          <div class="card hero-profile-card">
+            <div class="profile-layout">
+              <div class="profile-img-box">
+                <img 
+                  src={hero.r2} 
+                  alt={hero.name}
+                  loading="lazy"
+                  onerror={`this.src='${hero.local}'`}
+                />
+                <span class="badge badge-primary profile-badge">{hero.badge}</span>
+              </div>
+              <div class="profile-details-box">
+                <h3 class="hero-name">{hero.name}</h3>
+                <div class="hero-title">{hero.title}</div>
+                <div class="hero-qualifications"><strong>Qualifications:</strong> {hero.qualifications}</div>
+                <div class="hero-bio">
+                  {hero.bio.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .heroes-intro-section {
+      padding: 50px 0 20px;
+      background: var(--bg-white);
+    }
+    .intro-box {
+      border-left: 5px solid var(--accent-gold);
+      padding: 30px 35px;
+      background: var(--bg-light);
+    }
+    .intro-content h2 {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 10px 0;
+    }
+    .intro-content p {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .heroes-roster-section {
+      padding: 40px 0 80px;
+      background: var(--bg-white);
+    }
+    .heroes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .hero-profile-card {
+      border-top: 4px solid var(--primary-color);
+      transition: var(--transition-fast);
+      padding: 24px;
+    }
+    .hero-profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--accent-gold);
+    }
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .profile-img-box {
+      text-align: center;
+    }
+    .profile-img-box img {
+      width: 180px;
+      height: 220px;
+      object-fit: contain;
+      object-position: center top;
+      border-radius: var(--radius-sm);
+      border: 3px solid var(--border-light);
+      background: #f8faf8;
+      box-shadow: var(--shadow-sm);
+    }
+    .profile-badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+    }
+    .hero-name {
+      font-size: 22px;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+    .hero-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+    .hero-qualifications {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .hero-bio p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .hero-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .profile-img-box img {
+        margin: 0 auto;
+      }
+      .hero-qualifications {
+        text-align: center;
+      }
+    }
+  </style>
+</Layout>
