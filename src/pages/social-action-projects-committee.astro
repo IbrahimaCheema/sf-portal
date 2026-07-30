@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const committeeMembers = [
+  {
+    name: "Muhammad Saifullah",
+    role: "Chairman",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_muhammad_saifullah.jpg",
+    localImg: "/images/sap_muhammad_saifullah.jpg",
+    isChairman: true
+  },
+  {
+    name: "Dr. Shahid Hussain",
+    role: "Vice Chairman",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_dr_shahid.jpg",
+    localImg: "/images/sap_dr_shahid.jpg",
+    isViceChairman: true
+  },
+  {
+    name: "Samra Ashraf",
+    role: "Manager (SAP)",
+    joined: "2007",
+    r2Img: "https://docs.sf.org.pk/images/sap_samra_ashraf.jpg",
+    localImg: "/images/sap_samra_ashraf.jpg"
+  },
+  {
+    name: "Dr. Muhammad Aamir",
+    role: "Manager (Public Health)",
+    joined: "2007",
+    r2Img: "https://docs.sf.org.pk/images/sap_dr_aamir.png",
+    localImg: "/images/sap_dr_aamir.png"
+  },
+  {
+    name: "Mian Mustapha Altaf Saleem",
+    role: "Member",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_mustapha_altaf.png",
+    localImg: "/images/sap_mustapha_altaf.png"
+  },
+  {
+    name: "Muhammad Pervez Akhtar",
+    role: "Member",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_pervez_akhtar.png",
+    localImg: "/images/sap_pervez_akhtar.png"
+  },
+  {
+    name: "Manzoor Hussain Malik",
+    role: "Member",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_manzoor_malik.png",
+    localImg: "/images/sap_manzoor_malik.png"
+  },
+  {
+    name: "Muhammad Hussain Malik",
+    role: "Member",
+    joined: "2023",
+    r2Img: "https://docs.sf.org.pk/images/sap_hussain_malik.jpg",
+    localImg: "/images/sap_hussain_malik.jpg"
+  }
+];
+---
+
+<Layout 
+  title="Social Action Projects Committee – Shakarganj Foundation"
+  description="Meet the Social Action Projects Committee members directing ground-level social programs, public health management, and community outreach."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/about-us/">About Us</a> <span>›</span>
+        <span class="current">Social Action Projects Committee</span>
+      </div>
+      <h1 class="hero_page_title">Social Action Projects Committee</h1>
+      <p class="hero_subtitle">Directing ground-level social programs, public health management, and community outreach across Pakistan.</p>
+    </div>
+  </section>
+
+  <!-- Committee Section -->
+  <section class="committee-section">
+    <div class="container">
+      
+      <div class="section-intro">
+        <span class="badge badge-primary">PROJECT EXECUTION & MANAGEMENT</span>
+        <h2 class="section-title">Committee Leadership</h2>
+        <div class="title-decorator"></div>
+        <p class="section-subtitle">Our Social Action Projects Committee leads the operational implementation of school support, medical relief drives, and community empowerment projects.</p>
+      </div>
+
+      <div class="grid-4 committee-grid">
+        {committeeMembers.map((member) => (
+          <div class={`card member-card ${member.isChairman ? 'card-chairman' : ''} ${member.isViceChairman ? 'card-vice-chairman' : ''}`}>
+            <div class="member-img-wrapper">
+              <img 
+                src={member.r2Img} 
+                alt={member.name} 
+                loading="lazy"
+                onerror={`this.src='${member.localImg}'`}
+              />
+            </div>
+            <div class="card-body text-center">
+              <h3 class="member-name">{member.name}</h3>
+              <p class="member-role">{member.role}</p>
+              <div class="induction-badge">
+                <span>Joined: <strong>{member.joined}</strong></span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .committee-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .section-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .member-card {
+      background: var(--bg-light);
+      border-top: 4px solid var(--primary-color);
+      transition: var(--transition-fast);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-chairman {
+      border-top: 5px solid var(--accent-gold);
+      box-shadow: var(--shadow-md);
+    }
+    .card-vice-chairman {
+      border-top: 5px solid #007a00;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .member-img-wrapper {
+      background: #ffffff;
+      padding: 16px 16px 0;
+      text-align: center;
+    }
+    .member-img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .member-name {
+      font-size: 17.5px;
+      color: #ff9c1e;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .member-role {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    .induction-badge {
+      display: inline-block;
+      background: rgba(0, 77, 0, 0.08);
+      color: var(--text-dark);
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+    .induction-badge strong {
+      color: var(--primary-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .committee-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .committee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .committee-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
