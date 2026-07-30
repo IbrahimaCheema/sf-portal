@@ -1,0 +1,381 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const fineArtsGallery = [
+  { r2: "https://docs.sf.org.pk/images/art_fa_1.jpg", local: "/images/art_fa_1.jpg", title: "Calligraphy & Tile Work" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_2.jpg", local: "/images/art_fa_2.jpg", title: "Pottery & Ceramics Workshop" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_3.jpg", local: "/images/art_fa_3.jpg", title: "Oil Painting Display" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_4.jpg", local: "/images/art_fa_4.jpg", title: "Sculpture Building Studio" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_5.jpg", local: "/images/art_fa_5.jpg", title: "Glass Painting Art" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_6.jpg", local: "/images/art_fa_6.jpg", title: "Annual Exhibition Jhang" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_7.jpg", local: "/images/art_fa_7.jpg", title: "Award Distribution Ceremony" },
+  { r2: "https://docs.sf.org.pk/images/art_fa_8.jpg", local: "/images/art_fa_8.jpg", title: "Student Crafts Showcase" }
+];
+
+const fashionGallery = [
+  { r2: "https://docs.sf.org.pk/images/art_fd_1.jpg", local: "/images/art_fd_1.jpg", title: "Embroidery & Adda Work" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_2.jpg", local: "/images/art_fd_2.jpg", title: "Cutting & Stitching Class" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_3.jpg", local: "/images/art_fd_3.jpg", title: "Dress Pattern Designing" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_4.jpg", local: "/images/art_fd_4.jpg", title: "Flower & Candle Craft" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_5.jpg", local: "/images/art_fd_5.jpg", title: "Mirror Work Embroidery" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_6.jpg", local: "/images/art_fd_6.jpg", title: "Vocational Batch Training" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_7.jpg", local: "/images/art_fd_7.jpg", title: "Garment Finishing Work" },
+  { r2: "https://docs.sf.org.pk/images/art_fd_8.jpg", local: "/images/art_fd_8.jpg", title: "Graduate Exhibition Display" }
+];
+---
+
+<Layout 
+  title="Jhang Art Gallery – Shakarganj Foundation"
+  description="Discover Jhang Art Gallery offering Fine Arts and Fashion Designing vocational courses empowering over 6,250 graduates since 2001."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>Our Work</span> <span>›</span>
+        <span class="current">Jhang Art Gallery</span>
+      </div>
+      <h1 class="hero_page_title">Jhang Art Gallery</h1>
+      <p class="hero_subtitle">Empowering youth and women through professional Fine Arts and Fashion Designing vocational education since 2001.</p>
+    </div>
+  </section>
+
+  <!-- Impact Counter Banner -->
+  <section class="impact-counter-section">
+    <div class="container">
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-num">2001</div>
+          <div class="counter-label">Adopted by Shakarganj Foundation</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">6,250+</div>
+          <div class="counter-label">Graduated Students</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">3 Months</div>
+          <div class="counter-label">Vocational Course Duration</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">15</div>
+          <div class="counter-label">Students Per Training Batch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Callout -->
+  <section class="art-intro-section">
+    <div class="container">
+      <div class="intro-box card">
+        <span class="badge badge-accent">HISTORIC CULTURAL INSTITUTE</span>
+        <h2>Preserving Heritage & Enabling Financial Independence</h2>
+        <p>
+          Shakarganj Foundation adopted the <strong>Jhang Art Gallery in 2001</strong> to nurture artistic talent and provide practical livelihood skills to the youth of District Jhang. Courses in <strong>Fine Arts</strong> and <strong>Fashion Designing</strong> are offered year-round, equipping students—especially young women—with the technical mastery needed to earn a dignified living from home. To date, <strong>over 6,250 students have graduated</strong> from this institution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs & Galleries Section -->
+  <section class="art-main-section">
+    <div class="container">
+
+      <!-- Program 1: Fine Arts -->
+      <div class="art-program-block">
+        <div class="program-grid">
+          <div class="program-img-box">
+            <img 
+              src="https://docs.sf.org.pk/images/art_finearts_icon.jpg" 
+              alt="Fine Arts Department"
+              loading="lazy"
+              onerror="this.src='/images/art_finearts_icon.jpg'"
+            />
+          </div>
+          <div class="program-text-box">
+            <span class="badge badge-primary">FINE ARTS</span>
+            <h2 class="program-title">Fine Arts Program</h2>
+            <p class="program-desc">
+              Students receive comprehensive hands-on training in fine arts, covering <strong>oil and acrylic painting, pottery, ceramics, glass and tile work, sculpture building, and classical Arabic/Urdu calligraphy</strong>. 
+            </p>
+            <p class="program-subdesc">
+              Arts and crafts produced by the students are proudly displayed at an <strong>Annual Exhibition held at District Council Jhang</strong> every year, where outstanding students are awarded prizes and official certificates for their creativity and hard work.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-wrapper">
+          <h4 class="gallery-header-title">Fine Arts Student Work & Exhibition Gallery</h4>
+          <div class="grid-4 gallery-grid">
+            {fineArtsGallery.map((item) => (
+              <div class="photo-card card">
+                <div class="photo-img-wrapper">
+                  <img 
+                    src={item.r2} 
+                    alt={item.title}
+                    loading="lazy"
+                    onerror={`this.src='${item.local}'`}
+                  />
+                  <div class="photo-overlay">
+                    <a href={item.r2} target="_blank" rel="noopener noreferrer" class="zoom-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Zoom</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="photo-caption">{item.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Program 2: Fashion Designing -->
+      <div class="art-program-block">
+        <div class="program-grid reverse-grid">
+          <div class="program-img-box">
+            <img 
+              src="https://docs.sf.org.pk/images/art_fashion_icon.jpg" 
+              alt="Fashion Designing Department"
+              loading="lazy"
+              onerror="this.src='/images/art_fashion_icon.jpg'"
+            />
+          </div>
+          <div class="program-text-box">
+            <span class="badge badge-accent">VOCATIONAL EMPOWERMENT</span>
+            <h2 class="program-title">Fashion Designing & Dressmaking</h2>
+            <p class="program-desc">
+              Female matriculate students receive specialized vocational training in <strong>cutting, stitching, hand/machine embroidery, artificial flower making, candle craft, mirror work, and traditional adda work</strong>.
+            </p>
+            <p class="program-subdesc">
+              The dress and fashion designing course is structured for a <strong>batch of 15 students over a 3-month duration</strong>. Upon completion, graduates possess all the technical skills and confidence required to establish their own home-based tailoring or design business.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-wrapper">
+          <h4 class="gallery-header-title">Fashion Designing Vocational Training Gallery</h4>
+          <div class="grid-4 gallery-grid">
+            {fashionGallery.map((item) => (
+              <div class="photo-card card">
+                <div class="photo-img-wrapper">
+                  <img 
+                    src={item.r2} 
+                    alt={item.title}
+                    loading="lazy"
+                    onerror={`this.src='${item.local}'`}
+                  />
+                  <div class="photo-overlay">
+                    <a href={item.r2} target="_blank" rel="noopener noreferrer" class="zoom-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Zoom</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="photo-caption">{item.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .impact-counter-section {
+      background: var(--primary-dark);
+      padding: 40px 0;
+      color: #ffffff;
+    }
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .counter-card {
+      text-align: center;
+      padding: 10px;
+    }
+    .counter-num {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    .counter-label {
+      font-size: 13.5px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .art-intro-section {
+      padding: 50px 0 20px;
+      background: var(--bg-white);
+    }
+    .intro-box {
+      border-left: 5px solid var(--accent-gold);
+      padding: 30px 35px;
+      background: var(--bg-light);
+    }
+    .intro-box h2 {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 10px 0;
+    }
+    .intro-box p {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .art-main-section {
+      padding: 40px 0 80px;
+      background: var(--bg-white);
+    }
+    .art-program-block {
+      margin-bottom: 70px;
+    }
+    .program-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .reverse-grid {
+      grid-template-columns: 1fr 180px;
+    }
+    .reverse-grid .program-img-box {
+      order: 2;
+    }
+    .reverse-grid .program-text-box {
+      order: 1;
+    }
+    .program-img-box img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      box-shadow: var(--shadow-sm);
+    }
+    .program-title {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 8px 0 10px;
+    }
+    .program-desc {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .program-subdesc {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .gallery-wrapper {
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-light);
+    }
+    .gallery-header-title {
+      font-size: 16px;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .photo-card {
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition-fast);
+      border: 1px solid var(--border-light);
+    }
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .photo-img-wrapper {
+      position: relative;
+      background: #f8faf8;
+    }
+    .photo-img-wrapper img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      object-position: center top;
+      background: #f8faf8;
+    }
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 77, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .photo-card:hover .photo-overlay {
+      opacity: 1;
+    }
+    .zoom-btn {
+      background: var(--accent-gold);
+      color: #000000;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .photo-caption {
+      padding: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .program-grid, .reverse-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .program-img-box img {
+        margin: 0 auto;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 500px) {
+      .counter-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
