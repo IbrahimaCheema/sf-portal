@@ -211,12 +211,22 @@ const galleryImages = [
         <div class="literacy-media-grid">
           <div class="graph-box card">
             <h4 class="media-box-title">Adult Literacy Beneficiaries Growth</h4>
-            <img 
-              src="https://docs.sf.org.pk/images/edu_literacy_graph.png" 
-              alt="Literacy Beneficiaries Graph"
-              loading="lazy"
-              onerror="this.src='/images/edu_literacy_graph.png'"
-            />
+            <div class="graph-zoom-wrapper">
+              <a href="https://docs.sf.org.pk/images/edu_literacy_graph.png" target="_blank" rel="noopener noreferrer" class="graph-zoom-link" title="Click to view full resolution graph">
+                <img 
+                  src="https://docs.sf.org.pk/images/edu_literacy_graph.png" 
+                  alt="Adult Literacy Beneficiaries Growth Graph"
+                  loading="lazy"
+                  onerror="this.src='/images/edu_literacy_graph.png'"
+                />
+                <div class="graph-overlay">
+                  <span class="zoom-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Click to Zoom</span>
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
 
           <div class="gallery-box card">
@@ -404,6 +414,52 @@ const galleryImages = [
       height: auto;
       max-height: 300px;
       object-fit: contain;
+    }
+    .graph-zoom-wrapper {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #ffffff;
+      padding: 8px;
+      border: 1px solid var(--border-light);
+    }
+    .graph-zoom-link {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      cursor: zoom-in;
+    }
+    .graph-zoom-link img {
+      transition: transform 0.3s ease;
+    }
+    .graph-zoom-link:hover img {
+      transform: scale(1.03);
+    }
+    .graph-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 77, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: var(--radius-sm);
+    }
+    .graph-zoom-link:hover .graph-overlay {
+      opacity: 1;
+    }
+    .zoom-badge {
+      background: var(--accent-gold);
+      color: #000000;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     .photo-grid {
       display: grid;
