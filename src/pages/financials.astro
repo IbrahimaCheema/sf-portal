@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Financials & Audit Reports – Shakarganj Foundation"
+  description="Review Shakarganj Foundation's audited financial statements, FBR tax exemption status, and annual financial reports."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/about-us/">About Us</a> <span>›</span>
+        <span class="current">Financials</span>
+      </div>
+      <h1 class="hero_page_title">Financial Transparency</h1>
+      <p class="hero_subtitle">Complete accountability through independent external audits, FBR NPO verification, and open public reporting.</p>
+    </div>
+  </section>
+
+  <!-- Financials Section -->
+  <section class="financials-section">
+    <div class="container">
+      
+      <!-- Key Transparency Highlights -->
+      <div class="financial-stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">⚖️</div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Tax-Exempt NPO Status</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔍</div>
+          <div class="stat-number">Annual</div>
+          <div class="stat-label">Independent Audits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏥</div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Free Healthcare & Books</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📜</div>
+          <div class="stat-number">2004–2026</div>
+          <div class="stat-label">Unblemished Governance</div>
+        </div>
+      </div>
+
+      <!-- Main Financial Reports Grid -->
+      <div class="reports-grid">
+        
+        <!-- FBR Status Card -->
+        <div class="card report-card">
+          <div class="report-header">
+            <span class="badge badge-accent">OFFICIAL COMPLIANCE</span>
+            <h3 class="report-title">Federal Board of Revenue (FBR) Status – 2023</h3>
+            <p class="report-subtitle">Official active non-profit tax exemption verification notice issued by FBR Pakistan.</p>
+          </div>
+          
+          <div class="report-img-frame">
+            <img 
+              src="https://docs.sf.org.pk/images/fbr_status_2023.png" 
+              alt="Federal Board of Revenue Status 2023"
+              loading="lazy"
+              onerror="this.src='/images/fbr_status_2023.png'"
+            />
+            <div class="img-overlay">
+              <a href="https://docs.sf.org.pk/images/fbr_status_2023.png" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span>Zoom Certificate</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audit Report PDF Download Card -->
+        <div class="card report-card audit-report-card">
+          <div class="report-header">
+            <span class="badge badge-primary">AUDITED ACCOUNTS</span>
+            <h3 class="report-title">Audit Report & Financial Accounts 2023–24</h3>
+            <p class="report-subtitle">Full independent financial report and statement of accounts audited by Chartered Accountants.</p>
+          </div>
+
+          <div class="pdf-download-box">
+            <div class="pdf-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            </div>
+            <div class="pdf-info">
+              <h4 class="pdf-title">SF-Financial-Report-Accounts-2024.pdf</h4>
+              <span class="pdf-meta">Official Audited Financial Statement • PDF Document</span>
+            </div>
+            <a 
+              href="https://docs.sf.org.pk/docs/SF-Financial-Report-Accounts-2024.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="btn btn-download"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>DOWNLOAD AUDIT REPORT</span>
+            </a>
+          </div>
+
+          <div class="audit-notes">
+            <p><strong>Auditor Statement:</strong> Accounts are audited annually in accordance with approved international financial reporting standards and presented directly to the Board of Governors.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .financials-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .financial-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .stat-card {
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--primary-color);
+      transition: var(--transition-fast);
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-bottom-color: var(--accent-gold);
+    }
+    .stat-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+    .report-card {
+      background: var(--bg-light);
+      border-top: 4px solid var(--primary-color);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .audit-report-card {
+      border-top-color: var(--accent-gold);
+    }
+    .report-header {
+      margin-bottom: 24px;
+    }
+    .report-title {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin: 10px 0 6px;
+    }
+    .report-subtitle {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .report-img-frame {
+      position: relative;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      text-align: center;
+    }
+    .report-img-frame img {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
+    }
+    .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 77, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .report-img-frame:hover .img-overlay {
+      opacity: 1;
+    }
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #000000;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .pdf-download-box {
+      background: #ffffff;
+      border: 2px dashed var(--primary-color);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      text-align: center;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .pdf-icon-wrapper {
+      color: var(--primary-color);
+    }
+    .pdf-title {
+      font-size: 15px;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .pdf-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .btn-download {
+      background: var(--primary-color);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-download:hover {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-md);
+    }
+    .audit-notes {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      background: #ffffff;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .financial-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reports-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .financial-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
