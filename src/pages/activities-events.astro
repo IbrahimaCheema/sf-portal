@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActivitiesEvents from '../components/ActivitiesEvents.astro';
+---
+
+<Layout 
+  title="Activities & Events – Shakarganj Foundation"
+  description="Explore the full gallery of activities, social development projects, educational drives, and healthcare initiatives by Shakarganj Foundation."
+>
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>Media</span> <span>›</span>
+        <span class="current">Activities & Events</span>
+      </div>
+      <h1 class="hero_page_title">Activities & Events</h1>
+      <p class="hero_subtitle">Explore our latest field activities, community outreach programs, and social impact updates directly linked with @shakarganjfoundation.</p>
+    </div>
+  </section>
+
+  <!-- Full Grid of All Posts -->
+  <ActivitiesEvents limit={999} />
+</Layout>
