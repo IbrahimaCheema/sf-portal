@@ -4,13 +4,14 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout 
   title="Mission & Vision – Shakarganj Foundation"
-  description="Learn about the strategic mission, core vision, and ethical principles guiding Shakarganj Foundation."
+  description="Learn about the strategic mission, core vision, ethical principles, and 10-year development roadmap guiding Shakarganj Foundation."
 >
+  <!-- Standard Top Page Hero Banner -->
   <section class="page_hero_banner">
     <div class="container">
       <div class="hero_breadcrumbs">
         <a href="/">Home</a> <span>›</span>
-        <span>About Us</span> <span>›</span>
+        <a href="/about-us/">About Us</a> <span>›</span>
         <span class="current">Mission & Vision</span>
       </div>
       <h1 class="hero_page_title">Mission & Vision</h1>
@@ -18,53 +19,352 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="mission-section">
+  <!-- Top Action Bar -->
+  <section class="top-action-bar">
+    <div class="container action-container">
+      <a href="/donate-now/" class="btn btn-donate">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+        DONATE NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content Section -->
+  <section class="mission-vision-section">
     <div class="container">
-      <div class="grid-2">
+      
+      <!-- Mission & Vision Cards Grid -->
+      <div class="grid-2 cards-row">
+        <!-- Mission Card -->
         <div class="card mission-card">
           <div class="card-body">
-            <span class="badge badge-primary">OUR MISSION</span>
-            <h2>Transforming Communities</h2>
-            <p>
-              To uplift underprivileged communities by providing access to high-quality educational opportunities, comprehensive healthcare services, and sustainable socio-economic development initiatives.
+            <div class="card-tag">
+              <span class="badge badge-primary">OUR MISSION</span>
+            </div>
+            <h2 class="card-heading"><span class="highlight-gold">Our Mission</span></h2>
+            <p class="card-text">
+              The Shakarganj Foundation aims to mobilize capital to provide high quality education as well as healthcare services to individuals from the underprivileged cohort of Pakistan’s Punjab province. Shakarganj Foundation also promotes art and preserves cultural heritage sites across the country.
             </p>
+            <div class="card-pillars">
+              <div class="pillar-tag">🎓 Education Services</div>
+              <div class="pillar-tag">🏥 Healthcare Provision</div>
+              <div class="pillar-tag">🎨 Cultural Preservation</div>
+            </div>
           </div>
         </div>
 
+        <!-- Vision Card -->
         <div class="card vision-card">
           <div class="card-body">
-            <span class="badge badge-accent">OUR VISION</span>
-            <h2>A Dignified Future</h2>
-            <p>
-              A self-reliant society where every individual has equal opportunity to thrive through education, optimal health, cultural enrichment, and economic dignity.
+            <div class="card-tag">
+              <span class="badge badge-accent">OUR VISION</span>
+            </div>
+            <h2 class="card-heading"><span class="highlight-gold">Our Vision</span></h2>
+            <p class="card-text">
+              Shakarganj Foundation sees itself as the custodian of individuals who are most in need of a support system so they can pursue education in all fields while prioritizing their own health and the wellbeing of their family members. Our 10 year plan includes adopting over sixty government schools, as well as expanding our healthcare department’s dispensary network from four to ten.
+            </p>
+            <p class="card-text">
+              In addition to high quality standard education, Shakarganj Foundation is consulting with technical experts on how to add technical education to the current school syllabus. We strongly believe that information technology will play a pivotal role in enhancing the knowledge and potential of our students and will help them become industry leaders of the future.
             </p>
           </div>
         </div>
       </div>
+
+      <!-- Strategic Roadmap Breakdown -->
+      <div class="roadmap-block">
+        <h3 class="roadmap-title">10-Year Strategic Roadmap Highlights</h3>
+        <div class="roadmap-grid">
+          <div class="roadmap-item">
+            <div class="roadmap-icon">🏫</div>
+            <div class="roadmap-info">
+              <h4>60+ Adopted Schools</h4>
+              <p>Expanding government school adoption to reach over 60 educational institutions nationwide.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-icon">🏥</div>
+            <div class="roadmap-info">
+              <h4>10 Dispensaries</h4>
+              <p>Growing our free medical dispensary network from 4 to 10 stationed and mobile units.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-icon">💻</div>
+            <div class="roadmap-info">
+              <h4>IT & Technical Syllabus</h4>
+              <p>Integrating technical skills and modern IT education directly into school curriculums.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-icon">🏛️</div>
+            <div class="roadmap-info">
+              <h4>Heritage & Art Preservation</h4>
+              <p>Sponsoring local crafts, carpet weaving, and traditional artisan skill preservation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Values Section -->
+      <div class="values-section">
+        <h2 class="values-title"><span class="highlight-gold">Our Values</span></h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Honesty</h4>
+            <p>Operating with complete transparency, integrity, and ethical responsibility in all endeavors.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Sincerity</h4>
+            <p>Demonstrating genuine care and deep devotion to the well-being of the communities we serve.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Justice</h4>
+            <p>Ensuring equal access, fairness, and impartial treatment for every individual regardless of background.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Commitment</h4>
+            <p>Pledging long-term dedication and reliable support to fulfill our philanthropic objectives.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Empathy</h4>
+            <p>Listening with compassion and understanding the true needs of marginalized populations.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-bullet">✦</span>
+            <h4>Ownership</h4>
+            <p>Taking full accountability for project execution, quality, and sustainable outcomes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Watermark Footer -->
+      <div class="brand-watermark">
+        <img 
+          src="https://docs.sf.org.pk/images/sf_logo_bg.png" 
+          alt="Shakarganj Foundation Emblem" 
+          width="100" 
+          height="100" 
+          loading="lazy"
+          onerror="this.src='/images/sf_logo_bg.png'"
+        />
+      </div>
+
     </div>
   </section>
 
   <style>
-    .mission-section {
-      padding: 70px 0;
+    /* Top Action Bar */
+    .top-action-bar {
+      padding: 16px 0;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .action-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn-donate {
+      background: transparent;
+      border: 2px solid var(--accent-gold);
+      color: #b36b00;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-fast);
+    }
+    .btn-donate:hover {
+      background: var(--accent-gold);
+      color: #000000;
+      box-shadow: 0 4px 12px rgba(255, 167, 53, 0.3);
+    }
+
+    /* Main Section */
+    .mission-vision-section {
+      padding: 50px 0 70px;
+      background: var(--bg-white);
+    }
+    .cards-row {
+      margin-bottom: 50px;
     }
     .mission-card {
       border-top: 5px solid var(--primary-color);
-      height: 100%;
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
     }
     .vision-card {
       border-top: 5px solid var(--accent-gold);
-      height: 100%;
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
     }
-    .mission-card h2, .vision-card h2 {
+    .card-tag {
+      margin-bottom: 15px;
+    }
+    .card-heading {
       font-size: 26px;
-      margin: 15px 0;
+      margin-bottom: 16px;
       color: var(--primary-dark);
     }
-    .mission-card p, .vision-card p {
+    .highlight-gold {
+      color: #ff9c1e;
+    }
+    .card-text {
+      font-size: 15.5px;
+      line-height: 1.8;
       color: var(--text-muted);
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+    .card-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 15px;
+    }
+    .pillar-tag {
+      background: rgba(0, 77, 0, 0.08);
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Roadmap Section */
+    .roadmap-block {
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      padding: 35px 30px;
+      margin-bottom: 60px;
+      border: 1px solid var(--border-light);
+    }
+    .roadmap-title {
+      font-size: 22px;
+      color: var(--primary-dark);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    .roadmap-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--bg-white);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .roadmap-icon {
+      font-size: 26px;
+      background: rgba(0, 77, 0, 0.08);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .roadmap-info h4 {
       font-size: 16px;
-      line-height: 1.7;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+    .roadmap-info p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Values Section */
+    .values-section {
+      margin-bottom: 50px;
+    }
+    .values-title {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: var(--bg-light);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-gold);
+    }
+    .value-bullet {
+      color: var(--accent-gold);
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .value-card h4 {
+      font-size: 18px;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+    .value-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Brand Watermark */
+    .brand-watermark {
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+    }
+    .brand-watermark img {
+      opacity: 0.85;
+      transition: transform 0.3s ease;
+    }
+    .brand-watermark img:hover {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </Layout>
