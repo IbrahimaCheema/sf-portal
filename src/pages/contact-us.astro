@@ -4,60 +4,106 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout 
   title="Contact Us – Shakarganj Foundation"
-  description="Get in touch with Shakarganj Foundation. Contact info, office location, email, and phone contact details."
+  description="Get in touch with Shakarganj Foundation. Office address 5 km Toba Tek Singh Road Jhang, phone +92 47 763 1001, email, and interactive Google map location."
 >
+  <!-- Standard Top Page Hero Banner -->
   <section class="page_hero_banner">
     <div class="container">
       <div class="hero_breadcrumbs">
         <a href="/">Home</a> <span>›</span>
         <span class="current">Contact Us</span>
       </div>
-      <h1 class="hero_page_title">Contact Shakarganj Foundation</h1>
-      <p class="hero_subtitle">We are here to answer your questions, welcome partnerships, and support community initiatives.</p>
+      <h1 class="hero_page_title">Get in Touch with Us</h1>
+      <p class="hero_subtitle">We welcome your inquiries, partnership proposals, donation receipt verification, and community feedback.</p>
     </div>
   </section>
 
+  <!-- Contact & Map Section -->
   <section class="contact-section">
     <div class="container">
-      <div class="grid-2">
+      
+      <div class="grid-2 contact-grid">
+        <!-- Contact Details Card -->
         <div class="card contact-info-card">
           <div class="card-body">
-            <span class="badge badge-primary">REACH OUT</span>
+            <span class="badge badge-primary">HEADQUARTERS & CONTACT INFO</span>
             <h2>Office & Communication Details</h2>
-            <p>Feel free to reach out to our team via phone, email, or visit our head offices.</p>
+            <p>Reach out to our administrative team or visit our central campus in District Jhang.</p>
 
             <div class="info-list">
               <div class="info-box">
-                <strong>📍 Address</strong>
-                <p>Shakarganj Foundation Head Office, Jhang, Punjab, Pakistan</p>
+                <div class="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <strong>Head Office Address</strong>
+                  <p>5 km, Toba Tek Singh Road, Jhang, Punjab, Pakistan</p>
+                </div>
               </div>
 
               <div class="info-box">
-                <strong>📞 Telephone</strong>
-                <p>+92 47 763 1001</p>
+                <div class="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <strong>Telephone Numbers</strong>
+                  <p><a href="tel:+92477631001" class="contact-link">+92 47 763 1001</a></p>
+                  <p style="font-size: 12.5px; color: var(--text-muted);">Fax: +92 47 763 1011</p>
+                </div>
               </div>
 
               <div class="info-box">
-                <strong>✉️ Email Address</strong>
-                <p><a href="mailto:info@sf.org.pk">info@sf.org.pk</a></p>
+                <div class="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <strong>Official Email Addresses</strong>
+                  <p><a href="mailto:foundation@sf.org.pk" class="contact-link">foundation@sf.org.pk</a></p>
+                  <p><a href="mailto:info@sf.org.pk" class="contact-link">info@sf.org.pk</a></p>
+                </div>
               </div>
 
               <div class="info-box">
-                <strong>💳 Donation Account</strong>
-                <p>MCB Bank: <strong>0124301010014225</strong></p>
+                <div class="info-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </div>
+                <div>
+                  <strong>Donation Bank Account</strong>
+                  <p>MCB Bank: <strong>0124301010014225</strong></p>
+                  <p style="font-size: 12.5px; color: var(--text-muted);">Title: Shakarganj Foundation</p>
+                </div>
               </div>
             </div>
+
+            <!-- Social Links -->
+            <div class="social-channels">
+              <span class="social-label">Follow Foundation Networks:</span>
+              <div class="social-icons-row">
+                <a href="https://www.facebook.com/shakarganjfoundation" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/shakarganjfoundation/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/shakarganj-foundation" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 
+        <!-- Direct Inquiry Form -->
         <div class="card contact-form-card">
           <div class="card-body">
-            <span class="badge badge-accent">SEND A MESSAGE</span>
+            <span class="badge badge-accent">SEND US A MESSAGE</span>
             <h2>Direct Inquiry Form</h2>
+            <p>Fill out the form below to connect directly with our administration.</p>
             
             <form class="contact-form" id="contactForm">
               <div class="form-group">
-                <label for="cName">Your Name *</label>
+                <label for="cName">Full Name *</label>
                 <input type="text" id="cName" required class="form-control" placeholder="Enter your full name" />
               </div>
 
@@ -80,35 +126,90 @@ import Layout from '../layouts/Layout.astro';
             </form>
 
             <div class="toast-success" id="contactToast">
-              ✓ Message sent successfully! Our representative will respond shortly.
+              ✓ Message sent successfully! Our representative will respond to your inquiry shortly.
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Google Map Section -->
+      <div class="map-section-wrapper card">
+        <div class="map-header">
+          <div class="map-title-box">
+            <span class="badge badge-primary">GOOGLE MAP LOCATION</span>
+            <h3>Shakarganj Foundation Head Office Location</h3>
+            <p class="map-addr">📍 5 km, Toba Tek Singh Road, Jhang, Punjab, Pakistan</p>
+          </div>
+          <a 
+            href="https://maps.google.com/?q=Shakarganj+Foundation+Jhang" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-outline"
+          >
+            <span>Open in Google Maps App</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="map-iframe-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.6103137572304!2d72.33367857597837!3d31.231523961355283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923a2748f65396d%3A0x1c1bf04152f8dcfe!2sShakarganj%20Foundation!5e0!3m2!1sen!2s!4v1688729116620!5m2!1sen!2s" 
+            width="100%" 
+            height="460" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Shakarganj Foundation Google Map Location"
+          ></iframe>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <style>
     .contact-section {
-      padding: 70px 0;
+      padding: 60px 0 80px;
+      background: var(--bg-light);
+    }
+    .contact-grid {
+      margin-bottom: 50px;
     }
     .contact-info-card {
       border-top: 5px solid var(--primary-color);
+      background: #ffffff;
     }
     .contact-form-card {
       border-top: 5px solid var(--accent-gold);
+      background: #ffffff;
     }
+
     .info-list {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-top: 25px;
+      margin: 24px 0;
     }
     .info-box {
       background: var(--bg-light);
-      padding: 16px;
+      padding: 16px 18px;
       border-radius: var(--radius-sm);
-      border-left: 3px solid var(--primary-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      border: 1px solid var(--border-light);
+    }
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 77, 0, 0.1);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     .info-box strong {
       display: block;
@@ -117,10 +218,52 @@ import Layout from '../layouts/Layout.astro';
       font-size: 14px;
     }
     .info-box p {
-      color: var(--text-muted);
+      color: var(--text-dark);
       font-size: 14px;
       margin: 0;
     }
+    .contact-link {
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      color: var(--accent-gold);
+    }
+
+    .social-channels {
+      margin-top: 25px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-light);
+    }
+    .social-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .social-icons-row {
+      display: flex;
+      gap: 12px;
+    }
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: transform 0.2s ease;
+    }
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+    .social-btn.facebook { background: #1877f2; }
+    .social-btn.instagram { background: #e4405f; }
+    .social-btn.linkedin { background: #0a66c2; }
+
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -138,15 +281,17 @@ import Layout from '../layouts/Layout.astro';
       color: var(--text-dark);
     }
     .form-control {
-      padding: 10px 14px;
+      padding: 11px 14px;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-sm);
       font-family: var(--font-body);
       font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
     }
     .form-control:focus {
-      outline: none;
       border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 77, 0, 0.1);
     }
     .btn-block {
       width: 100%;
@@ -163,17 +308,58 @@ import Layout from '../layouts/Layout.astro';
       font-size: 14px;
       font-weight: 600;
     }
+
+    /* Map Section */
+    .map-section-wrapper {
+      background: #ffffff;
+      border-top: 5px solid var(--accent-gold);
+      overflow: hidden;
+    }
+    .map-header {
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .map-title-box h3 {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin: 6px 0 4px;
+    }
+    .map-addr {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .map-iframe-container {
+      width: 100%;
+      line-height: 0;
+      background: var(--bg-light);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .map-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 
-  <script>
-    const form = document.getElementById('contactForm');
-    const toast = document.getElementById('contactToast');
-    if (form && toast) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        toast.style.display = 'block';
-        form.reset();
-      });
-    }
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      const toast = document.getElementById('contactToast');
+      if (form && toast) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          toast.style.display = 'block';
+          form.reset();
+        });
+      }
+    });
   </script>
 </Layout>
