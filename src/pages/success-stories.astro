@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stories = [
+  {
+    year: "2012",
+    badge: "EDUCATION & LITERACY",
+    title: "USAID Funded Adult Female Literacy Program",
+    r2Img: "https://docs.sf.org.pk/images/story_usaid.png",
+    localImg: "/images/story_usaid.png",
+    text: "With the support of USAID through its Small Grants and Ambassador’s Fund Program, Shakarganj Foundation initiated the Adult Female Literacy Program across five Union Councils in District Jhang. The foundation successfully established 150 Adult Literacy Centers and achieved its goal of providing functional literacy and basic numeracy skills to 3,750 women during an 11-month intensive program.",
+    highlights: ["150 Literacy Centers Established", "3,750 Female Graduates", "5 District Jhang Union Councils"]
+  },
+  {
+    year: "2010",
+    badge: "NATIONAL EXCELLENCE AWARD",
+    title: "5th Corporate Social Responsibility National Award",
+    r2Img: "https://docs.sf.org.pk/images/story_csr_award.jpg",
+    localImg: "/images/story_csr_award.jpg",
+    text: "Shakarganj Foundation was recipient of the 5th CSR National Excellence Award in 2010. This prestigious national award recognized the foundation’s significant contributions to enhancing and supporting Pakistani businesses in bringing about positive, measurable social change across rural Punjab.",
+    highlights: ["Top National CSR Honor", "Model Philanthropic Strategy", "Recognized Social Innovation"]
+  },
+  {
+    year: "2009",
+    badge: "INTERNATIONAL RECOGNITION",
+    title: "Asian CSR Award: Intel – AIM Corporate Responsibility Award",
+    r2Img: "https://docs.sf.org.pk/images/story_intel_aim.png",
+    localImg: "/images/story_intel_aim.png",
+    text: "Shakarganj Limited became the first Pakistani company honored with the Intel – AIM Corporate Responsibility Award at the Asian Forum on Corporate Social Responsibility in Singapore. Chosen from 170 international nominations across 15 countries and selected among 25 global finalists by an expert international judging panel.",
+    highlights: ["First Pakistani Recipient", "170 Nominations from 15 Countries", "Conferred at Asian Forum Singapore"]
+  },
+  {
+    year: "2008 – Present",
+    badge: "HEALTHCARE RELIEF",
+    title: "Implantation of Artificial Limbs Program",
+    r2Img: "https://docs.sf.org.pk/images/story_artificial_limbs.jpg",
+    localImg: "/images/story_artificial_limbs.jpg",
+    text: "Initiated on February 26, 2008, with initial technical support from the International Committee of the Red Cross (ICRC) in Muzaffarabad (AJK). Entirely funded by Chairman Mian Altaf M. Saleem, this ongoing rehabilitation initiative has provided free prosthetics and mobility restoration to over 249 patients to date.",
+    highlights: ["249+ Patients Restored to Mobility", "ICRC Technical Collaboration", "100% Free Patient Rehabilitation"]
+  }
+];
+---
+
+<Layout 
+  title="Success Stories – Shakarganj Foundation"
+  description="Read about Shakarganj Foundation's award-winning achievements, USAID female literacy projects, national CSR awards, and artificial limb rehabilitation."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/about-us/">About Us</a> <span>›</span>
+        <span class="current">Success Stories</span>
+      </div>
+      <h1 class="hero_page_title">Success Stories</h1>
+      <p class="hero_subtitle">Celebrating two decades of recognized social impact, global awards, and life-changing community programs.</p>
+    </div>
+  </section>
+
+  <!-- Stories Section -->
+  <section class="stories-section">
+    <div class="container">
+      
+      <div class="section-intro">
+        <span class="badge badge-primary">MILESTONES OF EXCELLENCE</span>
+        <h2 class="section-title">Recognized Impact & Achievements</h2>
+        <div class="title-decorator"></div>
+        <p class="section-subtitle">Over the past 25 years, Shakarganj Foundation’s grassroots initiatives have earned local, national, and international acclaim.</p>
+      </div>
+
+      <div class="stories-stack">
+        {stories.map((story, index) => (
+          <div class={`card story-card ${index % 2 === 1 ? 'reverse-card' : ''}`}>
+            <div class="story-img-column">
+              <div class="img-frame">
+                <img 
+                  src={story.r2Img} 
+                  alt={story.title} 
+                  loading="lazy"
+                  onerror={`this.src='${story.localImg}'`}
+                />
+                <span class="year-badge">{story.year}</span>
+              </div>
+            </div>
+            <div class="story-content-column">
+              <span class="badge badge-accent">{story.badge}</span>
+              <h3 class="story-heading">{story.title}</h3>
+              <p class="story-description">{story.text}</p>
+              
+              <div class="highlights-list">
+                {story.highlights.map((item) => (
+                  <div class="highlight-chip">
+                    <span class="chip-icon">✓</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .stories-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .section-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .stories-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+    .story-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 30px;
+      padding: 24px;
+      background: var(--bg-light);
+      border-left: 5px solid var(--primary-color);
+      align-items: center;
+      transition: var(--transition-fast);
+    }
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-left-color: var(--accent-gold);
+    }
+    .reverse-card {
+      grid-template-columns: 1fr 240px;
+    }
+    .reverse-card .story-img-column {
+      order: 2;
+    }
+    .reverse-card .story-content-column {
+      order: 1;
+    }
+    .img-frame {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid var(--border-light);
+      text-align: center;
+    }
+    .img-frame img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+    .year-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--primary-color);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-sm);
+    }
+    .story-heading {
+      font-size: 22px;
+      color: var(--primary-dark);
+      margin: 10px 0 12px;
+    }
+    .story-description {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+    .highlights-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .highlight-chip {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      color: var(--text-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chip-icon {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .story-card, .reverse-card {
+        grid-template-columns: 1fr;
+      }
+      .reverse-card .story-img-column {
+        order: 1;
+      }
+      .reverse-card .story-content-column {
+        order: 2;
+      }
+      .img-frame img {
+        max-height: 220px;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</Layout>
