@@ -1,0 +1,749 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const publications = [
+  {
+    id: "pub-1",
+    title: "Service Above Self",
+    category: "Community Welfare",
+    author: "Muhammad Saifullah",
+    role: "Chairman (Social Action Projects Committee)",
+    qualifications: "BSc (Electrical Engineering) & EMBA",
+    date: "July 3rd, 2026",
+    summary: "Reflections on selflessness in social welfare, organizational leadership, and driving community transformation through dedicated volunteer action.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-1.jpg",
+    localImg: "/images/publications/pub-1.jpg"
+  },
+  {
+    id: "pub-2",
+    title: "Drug Addiction Among Youth: A Growing Challenge in Our Community",
+    category: "Public Health",
+    author: "Dr. Shahid Hussain",
+    role: "Vice Chairman (Social Action Projects Committee)",
+    qualifications: "PhD (Chemistry)",
+    date: "June 30th, 2026",
+    summary: "A comprehensive analysis of substance abuse challenges among rural youth, detailing community awareness initiatives and rehabilitation strategies.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-2.jpg",
+    localImg: "/images/publications/pub-2.jpg"
+  },
+  {
+    id: "pub-3",
+    title: "Building Hope, Enriching Lives",
+    category: "Community Welfare",
+    author: "Muhammad Pervez Akhtar",
+    role: "SEVP",
+    qualifications: "MSc Chemistry",
+    date: "June 30th, 2026",
+    summary: "Strategic overview of Shakarganj Foundation's long-term social investment, highlighting sustained rural education and healthcare empowerment.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-3.jpg",
+    localImg: "/images/publications/pub-3.jpg"
+  },
+  {
+    id: "pub-4",
+    title: "Diabetes: Its Impact on Our Life and Its Management",
+    category: "Public Health",
+    author: "Dr. Muhammad Aamir",
+    role: "Manager (Public Health)",
+    qualifications: "MD (MBBS) RU. C/A DTCD (PK)",
+    date: "June 29th, 2026",
+    summary: "Clinical insights into diabetes prevalence in Pakistan, lifestyle modifications, screening protocols, and subsidized medical care for rural patients.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-4.jpg",
+    localImg: "/images/publications/pub-4.jpg"
+  },
+  {
+    id: "pub-5",
+    title: "The Most Powerful Weapon to Change the World",
+    category: "Education",
+    author: "Samra Ashraf",
+    role: "Manager (Shakarganj Foundation)",
+    qualifications: "MSc Psychology, MS Management (BPP University London)",
+    date: "June 29th, 2026",
+    summary: "Exploring psychological and economic impacts of education on rural youth, empowering girls, and building resilient local communities.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-5.jpg",
+    localImg: "/images/publications/pub-5.jpg"
+  },
+  {
+    id: "pub-6",
+    title: "From Learning to Livelihood: How Skills Transform Communities",
+    category: "Vocational Skills",
+    author: "Muhammad Hussain Malik",
+    role: "GM (HR-Admin)",
+    qualifications: "LLB",
+    date: "June 12th, 2026",
+    summary: "Examining how vocational training in dressmaking, fine arts, and technical skills enables financial independence for underprivileged women.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-6.png",
+    localImg: "/images/publications/pub-6.png"
+  },
+  {
+    id: "pub-7",
+    title: "A Long Road Ahead: The Struggle for Gender Equality",
+    category: "Social Empowerment",
+    author: "Mustapha Altaf Saleem",
+    role: "Member (Social Action Projects Committee)",
+    qualifications: "MBA",
+    date: "July 31st, 2025",
+    summary: "Addressing gender disparities in rural education and workforce participation, outlining actionable steps for equal opportunity in District Jhang.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-7.png",
+    localImg: "/images/publications/pub-7.png"
+  },
+  {
+    id: "pub-8",
+    title: "Importance of Cultural Competence in Social Work",
+    category: "Social Empowerment",
+    author: "Muhammad Hussain Malik",
+    role: "GM (HR-Admin)",
+    qualifications: "LLB",
+    date: "February 7th, 2025",
+    summary: "Understanding local cultural dynamics, community trust building, and empathetic service delivery in non-profit social action projects.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-8.png",
+    localImg: "/images/publications/pub-8.png"
+  },
+  {
+    id: "pub-9",
+    title: "Smog In Pakistan: Causes, Impacts, and Solutions",
+    category: "Environmental Health",
+    author: "Dr. Shahid Hussain",
+    role: "Vice Chairman (Social Action Projects Committee)",
+    qualifications: "PhD (Chemistry)",
+    date: "January 27th, 2025",
+    summary: "Scientific evaluation of seasonal hazardous smog in Punjab, respiratory health risks, crop burning alternatives, and environmental policy.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-9.jpg",
+    localImg: "/images/publications/pub-9.jpg"
+  },
+  {
+    id: "pub-10",
+    title: "Need Awareness on Breast Cancer in Pakistan",
+    category: "Public Health",
+    author: "Dr. Muhammad Aamir",
+    role: "Manager (Public Health)",
+    qualifications: "MD (MBBS) RU. C/A DTCD (PK)",
+    date: "December 1st, 2024",
+    summary: "Promoting early detection, self-examination awareness, and breaking cultural taboos surrounding breast cancer diagnosis in rural women.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-10.jpg",
+    localImg: "/images/publications/pub-10.jpg"
+  },
+  {
+    id: "pub-11",
+    title: "Importance of Education in Pakistan",
+    category: "Education",
+    author: "Samra Ashraf",
+    role: "Manager (Shakarganj Foundation)",
+    qualifications: "MSc Psychology, MS Management (BPP University London)",
+    date: "December 1st, 2024",
+    summary: "Analyzing Pakistan's out-of-school statistics and highlighting Shakarganj Foundation's adopted school model as a scalable solution.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-11.png",
+    localImg: "/images/publications/pub-11.png"
+  },
+  {
+    id: "pub-12",
+    title: "Revolutionizing Education for Underserved Children with Technology",
+    category: "Education",
+    author: "Mustapha Altaf Saleem",
+    role: "Member (Social Action Projects Committee)",
+    qualifications: "MBA",
+    date: "November 25th, 2024",
+    summary: "Integrating digital tools, computer labs, and audio-visual learning into primary schools for visually impaired and rural students.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-12.jpg",
+    localImg: "/images/publications/pub-12.png"
+  },
+  {
+    id: "pub-13",
+    title: "Providing Education and Healthcare to Underprivileged Children: A National Duty",
+    category: "Education",
+    author: "Mustapha Altaf Saleem",
+    role: "Member (Social Action Projects Committee)",
+    qualifications: "MBA",
+    date: "October 17th, 2023",
+    summary: "Highlighting public-private partnerships in school adoption and free dispensary operations as a vital national civic duty.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-13.jpg",
+    localImg: "/images/publications/pub-13.jpg"
+  },
+  {
+    id: "pub-14",
+    title: "Drinking Water Quality in Jhang – A Comprehensive Survey",
+    category: "Public Health",
+    author: "Dr. Shahid Hussain",
+    role: "Vice Chairman (Social Action Projects Committee)",
+    qualifications: "PhD (Chemistry)",
+    date: "October 10th, 2023",
+    summary: "Laboratory water testing survey across District Jhang, evaluating groundwater contaminants, arsenic levels, and filtration solutions.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-14.jpg",
+    localImg: "/images/publications/pub-14.jpg"
+  },
+  {
+    id: "pub-15",
+    title: "Impact of Healthcare Program on Rural Areas",
+    category: "Public Health",
+    author: "Dr. Muhammad Aamir",
+    role: "Manager (Public Health)",
+    qualifications: "MD (MBBS) RU. C/A DTCD (PK)",
+    date: "September 30th, 2023",
+    summary: "Statistical impact evaluation of stationed dispensaries and mobile health vans treating over 550,000 rural patients.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-15.jpg",
+    localImg: "/images/publications/pub-15.jpg"
+  },
+  {
+    id: "pub-16",
+    title: "Impact of Nutritional Programs",
+    category: "Public Health",
+    author: "Samra Ashraf",
+    role: "Manager (Shakarganj Foundation)",
+    qualifications: "MSc Psychology, MS Management (BPP University London)",
+    date: "September 25th, 2023",
+    summary: "Evaluating school fruit drives and therapeutic feeding initiatives in combatting child stunting and improving academic retention.",
+    r2Img: "https://docs.sf.org.pk/images/publications/pub-16.jpg",
+    localImg: "/images/publications/pub-16.jpg"
+  }
+];
+
+const totalCount = publications.length;
+const eduCount = publications.filter(p => p.category === 'Education' || p.category === 'Vocational Skills').length;
+const healthCount = publications.filter(p => p.category === 'Public Health' || p.category === 'Environmental Health').length;
+const welfareCount = publications.filter(p => p.category === 'Community Welfare' || p.category === 'Social Empowerment').length;
+---
+
+<Layout 
+  title="Publications & Research – Shakarganj Foundation"
+  description="Explore research papers, publications, and articles by Shakarganj Foundation leaders on education, public health, water quality, and community development."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>Media</span> <span>›</span>
+        <span class="current">Publications</span>
+      </div>
+      <h1 class="hero_page_title">Research & Articles</h1>
+      <p class="hero_subtitle">Thought leadership, scientific surveys, and social policy publications authored by Shakarganj Foundation executives and medical specialists.</p>
+    </div>
+  </section>
+
+  <!-- Impact Stats Banner -->
+  <section class="impact-counter-section">
+    <div class="container">
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-num">{totalCount}</div>
+          <div class="counter-label">Published Research Articles</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">{healthCount}</div>
+          <div class="counter-label">Public Health & Medical Papers</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">{eduCount}</div>
+          <div class="counter-label">Education Policy Studies</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">{welfareCount}</div>
+          <div class="counter-label">Social Welfare & Empowerment Reports</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Explorer Section -->
+  <section class="pub-explorer-section">
+    <div class="container">
+      
+      <!-- Category Filter Pills -->
+      <div class="explorer-control-bar">
+        <div class="filter-pills" id="filter-pills">
+          <button class="pill-btn active" data-category="all">
+            <span>All Articles</span>
+            <span class="pill-count">{totalCount}</span>
+          </button>
+          <button class="pill-btn" data-category="Education">
+            <span>📚 Education & Skills</span>
+            <span class="pill-count">{eduCount}</span>
+          </button>
+          <button class="pill-btn" data-category="Public Health">
+            <span>🩺 Public Health & Science</span>
+            <span class="pill-count">{healthCount}</span>
+          </button>
+          <button class="pill-btn" data-category="Community Welfare">
+            <span>🤝 Social Empowerment</span>
+            <span class="pill-count">{welfareCount}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <span id="results-count-text">Showing all {totalCount} publications</span>
+      </div>
+
+      <!-- Publications Grid -->
+      <div class="publications-grid">
+        {publications.map((item, index) => (
+          <div class="card pub-card" data-category={item.category} data-index={index}>
+            <div class="pub-img-frame">
+              <img 
+                src={item.r2Img} 
+                alt={item.title} 
+                loading="lazy"
+                onerror={`this.src='${item.localImg}'`}
+              />
+              <span class="badge badge-accent category-badge">{item.category}</span>
+            </div>
+
+            <div class="pub-card-body">
+              <div class="pub-date">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>{item.date}</span>
+              </div>
+              
+              <h3 class="pub-title">{item.title}</h3>
+
+              <div class="author-block">
+                <div class="author-name">By: {item.author}</div>
+                <div class="author-role">{item.role}</div>
+                {item.qualifications && (
+                  <div class="author-qual">{item.qualifications}</div>
+                )}
+              </div>
+
+              <p class="pub-summary">{item.summary}</p>
+
+              <button class="open-pub-btn" data-index={index}>
+                <span>READ ARTICLE DETAILS</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Detail Modal -->
+  <div id="pub-modal" class="modal-backdrop" style="display: none;">
+    <div class="modal-container card">
+      <button id="close-modal-btn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-header">
+        <span id="modal-category" class="badge badge-accent">CATEGORY</span>
+        <h2 id="modal-title" class="modal-pub-title">Publication Title</h2>
+        <div id="modal-date" class="modal-date-tag">Date</div>
+      </div>
+
+      <div class="modal-body-scroll">
+        <div class="modal-author-box">
+          <div id="modal-author" class="modal-author-name">Author Name</div>
+          <div id="modal-role" class="modal-author-role">Author Designation</div>
+          <div id="modal-qual" class="modal-author-qual">Qualifications</div>
+        </div>
+
+        <div class="modal-hero-img-box">
+          <img id="modal-hero-img" src="" alt="" />
+        </div>
+
+        <div class="modal-text-content">
+          <h4 class="modal-subtitle">Abstract & Key Insights</h4>
+          <p id="modal-summary" class="modal-summary-p"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .impact-counter-section {
+      background: var(--primary-dark);
+      padding: 35px 0;
+      color: #ffffff;
+    }
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .counter-card {
+      text-align: center;
+      padding: 10px;
+    }
+    .counter-num {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    .counter-label {
+      font-size: 13.5px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .pub-explorer-section {
+      padding: 50px 0 80px;
+      background: var(--bg-light);
+    }
+    .explorer-control-bar {
+      margin-bottom: 24px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      color: var(--text-dark);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pill-btn:hover {
+      background: #e8f0e8;
+      border-color: var(--primary-color);
+    }
+    .pill-btn.active {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+    .pill-count {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    .pill-btn.active .pill-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .results-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 24px;
+    }
+
+    .publications-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pub-card {
+      background: #ffffff;
+      border-top: 4px solid var(--primary-color);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-fast);
+    }
+    .pub-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--accent-gold);
+    }
+    .pub-img-frame {
+      position: relative;
+      background: var(--bg-light);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .pub-img-frame img {
+      max-width: 100%;
+      max-height: 165px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .category-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .pub-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .pub-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pub-title {
+      font-size: 16.5px;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .author-block {
+      background: var(--bg-light);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-gold);
+      margin-bottom: 14px;
+    }
+    .author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .author-role {
+      font-size: 12px;
+      color: var(--text-dark);
+      margin-top: 2px;
+    }
+    .author-qual {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .pub-summary {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .open-pub-btn {
+      background: var(--bg-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-light);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .open-pub-btn:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+
+    /* Modal Backdrop & Dialog */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 700px;
+      max-height: 90vh;
+      border-radius: var(--radius-md);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-top: 5px solid var(--accent-gold);
+    }
+    .modal-close-btn {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      background: var(--bg-light);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .modal-close-btn:hover {
+      background: #ff4d4d;
+      color: #ffffff;
+    }
+    .modal-header {
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .modal-pub-title {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin: 8px 0 4px;
+    }
+    .modal-date-tag {
+      font-size: 13px;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    .modal-body-scroll {
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .modal-author-box {
+      background: var(--bg-light);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--primary-color);
+      margin-bottom: 20px;
+    }
+    .modal-author-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .modal-author-role {
+      font-size: 13px;
+      color: var(--text-dark);
+    }
+    .modal-author-qual {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .modal-hero-img-box {
+      text-align: center;
+      background: #f8faf8;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      padding: 16px;
+      border: 1px solid var(--border-light);
+    }
+    .modal-hero-img-box img {
+      max-width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+    }
+    .modal-subtitle {
+      font-size: 16px;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .modal-summary-p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-dark);
+    }
+
+    /* Responsive */
+    @media (max-width: 1050px) {
+      .publications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 650px) {
+      .publications-grid {
+        grid-template-columns: 1fr;
+      }
+      .counter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pillBtns = document.querySelectorAll('.pill-btn');
+      const pubCards = document.querySelectorAll('.pub-card');
+      const countText = document.getElementById('results-count-text');
+
+      const modal = document.getElementById('pub-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCategory = document.getElementById('modal-category');
+      const modalDate = document.getElementById('modal-date');
+      const modalAuthor = document.getElementById('modal-author');
+      const modalRole = document.getElementById('modal-role');
+      const modalQual = document.getElementById('modal-qual');
+      const modalHeroImg = document.getElementById('modal-hero-img');
+      const modalSummary = document.getElementById('modal-summary');
+      const openBtns = document.querySelectorAll('.open-pub-btn');
+
+      const pubList = JSON.parse(document.getElementById('pub-json-data').textContent);
+
+      let activeCategory = 'all';
+
+      pillBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          pillBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-category');
+
+          let visibleCount = 0;
+          pubCards.forEach((card) => {
+            const cat = card.getAttribute('data-category');
+            if (activeCategory === 'all' || cat.includes(activeCategory)) {
+              card.style.display = 'flex';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          countText.textContent = `Showing ${visibleCount} publication${visibleCount === 1 ? '' : 's'}`;
+        });
+      });
+
+      openBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-index'));
+          const item = pubList[idx];
+
+          if (item) {
+            modalTitle.textContent = item.title;
+            modalCategory.textContent = item.category;
+            modalDate.textContent = `📅 ${item.date}`;
+            modalAuthor.textContent = `By: ${item.author}`;
+            modalRole.textContent = item.role;
+            modalQual.textContent = item.qualifications || '';
+            modalHeroImg.src = item.r2Img;
+            modalHeroImg.alt = item.title;
+            modalSummary.textContent = item.summary;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      closeModalBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    });
+  </script>
+
+  <script type="application/json" id="pub-json-data" set:html={JSON.stringify(publications)}></script>
+</Layout>
