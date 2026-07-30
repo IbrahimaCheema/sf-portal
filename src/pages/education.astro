@@ -1,11 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const adoptedSchools = [
+  { sr: 1, name: "Govt. Girls Primary School SML Campus", distance: "250m", teachers: 5, students: 137 },
+  { sr: 2, name: "Govt. Girls Primary School Chaa Blochain", distance: "400m", teachers: 5, students: 95 },
+  { sr: 3, name: "Govt. Girls Elementary Insaf School", distance: "03km", teachers: 7, students: 112 },
+  { sr: 4, name: "Govt. Girls Elementary School Wah Wala", distance: "06km", teachers: 14, students: 164 },
+  { sr: 5, name: "Govt. Girls Primary School Chowk Shaheedian", distance: "7.5km", teachers: 6, students: 101 },
+  { sr: 6, name: "Govt. Girls Primary School Korian", distance: "08km", teachers: 5, students: 125 },
+  { sr: 7, name: "Govt. Girls Elementary School Chak 268 J.B", distance: "09km", teachers: 13, students: 320 },
+  { sr: 8, name: "Govt. Girls Elementary School Chak 460 J.B", distance: "11.5km", teachers: 11, students: 152 },
+  { sr: 9, name: "Govt. Girls Elementary School Thatta Guniana", distance: "12.7km", teachers: 11, students: 293 },
+  { sr: 10, name: "Govt. Girls Elementary School Ashaba", distance: "13.5km", teachers: 13, students: 402 },
+  { sr: 11, name: "Govt. Girls Elementary School Chak 265 J.B", distance: "15km", teachers: 13, students: 319 },
+  { sr: 12, name: "Govt. Girls Elementary School Havali Lal", distance: "19.5km", teachers: 9, students: 274 },
+  { sr: 13, name: "Govt. Girls Elementary School Chak 220 J.B", distance: "21km", teachers: 20, students: 493 },
+  { sr: 14, name: "Govt. Girls Elementary School Kot Dewan", distance: "22km", teachers: 11, students: 336 },
+  { sr: 15, name: "Govt. Girls Elementary School Shahbal", distance: "24km", teachers: 11, students: 380 },
+  { sr: 16, name: "Govt. Girls Primary School Chak 450 J.B", distance: "26km", teachers: 8, students: 240 },
+  { sr: 17, name: "Govt. Girls Elementary School Kot Khan", distance: "36km", teachers: 7, students: 273 },
+  { sr: 18, name: "Govt. Girls Elementary School Kot Murad", distance: "41km", teachers: 7, students: 369 },
+  { sr: 19, name: "Govt. Girls Primary School Darghia Shah", distance: "42km", teachers: 4, students: 126 },
+  { sr: 20, name: "Govt. Boys Elementary School Darghia Shah", distance: "43km", teachers: 14, students: 388 },
+  { sr: 21, name: "Govt. Girls Elementary School Bhori", distance: "61km", teachers: 9, students: 155 },
+  { sr: 22, name: "Govt. Girls Primary School Jan Muhammad Nou", distance: "53km", teachers: 5, students: 50 }
+];
+
+const totalTeachers = 208;
+const totalStudents = 5304;
+
+const galleryImages = [
+  { r2: "https://docs.sf.org.pk/images/edu_jugnu_sabaq.jpg", local: "/images/edu_jugnu_sabaq.jpg", caption: "Jugno Sabaq Literacy Method" },
+  { r2: "https://docs.sf.org.pk/images/edu_training_1.jpg", local: "/images/edu_training_1.jpg", caption: "Teacher Capacity Building" },
+  { r2: "https://docs.sf.org.pk/images/edu_training_2.jpg", local: "/images/edu_training_2.jpg", caption: "Adult Literacy Classroom" },
+  { r2: "https://docs.sf.org.pk/images/edu_opening_ceremony.jpg", local: "/images/edu_opening_ceremony.jpg", caption: "Literacy Center Opening" }
+];
 ---
 
 <Layout 
-  title="Education Initiatives & Scholarships – Shakarganj Foundation"
-  description="Discover Shakarganj Foundation's educational programs, prize distribution ceremonies, and Talib Hussain Education Scholarship."
+  title="Education Initiatives & Adopted Schools – Shakarganj Foundation"
+  description="Discover Shakarganj Foundation's 22 adopted schools in District Jhang, student nutrition program, adult literacy, and education scholarships."
 >
+  <!-- Standard Top Page Hero Banner -->
   <section class="page_hero_banner">
     <div class="container">
       <div class="hero_breadcrumbs">
@@ -13,57 +49,405 @@ import Layout from '../layouts/Layout.astro';
         <span>Our Work</span> <span>›</span>
         <span class="current">Education</span>
       </div>
-      <h1 class="hero_page_title">Education & Academic Grants</h1>
-      <p class="hero_subtitle">Investing in minds, building schools, and empowering youth through academic scholarships and merit rewards.</p>
+      <h1 class="hero_page_title">Education Initiatives</h1>
+      <p class="hero_subtitle">Transforming rural communities through 22 adopted schools, student nutrition, adult literacy, and merit scholarships.</p>
     </div>
   </section>
 
-  <section class="edu-section">
+  <!-- Impact Counter Banner -->
+  <section class="impact-counter-section">
     <div class="container">
-      <div class="grid-2">
-        <div class="edu-card card">
-          <div class="card-body">
-            <span class="badge badge-accent">MERIT SCHOLARSHIPS</span>
-            <h2>Talib Hussain Education Scholarship</h2>
-            <p>
-              The Talib Hussain Education Scholarship provides comprehensive financial grants to high-achieving, underprivileged students across schools, colleges, and universities.
-            </p>
-            <a href="/education-scholarship" class="btn btn-primary">Scholarship Details ➔</a>
-          </div>
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-num">22</div>
+          <div class="counter-label">Adopted Government Schools</div>
         </div>
-
-        <div class="edu-card card">
-          <div class="card-body">
-            <span class="badge badge-primary">ACADEMIC RECOGNITION</span>
-            <h2>Prize Distribution Ceremonies</h2>
-            <p>
-              Annual events celebrating academic excellence, honoring top performers, teachers, and schools with cash awards and certificates.
-            </p>
-            <a href="/prize-distribution-ceremonies" class="btn btn-outline">Ceremony Highlights ➔</a>
-          </div>
+        <div class="counter-card">
+          <div class="counter-num">5,304</div>
+          <div class="counter-label">Active Students Enrolled</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">208</div>
+          <div class="counter-label">Qualified Teachers Supported</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">3,250+</div>
+          <div class="counter-label">Adult Literacy Graduates</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Main Education Programs -->
+  <section class="edu-programs-section">
+    <div class="container">
+
+      <!-- Sub-programs Callout Cards -->
+      <div class="grid-2 subprogram-callouts">
+        <div class="card callout-card">
+          <div class="card-body">
+            <span class="badge badge-accent">MERIT SCHOLARSHIPS</span>
+            <h3 class="callout-title">Talib Hussain Education Scholarship</h3>
+            <p class="callout-desc">Financial assistance grants awarded to high-achieving, underprivileged students pursuing higher secondary and university education.</p>
+            <a href="/education-scholarship/" class="read-more-btn">
+              <span>EXPLORE SCHOLARSHIP</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="card callout-card">
+          <div class="card-body">
+            <span class="badge badge-primary">ACADEMIC RECOGNITION</span>
+            <h3 class="callout-title">Prize Distribution Ceremonies</h3>
+            <p class="callout-desc">Annual district-wide ceremonies honoring top performing students, outstanding teachers, and best-performing school campuses.</p>
+            <a href="/prize-distribution-ceremonies/" class="read-more-btn">
+              <span>VIEW CEREMONIES</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Adopted Schools Block -->
+      <div class="program-block">
+        <div class="program-grid">
+          <div class="program-img-box">
+            <img 
+              src="https://docs.sf.org.pk/images/edu_adopted_schools.png" 
+              alt="Adopted Schools"
+              loading="lazy"
+              onerror="this.src='/images/edu_adopted_schools.png'"
+            />
+          </div>
+          <div class="program-text-box">
+            <span class="badge badge-primary">PRIMARY & ELEMENTARY</span>
+            <h2 class="program-title">Adopted Schools Network</h2>
+            <p class="program-desc">
+              Shakarganj Foundation has adopted <strong>22 Government girls/boys schools</strong> (6 Primary and 16 Elementary schools) across District Jhang. We support these schools in their entirety—from civil infrastructure repairs, furniture, clean drinking water, to regular medical screening camps for students and staff.
+            </p>
+          </div>
+        </div>
+
+        <!-- Complete Adopted Schools Table -->
+        <div class="table-wrapper">
+          <h3 class="table-header-title">Adopted Schools Roster (District Jhang)</h3>
+          <div class="table-responsive">
+            <table class="schools-table">
+              <thead>
+                <tr>
+                  <th class="text-center">Sr#</th>
+                  <th>School Name</th>
+                  <th class="text-center">Distance from SML Jhang</th>
+                  <th class="text-center">Teachers</th>
+                  <th class="text-center">Students</th>
+                </tr>
+              </thead>
+              <tbody>
+                {adoptedSchools.map((school) => (
+                  <tr>
+                    <td class="text-center">{school.sr}</td>
+                    <td class="school-name-td">{school.name}</td>
+                    <td class="text-center">{school.distance}</td>
+                    <td class="text-center font-bold">{school.teachers}</td>
+                    <td class="text-center font-bold text-green">{school.students}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr class="total-row">
+                  <td colspan="3" class="text-right"><strong>TOTAL ADOPTED NETWORK:</strong></td>
+                  <td class="text-center"><strong>{totalTeachers}</strong></td>
+                  <td class="text-center"><strong>{totalStudents.toLocaleString()}</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutrition Program Block -->
+      <div class="program-block">
+        <div class="program-grid reverse-grid">
+          <div class="program-img-box">
+            <img 
+              src="https://docs.sf.org.pk/images/edu_nutrition.png" 
+              alt="Nutrition Program"
+              loading="lazy"
+              onerror="this.src='/images/edu_nutrition.png'"
+            />
+          </div>
+          <div class="program-text-box">
+            <span class="badge badge-accent">HEALTH & NUTRITION</span>
+            <h2 class="program-title">Student Nutrition Program</h2>
+            <p class="program-desc">
+              Commenced in 2004, our Student Nutrition Program ensures that rural school children remain healthy, attentive, and energetic. Every week, Shakarganj Foundation distributes fresh flavored milk and seasonal fruits to all 5,300+ students and staff members at Shakarganj Adopted Schools (SAS).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adult Literacy Program Block -->
+      <div class="program-block">
+        <div class="program-grid">
+          <div class="program-img-box">
+            <img 
+              src="https://docs.sf.org.pk/images/edu_adult_literacy.png" 
+              alt="Adult Literacy"
+              loading="lazy"
+              onerror="this.src='/images/edu_adult_literacy.png'"
+            />
+          </div>
+          <div class="program-text-box">
+            <span class="badge badge-primary">COMMUNITY EDUCATION</span>
+            <h2 class="program-title">Adult Literacy Program (Jugno Sabaq)</h2>
+            <p class="program-desc">
+              Modeled after the renowned <strong>Jugno Sabaq</strong> methodology, this program equips adults with no prior schooling with functional reading, writing, and basic arithmetic skills. To date, over <strong>3,250 adults</strong> (including 3,750+ women through USAID collaboration) have benefited from our literacy centers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Literacy Graph & Photo Gallery -->
+        <div class="literacy-media-grid">
+          <div class="graph-box card">
+            <h4 class="media-box-title">Adult Literacy Beneficiaries Growth</h4>
+            <img 
+              src="https://docs.sf.org.pk/images/edu_literacy_graph.png" 
+              alt="Literacy Beneficiaries Graph"
+              loading="lazy"
+              onerror="this.src='/images/edu_literacy_graph.png'"
+            />
+          </div>
+
+          <div class="gallery-box card">
+            <h4 class="media-box-title">Literacy Centers & Training Gallery</h4>
+            <div class="photo-grid">
+              {galleryImages.map((img) => (
+                <div class="photo-card">
+                  <img 
+                    src={img.r2} 
+                    alt={img.caption}
+                    loading="lazy"
+                    onerror={`this.src='${img.local}'`}
+                  />
+                  <span>{img.caption}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <style>
-    .edu-section {
-      padding: 70px 0;
+    .impact-counter-section {
+      background: var(--primary-dark);
+      padding: 40px 0;
+      color: #ffffff;
     }
-    .edu-card {
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .counter-card {
+      text-align: center;
+      padding: 10px;
+    }
+    .counter-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    .counter-label {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+    .edu-programs-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .subprogram-callouts {
+      margin-bottom: 60px;
+    }
+    .callout-card {
       border-top: 4px solid var(--primary-color);
-      height: 100%;
+      transition: var(--transition-fast);
     }
-    .edu-card h2 {
-      font-size: 24px;
-      margin: 15px 0;
+    .callout-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .callout-title {
+      font-size: 20px;
       color: var(--primary-dark);
+      margin: 10px 0 8px;
     }
-    .edu-card p {
+    .callout-desc {
+      font-size: 14.5px;
       color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .program-block {
+      margin-bottom: 70px;
+    }
+    .program-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .reverse-grid {
+      grid-template-columns: 1fr 180px;
+    }
+    .reverse-grid .program-img-box {
+      order: 2;
+    }
+    .reverse-grid .program-text-box {
+      order: 1;
+    }
+    .program-img-box img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+    .program-title {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 8px 0 10px;
+    }
+    .program-desc {
       font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 25px;
+      line-height: 1.75;
+      color: var(--text-dark);
+    }
+    .table-wrapper {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .table-header-title {
+      font-size: 18px;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .schools-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      font-size: 14px;
+    }
+    .schools-table th {
+      background: var(--primary-color);
+      color: #ffffff;
+      padding: 12px 14px;
+      font-weight: 700;
+    }
+    .schools-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .schools-table tr:nth-child(even) td {
+      background: rgba(0, 77, 0, 0.02);
+    }
+    .school-name-td {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .font-bold {
+      font-weight: 700;
+    }
+    .text-green {
+      color: var(--primary-color);
+    }
+    .total-row td {
+      background: #fff3e0 !important;
+      color: #b36b00;
+      font-size: 15px;
+      border-top: 2px solid var(--accent-gold);
+    }
+    .literacy-media-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 35px;
+    }
+    .graph-box, .gallery-box {
+      padding: 24px;
+      background: var(--bg-light);
+    }
+    .media-box-title {
+      font-size: 16px;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .graph-box img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .photo-card {
+      text-align: center;
+      background: #ffffff;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .photo-card span {
+      display: block;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .program-grid, .reverse-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .program-img-box img {
+        margin: 0 auto;
+      }
+      .literacy-media-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .counter-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </Layout>
