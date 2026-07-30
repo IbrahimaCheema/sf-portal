@@ -420,11 +420,14 @@ const limbsGallery = [
     }
     .photo-img-wrapper {
       position: relative;
+      background: var(--bg-light);
     }
     .photo-img-wrapper img {
       width: 100%;
-      height: 140px;
-      object-fit: cover;
+      height: 180px;
+      object-fit: contain;
+      object-position: center top;
+      background: #f8faf8;
     }
     .photo-overlay {
       position: absolute;
