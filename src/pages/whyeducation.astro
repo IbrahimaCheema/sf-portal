@@ -1,0 +1,629 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schoolGallery = [
+  { r2: "https://docs.sf.org.pk/images/whyedu/whyedu_school_1.png", local: "/images/whyedu/whyedu_school_1.png", title: "Adopted School Renovation" },
+  { r2: "https://docs.sf.org.pk/images/whyedu/whyedu_school_2.png", local: "/images/whyedu/whyedu_school_2.png", title: "Classroom Infrastructure Upgrade" },
+  { r2: "https://docs.sf.org.pk/images/whyedu/whyedu_school_3.png", local: "/images/whyedu/whyedu_school_3.png", title: "Clean Drinking Water Facilities" },
+  { r2: "https://docs.sf.org.pk/images/whyedu/whyedu_school_4.png", local: "/images/whyedu/whyedu_school_4.png", title: "Safety & Stairwell Reconstruction" }
+];
+
+const literacyGraphData = [
+  { year: "2019", count: "1,250", pct: "25%" },
+  { year: "2020", count: "2,100", pct: "40%" },
+  { year: "2021", count: "3,450", pct: "58%" },
+  { year: "2022", count: "4,800", pct: "72%" },
+  { year: "2023", count: "6,200", pct: "86%" },
+  { year: "2024", count: "7,500+", pct: "100%" }
+];
+---
+
+<Layout 
+  title="Why Education? – Shakarganj Foundation"
+  description="Understanding the Education Emergency in Pakistan and how Shakarganj Foundation is providing solutions through adopted schools and adult literacy."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span class="current">Why Education</span>
+      </div>
+      <h1 class="hero_page_title">Why Education?</h1>
+      <p class="hero_subtitle">Addressing Pakistan's Education Emergency through free primary schooling, female literacy, and structural school rehabilitation.</p>
+    </div>
+  </section>
+
+  <!-- Impact Emergency Stats Banner -->
+  <section class="impact-counter-section">
+    <div class="container">
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-num">22.6M</div>
+          <div class="counter-label">Out of School Children in Pakistan</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">55%</div>
+          <div class="counter-label">Out of School Children are Girls (13M+)</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">70%</div>
+          <div class="counter-label">Have Never Attended Any School</div>
+        </div>
+        <div class="counter-card">
+          <div class="counter-num">21%</div>
+          <div class="counter-label">Primary Schools Have Only 1 Teacher</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Transformative Power of Education -->
+  <section class="why-edu-section">
+    <div class="container">
+      <div class="grid-2 align-center">
+        <div class="why-edu-text">
+          <span class="badge badge-primary">FOUNDATIONAL PURPOSE</span>
+          <h2 class="section-title">The Transformative Power of Education</h2>
+          <p class="lead-text">
+            Education allows individuals to develop crucial cognitive skills such as <strong>critical thinking, problem solving, creativity, logic, and mental agility</strong>.
+          </p>
+          <p class="body-text">
+            It helps individuals develop stellar communication skills and a deep understanding of the world around them. When equipped with proper education, individuals are empowered to meet basic job requirements, enabling them to provide for themselves, uplift their families, and break the cycle of generational poverty.
+          </p>
+        </div>
+        <div class="why-edu-img-box card">
+          <div class="zoom-img-wrapper">
+            <img 
+              src="https://docs.sf.org.pk/images/whyedu/whyedu_infographic_1.png" 
+              alt="Education System Breakdown Infographic"
+              loading="lazy"
+              onerror="this.src='/images/whyedu/whyedu_infographic_1.png'"
+            />
+            <div class="photo-overlay">
+              <a href="https://docs.sf.org.pk/images/whyedu/whyedu_infographic_1.png" target="_blank" rel="noopener noreferrer" class="zoom-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span>Click to Zoom Infographic</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: State of Education in Pakistan -->
+  <section class="emergency-section">
+    <div class="container">
+      <div class="emergency-card card">
+        <div class="grid-2 align-center">
+          <div class="emergency-text">
+            <span class="badge badge-accent">NATIONAL CRISIS</span>
+            <h2>State of Education in Pakistan</h2>
+            <div class="emergency-callout">
+              <strong>EDUCATION EMERGENCY:</strong> Pakistan is currently facing a critical education deficit. There are over <strong>22.6 million boys and girls out of school</strong>—representing nearly <strong>44% of all children</strong> nationwide.
+            </div>
+            <p>
+              More than <strong>13 million (55%)</strong> of these out-of-school children are girls. Furthermore, around <strong>70% of out-of-school children have never stepped inside a classroom</strong>.
+            </p>
+          </div>
+          <div class="emergency-img-box">
+            <div class="zoom-img-wrapper">
+              <img 
+                src="https://docs.sf.org.pk/images/whyedu/whyedu_infographic_2.png" 
+                alt="State of Education Statistics Infographic"
+                loading="lazy"
+                onerror="this.src='/images/whyedu/whyedu_infographic_2.png'"
+              />
+              <div class="photo-overlay">
+                <a href="https://docs.sf.org.pk/images/whyedu/whyedu_infographic_2.png" target="_blank" rel="noopener noreferrer" class="zoom-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  <span>Click to Zoom Statistics</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Adult Literacy Beneficiaries Growth Interactive Graph -->
+  <section class="graph-section">
+    <div class="container">
+      <div class="graph-box card">
+        <div class="graph-header">
+          <span class="badge badge-primary">GROWTH METRICS</span>
+          <h2>Adult Literacy Beneficiaries Growth</h2>
+          <p>Tracking the rapid expansion of female adult literacy centers and beneficiaries across District Jhang.</p>
+        </div>
+
+        <div class="interactive-graph-container">
+          <div class="graph-bars-wrapper">
+            {literacyGraphData.map((item) => (
+              <div class="graph-column" data-year={item.year} data-count={item.count}>
+                <div class="bar-value-badge">{item.count}</div>
+                <div class="bar-track">
+                  <div class="bar-fill" style={`height: ${item.pct};`}>
+                    <div class="bar-glow"></div>
+                  </div>
+                </div>
+                <div class="bar-label">{item.year}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="graph-footer-controls">
+            <div class="graph-legend">
+              <span class="legend-dot"></span>
+              <span>Total Female Literacy Beneficiaries</span>
+            </div>
+            <a href="https://docs.sf.org.pk/images/whyedu/whyedu_infographic_1.png" target="_blank" rel="noopener noreferrer" class="zoom-graph-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Click to Zoom Full Resolution Graph</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: State of Schools Infrastructure & Gallery -->
+  <section class="schools-section">
+    <div class="container">
+      <div class="schools-intro text-center">
+        <span class="badge badge-accent">INFRASTRUCTURE MISSION</span>
+        <h2 class="section-title">State of Government Schools</h2>
+        <p class="max-600">
+          Government primary schools in rural Pakistan often face severe infrastructural decay. <strong>21% of Government Primary Schools operate with only a single teacher</strong>, and <strong>14% operate in a single room</strong>. Shakarganj Foundation adopts public schools to rebuild classrooms, add clean drinking water, and restore dignity to learning.
+        </p>
+        <a href="/education" class="btn btn-primary" style="margin-top: 15px;">Explore Adopted Schools Roster & Initiatives</a>
+      </div>
+
+      <div class="gallery-wrapper">
+        <h4 class="gallery-header-title">Shakarganj Foundation School Rehabilitation Gallery</h4>
+        <div class="grid-4 gallery-grid">
+          {schoolGallery.map((item) => (
+            <div class="photo-card card">
+              <div class="photo-img-wrapper">
+                <img 
+                  src={item.r2} 
+                  alt={item.title}
+                  loading="lazy"
+                  onerror={`this.src='${item.local}'`}
+                />
+                <div class="photo-overlay">
+                  <a href={item.r2} target="_blank" rel="noopener noreferrer" class="zoom-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Zoom</span>
+                  </a>
+                </div>
+              </div>
+              <div class="photo-caption">{item.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Education is the Only Solution -->
+  <section class="solution-section">
+    <div class="container">
+      <div class="solution-box card">
+        <div class="solution-header text-center">
+          <span class="badge badge-gold">HOLISTIC IMPACT</span>
+          <h2>Education is the Only Solution</h2>
+          <p>
+            Education is the fundamental remedy for the social and economic challenges facing our nation. It provides the knowledge required to eliminate poverty, ensure clean water access, and foster financial stability through meaningful employment. Together, we can eradicate:
+          </p>
+        </div>
+
+        <div class="eradicate-grid">
+          <div class="eradicate-card">
+            <span class="eradicate-icon">💸</span>
+            <h4>Poverty</h4>
+            <p>Creating sustainable income streams through skill building.</p>
+          </div>
+          <div class="eradicate-card">
+            <span class="eradicate-icon">⚖️</span>
+            <h4>Crime</h4>
+            <p>Fostering ethics, critical logic, and social cohesion.</p>
+          </div>
+          <div class="eradicate-card">
+            <span class="eradicate-icon">🛑</span>
+            <h4>Child Labor</h4>
+            <p>Replacing child exploitation with classroom learning.</p>
+          </div>
+          <div class="eradicate-card">
+            <span class="eradicate-icon">🌱</span>
+            <h4>Stunted Growth</h4>
+            <p>Combining primary schooling with free fruit and nutrition drives.</p>
+          </div>
+          <div class="eradicate-card">
+            <span class="eradicate-icon">🏛️</span>
+            <h4>Corruption</h4>
+            <p>Instilling integrity, governance literacy, and civic duty.</p>
+          </div>
+          <div class="eradicate-card">
+            <span class="eradicate-icon">🏥</span>
+            <h4>Global Health Issues</h4>
+            <p>Promoting hygiene, preventive care, and disease awareness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .impact-counter-section {
+      background: var(--primary-dark);
+      padding: 35px 0;
+      color: #ffffff;
+    }
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .counter-card {
+      text-align: center;
+      padding: 10px;
+    }
+    .counter-num {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    .counter-label {
+      font-size: 13.5px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .why-edu-section {
+      padding: 60px 0;
+      background: var(--bg-white);
+    }
+    .section-title {
+      font-size: 26px;
+      color: var(--primary-dark);
+      margin: 10px 0 16px;
+    }
+    .lead-text {
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+    .body-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+
+    .zoom-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+    }
+    .zoom-img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .zoom-img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 77, 0, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .zoom-img-wrapper:hover .photo-overlay {
+      opacity: 1;
+    }
+    .zoom-btn {
+      background: var(--accent-gold);
+      color: #000000;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .emergency-section {
+      padding: 30px 0 60px;
+      background: var(--bg-light);
+    }
+    .emergency-card {
+      padding: 35px;
+      background: #ffffff;
+      border-left: 5px solid #d9534f;
+    }
+    .emergency-card h2 {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 10px 0 14px;
+    }
+    .emergency-callout {
+      background: #fff5f5;
+      border: 1px solid #ffcdd2;
+      color: #c62828;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    /* Graph Section */
+    .graph-section {
+      padding: 50px 0;
+      background: var(--bg-white);
+    }
+    .graph-box {
+      padding: 35px;
+      background: var(--bg-light);
+      border-top: 4px solid var(--accent-gold);
+    }
+    .graph-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .graph-header h2 {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 8px 0 6px;
+    }
+    .interactive-graph-container {
+      background: #ffffff;
+      padding: 30px 20px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+    .graph-bars-wrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      height: 240px;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 10px;
+    }
+    .graph-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 60px;
+      height: 100%;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .bar-value-badge {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .bar-track {
+      width: 32px;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      background: #f0f4f0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      width: 100%;
+      background: linear-gradient(180deg, var(--accent-gold) 0%, var(--primary-color) 100%);
+      border-radius: 6px 6px 0 0;
+      position: relative;
+      transition: height 0.6s ease;
+    }
+    .graph-column:hover .bar-fill {
+      filter: brightness(1.15);
+    }
+    .bar-label {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .graph-footer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-light);
+    }
+    .graph-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+    }
+    .zoom-graph-btn {
+      background: var(--primary-color);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .zoom-graph-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Schools Section */
+    .schools-section {
+      padding: 60px 0;
+      background: var(--bg-light);
+    }
+    .schools-intro {
+      margin-bottom: 35px;
+    }
+    .max-600 {
+      max-width: 650px;
+      margin: 12px auto 0;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .gallery-wrapper {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-light);
+    }
+    .gallery-header-title {
+      font-size: 16px;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .photo-card {
+      background: #ffffff;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition-fast);
+      border: 1px solid var(--border-light);
+    }
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .photo-img-wrapper {
+      position: relative;
+      background: #f8faf8;
+    }
+    .photo-img-wrapper img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      object-position: center top;
+      background: #f8faf8;
+    }
+    .photo-card:hover .photo-overlay {
+      opacity: 1;
+    }
+    .photo-caption {
+      padding: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+    }
+
+    /* Eradicate Grid */
+    .solution-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .solution-box {
+      padding: 40px 35px;
+      background: var(--bg-light);
+      border-top: 4px solid var(--primary-color);
+    }
+    .solution-header h2 {
+      font-size: 24px;
+      color: var(--primary-dark);
+      margin: 8px 0 10px;
+    }
+    .solution-header p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+    .eradicate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .eradicate-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--accent-gold);
+      box-shadow: var(--shadow-sm);
+    }
+    .eradicate-icon {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .eradicate-card h4 {
+      font-size: 16px;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+    .eradicate-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .eradicate-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .counter-grid {
+        grid-template-columns: 1fr;
+      }
+      .eradicate-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .graph-footer-controls {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</Layout>
