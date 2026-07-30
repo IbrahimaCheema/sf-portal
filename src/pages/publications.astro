@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const publications = [
   {
     id: "pub-1",
+    slug: "service-above-self",
     title: "Service Above Self",
     category: "Community Welfare",
     author: "Muhammad Saifullah",
@@ -16,6 +17,7 @@ const publications = [
   },
   {
     id: "pub-2",
+    slug: "drug-addiction-among-youth-a-growing-challenge-in-our-community",
     title: "Drug Addiction Among Youth: A Growing Challenge in Our Community",
     category: "Public Health",
     author: "Dr. Shahid Hussain",
@@ -28,6 +30,7 @@ const publications = [
   },
   {
     id: "pub-3",
+    slug: "building-hope-enriching-lives",
     title: "Building Hope, Enriching Lives",
     category: "Community Welfare",
     author: "Muhammad Pervez Akhtar",
@@ -40,6 +43,7 @@ const publications = [
   },
   {
     id: "pub-4",
+    slug: "diabetes-its-impact-on-our-life-and-its-management",
     title: "Diabetes: Its Impact on Our Life and Its Management",
     category: "Public Health",
     author: "Dr. Muhammad Aamir",
@@ -52,6 +56,7 @@ const publications = [
   },
   {
     id: "pub-5",
+    slug: "the-most-powerful-weapon-to-change-the-world",
     title: "The Most Powerful Weapon to Change the World",
     category: "Education",
     author: "Samra Ashraf",
@@ -64,6 +69,7 @@ const publications = [
   },
   {
     id: "pub-6",
+    slug: "from-learning-to-livelihood-how-skills-transform-communities",
     title: "From Learning to Livelihood: How Skills Transform Communities",
     category: "Vocational Skills",
     author: "Muhammad Hussain Malik",
@@ -76,6 +82,7 @@ const publications = [
   },
   {
     id: "pub-7",
+    slug: "a-long-road-ahead-the-struggle-for-gender-equality",
     title: "A Long Road Ahead: The Struggle for Gender Equality",
     category: "Social Empowerment",
     author: "Mustapha Altaf Saleem",
@@ -88,6 +95,7 @@ const publications = [
   },
   {
     id: "pub-8",
+    slug: "importance-of-cultural-competence-in-social-work",
     title: "Importance of Cultural Competence in Social Work",
     category: "Social Empowerment",
     author: "Muhammad Hussain Malik",
@@ -100,6 +108,7 @@ const publications = [
   },
   {
     id: "pub-9",
+    slug: "article-8",
     title: "Smog In Pakistan: Causes, Impacts, and Solutions",
     category: "Environmental Health",
     author: "Dr. Shahid Hussain",
@@ -112,6 +121,7 @@ const publications = [
   },
   {
     id: "pub-10",
+    slug: "article-7",
     title: "Need Awareness on Breast Cancer in Pakistan",
     category: "Public Health",
     author: "Dr. Muhammad Aamir",
@@ -124,6 +134,7 @@ const publications = [
   },
   {
     id: "pub-11",
+    slug: "article-6",
     title: "Importance of Education in Pakistan",
     category: "Education",
     author: "Samra Ashraf",
@@ -136,6 +147,7 @@ const publications = [
   },
   {
     id: "pub-12",
+    slug: "article-5",
     title: "Revolutionizing Education for Underserved Children with Technology",
     category: "Education",
     author: "Mustapha Altaf Saleem",
@@ -148,6 +160,7 @@ const publications = [
   },
   {
     id: "pub-13",
+    slug: "providing-education-and-healthcare-to-underprivileged-children-a-national-duty",
     title: "Providing Education and Healthcare to Underprivileged Children: A National Duty",
     category: "Education",
     author: "Mustapha Altaf Saleem",
@@ -160,6 +173,7 @@ const publications = [
   },
   {
     id: "pub-14",
+    slug: "assessment-of-drinking-water-quality-in-jhang",
     title: "Drinking Water Quality in Jhang – A Comprehensive Survey",
     category: "Public Health",
     author: "Dr. Shahid Hussain",
@@ -172,6 +186,7 @@ const publications = [
   },
   {
     id: "pub-15",
+    slug: "impact-of-healthcare-program-on-rural-areas",
     title: "Impact of Healthcare Program on Rural Areas",
     category: "Public Health",
     author: "Dr. Muhammad Aamir",
@@ -184,6 +199,7 @@ const publications = [
   },
   {
     id: "pub-16",
+    slug: "impact-of-nutritional-programs",
     title: "Impact of Nutritional Programs",
     category: "Public Health",
     author: "Samra Ashraf",
@@ -305,10 +321,10 @@ const welfareCount = publications.filter(p => p.category === 'Community Welfare'
 
               <p class="pub-summary">{item.summary}</p>
 
-              <button class="open-pub-btn" data-index={index}>
-                <span>READ ARTICLE DETAILS</span>
+              <a href={`/works/${item.slug}`} class="open-pub-btn">
+                <span>READ ARTICLE</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
+              </a>
             </div>
           </div>
         ))}
