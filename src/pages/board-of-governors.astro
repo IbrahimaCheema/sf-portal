@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const boardMembers = [
+  {
+    name: "Mian Altaf M. Saleem",
+    role: "Chairman",
+    joined: "2004",
+    r2Img: "https://docs.sf.org.pk/images/board_altaf_saleem.png",
+    localImg: "/images/board_altaf_saleem.png",
+    isChairman: true
+  },
+  {
+    name: "Mr. Rashid Ahmad",
+    role: "Vice Chairman",
+    joined: "2007",
+    r2Img: "https://docs.sf.org.pk/images/board_rashid_ahmad.jpg",
+    localImg: "/images/board_rashid_ahmad.jpg",
+    isViceChairman: true
+  },
+  {
+    name: "Mian Anjum M. Saleem",
+    role: "Member",
+    joined: "2016",
+    r2Img: "https://docs.sf.org.pk/images/board_anjum_saleem.png",
+    localImg: "/images/board_anjum_saleem.png"
+  },
+  {
+    name: "Mian Ahsan M. Saleem",
+    role: "Member",
+    joined: "2004",
+    r2Img: "https://docs.sf.org.pk/images/board_ahsan_saleem.jpg",
+    localImg: "/images/board_ahsan_saleem.jpg"
+  },
+  {
+    name: "Mian Ali Altaf Saleem",
+    role: "Member",
+    joined: "2009",
+    r2Img: "https://docs.sf.org.pk/images/board_ali_altaf.jpg",
+    localImg: "/images/board_ali_altaf.jpg"
+  },
+  {
+    name: "M. Awais Qureshi",
+    role: "Member",
+    joined: "2012",
+    r2Img: "https://docs.sf.org.pk/images/board_awais_qureshi.jpg",
+    localImg: "/images/board_awais_qureshi.jpg"
+  },
+  {
+    name: "M. Pervez Akhtar",
+    role: "Member",
+    joined: "2012",
+    r2Img: "https://docs.sf.org.pk/images/board_pervez_akhtar.png",
+    localImg: "/images/board_pervez_akhtar.png"
+  },
+  {
+    name: "Mr. Sarfraz Mahmood",
+    role: "Member",
+    joined: "2004",
+    r2Img: "https://docs.sf.org.pk/images/board_sarfraz_mahmood.jpg",
+    localImg: "/images/board_sarfraz_mahmood.jpg"
+  }
+];
+---
+
+<Layout 
+  title="Board of Governors – Shakarganj Foundation"
+  description="Meet the esteemed Board of Governors providing strategic leadership, governance, and institutional direction to Shakarganj Foundation."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/about-us/">About Us</a> <span>›</span>
+        <span class="current">Board of Governors</span>
+      </div>
+      <h1 class="hero_page_title">Board of Governors</h1>
+      <p class="hero_subtitle">Distinguished leaders driving strategic governance, accountability, and philanthropic expansion across Pakistan.</p>
+    </div>
+  </section>
+
+  <!-- Board Members Section -->
+  <section class="board-section">
+    <div class="container">
+      
+      <div class="section-intro">
+        <span class="badge badge-primary">GOVERNANCE & LEADERSHIP</span>
+        <h2 class="section-title">Institutional Leadership</h2>
+        <div class="title-decorator"></div>
+        <p class="section-subtitle">Our Board of Governors comprises seasoned industrial leaders, legal minds, and public servants who guide the foundation’s vision and ethical standards.</p>
+      </div>
+
+      <div class="grid-4 board-grid">
+        {boardMembers.map((member) => (
+          <div class={`card member-card ${member.isChairman ? 'card-chairman' : ''} ${member.isViceChairman ? 'card-vice-chairman' : ''}`}>
+            <div class="member-img-wrapper">
+              <img 
+                src={member.r2Img} 
+                alt={member.name} 
+                loading="lazy"
+                onerror={`this.src='${member.localImg}'`}
+              />
+            </div>
+            <div class="card-body text-center">
+              <h3 class="member-name">{member.name}</h3>
+              <p class="member-role">{member.role}</p>
+              <div class="induction-badge">
+                <span>Joined: <strong>{member.joined}</strong></span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .board-section {
+      padding: 60px 0 80px;
+      background: var(--bg-white);
+    }
+    .section-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .member-card {
+      background: var(--bg-light);
+      border-top: 4px solid var(--primary-color);
+      transition: var(--transition-fast);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-chairman {
+      border-top: 5px solid var(--accent-gold);
+      box-shadow: var(--shadow-md);
+    }
+    .card-vice-chairman {
+      border-top: 5px solid #007a00;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .member-img-wrapper {
+      background: #ffffff;
+      padding: 16px 16px 0;
+      text-align: center;
+    }
+    .member-img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .member-name {
+      font-size: 17.5px;
+      color: #ff9c1e;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .member-role {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    .induction-badge {
+      display: inline-block;
+      background: rgba(0, 77, 0, 0.08);
+      color: var(--text-dark);
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+    .induction-badge strong {
+      color: var(--primary-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .board-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .board-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
