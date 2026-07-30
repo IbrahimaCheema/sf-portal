@@ -1,0 +1,333 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Talib Hussain Education Scholarship – Shakarganj Foundation"
+  description="Apply for the Talib Hussain Education Scholarship providing merit-cum-need financial grants to deserving students in memory of Shakarganj's 49-year veteran."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/education/">Education</a> <span>›</span>
+        <span class="current">Talib Hussain Education Scholarship</span>
+      </div>
+      <h1 class="hero_page_title">Talib Hussain Education Scholarship</h1>
+      <p class="hero_subtitle">Empowering bright minds and supporting underprivileged students in pursuit of higher learning and academic excellence.</p>
+    </div>
+  </section>
+
+  <!-- Overview & History Section -->
+  <section class="scholarship-overview-section">
+    <div class="container">
+      
+      <div class="overview-grid">
+        <div class="poster-box card">
+          <img 
+            src="https://docs.sf.org.pk/images/talib_hussain_scholarship.png" 
+            alt="Talib Hussain Education Scholarship Poster"
+            loading="lazy"
+            onerror="this.src='/images/talib_hussain_scholarship.png'"
+          />
+        </div>
+        <div class="story-box">
+          <span class="badge badge-accent">INAUGURATED SEPT 07, 2023</span>
+          <h2 class="section-title">A Legacy of Service and Passion for Learning</h2>
+          <div class="title-decorator"></div>
+          <p class="story-lead">
+            <strong>Mr. Talib Hussain</strong> worked at Shakarganj Limited for <strong>49 years</strong> and remains one of the organization’s longest-serving employees to date.
+          </p>
+          <p class="story-text">
+            On September 07, 2023, Shakarganj Foundation inaugurated the <strong>Talib Hussain Education Scholarship</strong> in his cherished memory. His profound affection for sports, reading, writing poetry, and, most importantly, his unwavering passion for learning strongly aligns with the core values of the Shakarganj Foundation, encapsulated in its motto: <em>Health and Education for Everyone.</em>
+          </p>
+          
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <span class="benefit-icon">📚</span>
+              <div>
+                <h4 class="benefit-title">Full Tuition Coverage</h4>
+                <p class="benefit-desc">Financial assistance covering annual tuition fees for deserving scholars.</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <span class="benefit-icon">🎓</span>
+              <div>
+                <h4 class="benefit-title">All Education Levels</h4>
+                <p class="benefit-desc">Open for Primary, Secondary, Intermediate, and University degree programs.</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <span class="benefit-icon">🏅</span>
+              <div>
+                <h4 class="benefit-title">Merit & Need Based</h4>
+                <p class="benefit-desc">Awarded to high achievers with proven financial need across District Jhang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Application Form Section -->
+  <section class="scholarship-form-section">
+    <div class="container">
+      
+      <div class="form-wrapper card">
+        <div class="form-header text-center">
+          <span class="badge badge-primary">ONLINE APPLICATION</span>
+          <h2 class="section-title">Scholarship Application & Inquiry Form</h2>
+          <div class="title-decorator center-decorator"></div>
+          <p class="section-subtitle">Fill in your academic details below to apply for the Talib Hussain Education Scholarship grant.</p>
+        </div>
+
+        <form id="scholarship-form" class="application-form">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="applicant_name">Full Name <span class="required">*</span></label>
+              <input type="text" id="applicant_name" name="applicant_name" placeholder="Enter student's full name" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="father_name">Father / Guardian Name <span class="required">*</span></label>
+              <input type="text" id="father_name" name="father_name" placeholder="Enter father's or guardian's name" required class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="applicant_email">Email Address <span class="required">*</span></label>
+              <input type="email" id="applicant_email" name="applicant_email" placeholder="name@example.com" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="applicant_phone">Phone / WhatsApp Number <span class="required">*</span></label>
+              <input type="tel" id="applicant_phone" name="applicant_phone" placeholder="0300-1234567" required class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label for="education_level">Current Academic Level <span class="required">*</span></label>
+              <select id="education_level" name="education_level" required class="form-control">
+                <option value="">Select Level...</option>
+                <option value="Primary / Middle">Primary / Middle School</option>
+                <option value="Matriculation">Matriculation (9th / 10th)</option>
+                <option value="Intermediate">Intermediate (FSc / FA / ICS)</option>
+                <option value="Undergraduate">Undergraduate Degree (BS / BSc)</option>
+                <option value="Postgraduate">Postgraduate (MS / MSc)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="academic_marks">Latest Examination Marks % <span class="required">*</span></label>
+              <input type="text" id="academic_marks" name="academic_marks" placeholder="e.g. 85%" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="institute_name">School / College / University <span class="required">*</span></label>
+              <input type="text" id="institute_name" name="institute_name" placeholder="Name of institution" required class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant_statement">Statement of Need / Academic Goals <span class="required">*</span></label>
+            <textarea id="applicant_statement" name="applicant_statement" rows="4" placeholder="Briefly describe why you are applying for this scholarship and your career aspirations..." required class="form-control"></textarea>
+          </div>
+
+          <div class="text-center form-submit-btn-box">
+            <button type="submit" class="btn btn-primary btn-large">
+              <span>Submit Scholarship Application</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+
+          <div id="form-status-msg" class="status-message" style="display: none;"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .scholarship-overview-section {
+      padding: 60px 0;
+      background: var(--bg-white);
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .poster-box {
+      padding: 12px;
+      background: var(--bg-light);
+      border-top: 4px solid var(--accent-gold);
+    }
+    .poster-box img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .story-lead {
+      font-size: 17px;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .story-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .benefit-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--primary-color);
+    }
+    .benefit-icon {
+      font-size: 22px;
+    }
+    .benefit-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 2px;
+    }
+    .benefit-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .scholarship-form-section {
+      padding: 40px 0 80px;
+      background: var(--bg-light);
+    }
+    .form-wrapper {
+      padding: 40px;
+      background: #ffffff;
+      border-top: 5px solid var(--primary-color);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .center-decorator {
+      margin: 12px auto 16px;
+    }
+    .application-form {
+      margin-top: 30px;
+    }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .required {
+      color: var(--accent-gold);
+    }
+    .form-control {
+      padding: 12px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--text-dark);
+      background: #fafafa;
+      transition: var(--transition-fast);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 77, 0, 0.1);
+    }
+    .form-submit-btn-box {
+      margin-top: 10px;
+    }
+    .btn-large {
+      padding: 14px 36px;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .status-message {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-weight: 600;
+      font-size: 14.5px;
+    }
+    .status-success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+      .poster-box {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .form-grid-2, .form-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('scholarship-form');
+      const msg = document.getElementById('form-status-msg');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (msg) {
+            msg.className = 'status-message status-success';
+            msg.textContent = 'Thank you! Your scholarship application has been received. Our review committee will contact you shortly.';
+            msg.style.display = 'block';
+            form.reset();
+          }
+        });
+      }
+    });
+  </script>
+</Layout>
