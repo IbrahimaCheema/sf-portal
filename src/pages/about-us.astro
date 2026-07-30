@@ -19,16 +19,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Top Action Bar -->
-  <section class="top-action-bar">
-    <div class="container action-container">
-      <a href="/donate-now/" class="btn btn-donate">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
-        DONATE NOW
-      </a>
-    </div>
-  </section>
-
   <!-- Main Content Area -->
   <section class="main-content-section">
     <div class="container">
@@ -232,34 +222,6 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <style>
-    /* Top Action Bar */
-    .top-action-bar {
-      padding: 16px 0;
-      background: var(--bg-white);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .action-container {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .btn-donate {
-      background: transparent;
-      border: 2px solid var(--accent-gold);
-      color: #b36b00;
-      font-weight: 700;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: var(--transition-fast);
-    }
-    .btn-donate:hover {
-      background: var(--accent-gold);
-      color: #000000;
-      box-shadow: 0 4px 12px rgba(255, 167, 53, 0.3);
-    }
-
     /* Main Content Section */
     .main-content-section {
       padding: 50px 0 60px;
