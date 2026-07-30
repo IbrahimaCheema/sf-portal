@@ -104,47 +104,54 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 🎯 Standard Top Page Hero Banner (.page_hero_banner) */
 .page_hero_banner {
-  background: linear-gradient(135deg, #004d00 0%, #002b00 100%);
+  background: linear-gradient(135deg, #ffa735 0%, #e59325 100%);
   color: #ffffff;
   padding: 55px 0 45px;
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 4px solid var(--primary-color);
+  box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .hero_breadcrumbs {
-  font-size: 13px;
-  color: #a0c8a0;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  font-weight: 500;
 }
 
 .hero_breadcrumbs a {
-  color: #c0e0c0;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .hero_breadcrumbs a:hover {
-  color: var(--accent-gold);
+  color: var(--primary-dark);
 }
 
 .hero_breadcrumbs span.current {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero_page_title {
-  font-size: 36px;
+  font-size: 38px;
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 10px;
   color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .hero_subtitle {
-  font-size: 16px;
-  color: #e0f0e0;
-  max-width: 750px;
+  font-size: 16.5px;
+  color: #ffffff;
+  max-width: 780px;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 /* 🔘 Buttons & Badges */
