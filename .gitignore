@@ -25,3 +25,6 @@ public/*.jpg
 public/*.jpeg
 public/*.webp
 public/*.gif
+!public/favicon*
+!public/apple-touch-icon*
+
