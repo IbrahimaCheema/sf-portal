@@ -10,10 +10,40 @@ interface Props {
 }
 
 const { 
-  title = "Shakarganj Foundation – Empowering Communities Across Pakistan", 
-  description = "Official website of Shakarganj Foundation. Dedicated to educational scholarships, community healthcare, child nutrition, and social empowerment.",
+  title = "Uplifting Communities & Transforming Lives | Shakarganj Foundation", 
+  description = "Shakarganj Foundation is dedicated to educational scholarships, community healthcare, child nutrition, and social empowerment across Pakistan.",
   image = "https://docs.sf.org.pk/images/sf_logo_bg.png"
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Shakarganj Foundation",
+  "url": "https://sf.org.pk",
+  "logo": "https://docs.sf.org.pk/images/sf_logo_bg.png",
+  "image": image,
+  "description": description,
+  "foundingDate": "2000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5 km, Toba Tek Singh Road",
+    "addressLocality": "Jhang",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-47-7631001",
+    "contactType": "customer service",
+    "email": "info@sf.org.pk"
+  },
+  "sameAs": [
+    "https://www.facebook.com/shakarganjfoundation",
+    "https://www.instagram.com/shakarganjfoundation/",
+    "https://www.linkedin.com/company/shakarganj-foundation"
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -27,24 +57,33 @@ const {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
     
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
+
   <body>
     <Header />
     <main>
