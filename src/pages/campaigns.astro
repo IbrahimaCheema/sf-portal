@@ -718,9 +718,10 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
                 img.loading = 'lazy';
 
                 img.onerror = function() {
-                  if (item.localMainImg && !this.src.endsWith(item.localMainImg)) {
-                    this.src = item.localMainImg;
-                    a.href = item.localMainImg;
+                  const localFallback = (item.localGallery && item.localGallery[i]) || item.localMainImg;
+                  if (localFallback && !this.src.endsWith(localFallback)) {
+                    this.src = localFallback;
+                    a.href = localFallback;
                   } else {
                     a.remove();
                     if (!modalGalleryGrid.children.length) {
