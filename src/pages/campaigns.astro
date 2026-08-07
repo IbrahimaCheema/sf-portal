@@ -336,8 +336,8 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
     .card-img-wrapper img {
       width: 150px;
       height: 150px;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: contain;
+      object-position: center center;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(0, 0, 0, 0.06);
@@ -675,21 +675,72 @@ const welfareCount = campaignsData.filter(c => c.category === 'Community Welfare
             modalDate.textContent = item.date ? `📅 ${item.date}` : '';
             modalDesc.textContent = item.fullDesc;
 
-            if (item.r2MainImg) {
-              modalHeroImg.src = item.r2MainImg;
+            const primaryImg = item.r2MainImg || item.localMainImg;
+            if (primaryImg) {
+              modalHeroImg.src = primaryImg;
               modalHeroImg.alt = item.title;
+              modalHeroImg.style.cursor = 'pointer';
+              modalHeroImg.title = 'Click to open full image';
+              modalHeroImg.onclick = function() {
+                if (this.src) window.open(this.src, '_blank');
+              };
+              modalHeroImg.onerror = function() {
+                this.onerror = null;
+                this.src = item.localMainImg || '/images/sf_logo_bg.png';
+              };
               modalHeroBox.style.display = 'block';
             } else {
               modalHeroBox.style.display = 'none';
             }
 
-            // Gallery
-            if (item.gallery && item.gallery.length > 0) {
-              modalGalleryGrid.innerHTML = item.gallery.map(url => `
-                <a href="${url}" target="_blank" rel="noopener noreferrer">
-                  <img src="${url}" alt="Campaign Photo" loading="lazy" />
-                </a>
-              `).join('');
+            // Gallery handling with fallback and interactive preview
+            modalGalleryGrid.innerHTML = '';
+            const rawGallery = (item.gallery && item.gallery.length > 0) 
+              ? item.gallery.filter(u => u && !u.includes('wp-content'))
+              : [];
+            
+            const galleryUrls = (rawGallery.length > 0) 
+              ? rawGallery 
+              : (primaryImg ? [primaryImg] : []);
+
+            if (galleryUrls.length > 0) {
+              galleryUrls.forEach((url, i) => {
+                const a = document.createElement('a');
+                a.href = url;
+                a.className = 'modal-gallery-item-link';
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.style.cursor = 'pointer';
+
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = `${item.title} Photo ${i + 1}`;
+                img.loading = 'lazy';
+
+                img.onerror = function() {
+                  if (item.localMainImg && !this.src.endsWith(item.localMainImg)) {
+                    this.src = item.localMainImg;
+                    a.href = item.localMainImg;
+                  } else {
+                    a.remove();
+                    if (!modalGalleryGrid.children.length) {
+                      modalGallerySec.style.display = 'none';
+                    }
+                  }
+                };
+
+                a.addEventListener('click', (e) => {
+                  if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+                  e.preventDefault();
+                  modalHeroImg.src = url;
+                  modalHeroBox.style.display = 'block';
+                  modalHeroBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+
+                a.appendChild(img);
+                modalGalleryGrid.appendChild(a);
+              });
+              
               modalGallerySec.style.display = 'block';
             } else {
               modalGallerySec.style.display = 'none';
