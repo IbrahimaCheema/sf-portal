@@ -1,9 +1,9 @@
 # Project Agent Rules
 
 ## Git Push Protocol
-- **CRITICAL MANDATORY RULE**: NEVER execute `git push` or push changes to any remote Git repository (GitHub/GitLab/etc.) without explicit, unambiguous user instructions in the conversation (e.g., the user explicitly typing "push to git", "push to github", "run git push").
-- You may build, format, test, and commit changes locally if requested, but **NEVER run `git push` autonomously**.
-- Always wait for exclusive user instructions before running any git push operation.
+- **CRITICAL MANDATORY RULE**: NEVER execute `git push` or push changes to any remote Git repository (GitHub/GitLab/etc.) without explicit user instructions, EXCEPT for post addition requests (`add post ...`), where the user has explicitly commanded to always automatically execute `git push` upon completing the post addition.
+- For all non-post modifications, wait for explicit user instructions before running any git push operation.
+- **POST ADDITIONS OVERRIDE**: Always automatically push changes to `origin main` after adding new posts to the portal.
 
 ## Greeting & Workspace Initialization Reminder
 - Whenever a new workspace session starts, greet the user warmly and remind them they can start with:
