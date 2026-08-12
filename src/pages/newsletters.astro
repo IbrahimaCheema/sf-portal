@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const newsletters = [
+  {
+    id: "nl-25-26",
+    title: "Shakarganj Foundation Newsletter (2025-26)",
+    year: "2025-26",
+    localImg: "/images/newsletters/sf_newsletter_2025_26.jpg",
+    localPdf: "/documents/SF_Newsletter_2025_26.pdf",
+    r2Img: "https://docs.sf.org.pk/images/newsletters/sf_newsletter_2025_26.jpg",
+    r2Pdf: "https://docs.sf.org.pk/documents/SF_Newsletter_2025_26.pdf"
+  },
+  {
+    id: "nl-24-25",
+    title: "Shakarganj Foundation Newsletter (2024-25)",
+    year: "2024-25",
+    localImg: "/images/newsletters/sf_newsletter_2024_25.jpg",
+    localPdf: "/documents/SF_Newsletter_2024_25.pdf",
+    r2Img: "https://docs.sf.org.pk/images/newsletters/sf_newsletter_2024_25.jpg",
+    r2Pdf: "https://docs.sf.org.pk/documents/SF_Newsletter_2024_25.pdf"
+  },
+  {
+    id: "nl-23-24",
+    title: "Shakarganj Foundation Newsletter (2023-24)",
+    year: "2023-24",
+    localImg: "/images/newsletters/sf_newsletter_2023_24.jpg",
+    localPdf: "/documents/SF_Newsletter_2023_24.pdf",
+    r2Img: "https://docs.sf.org.pk/images/newsletters/sf_newsletter_2023_24.jpg",
+    r2Pdf: "https://docs.sf.org.pk/documents/SF_Newsletter_2023_24.pdf"
+  }
+];
+---
+
+<Layout 
+  title="Newsletters – Shakarganj Foundation"
+  description="Read the latest newsletters from Shakarganj Foundation highlighting our community impact and recent initiatives."
+>
+  <!-- Standard Top Page Hero Banner -->
+  <section class="page_hero_banner">
+    <div class="container">
+      <div class="hero_breadcrumbs">
+        <a href="/">Home</a> <span>›</span>
+        <span>Media</span> <span>›</span>
+        <span class="current">Newsletter</span>
+      </div>
+      <h1 class="hero_page_title">Newsletters</h1>
+      <p class="hero_subtitle">Stay updated with our latest community initiatives, educational programs, and healthcare milestones.</p>
+    </div>
+  </section>
+
+  <!-- Main Newsletter Section -->
+  <section class="newsletter-explorer-section">
+    <div class="container">
+      
+      <div class="newsletters-grid">
+        {newsletters.map((item, index) => (
+          <div class="card nl-card" data-index={index}>
+            <div class="nl-img-frame">
+              <!-- Primary source is R2 CDN, fallback to localImg -->
+              <img 
+                src={item.r2Img} 
+                alt={item.title} 
+                loading="lazy"
+                onerror={`this.src='${item.localImg}'`}
+              />
+              <span class="badge badge-accent category-badge">{item.year}</span>
+            </div>
+
+            <div class="nl-card-body">
+              <h3 class="nl-title">{item.title}</h3>
+              
+              <p class="nl-summary">
+                Discover the highlights, stories, and impact of Shakarganj Foundation during the {item.year} term.
+              </p>
+
+              <a href={item.r2Pdf} target="_blank" rel="noopener noreferrer" class="open-nl-btn">
+                <span>VIEW NEWSLETTER</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .newsletter-explorer-section {
+      padding: 60px 0 80px;
+      background: var(--bg-light);
+    }
+
+    .newsletters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .nl-card {
+      background: #ffffff;
+      border-top: 4px solid var(--primary-color);
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .nl-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      border-top-color: var(--accent-gold);
+    }
+
+    .nl-img-frame {
+      position: relative;
+      background: #f4f6f4;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    .nl-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transition: transform 0.4s ease;
+    }
+
+    .nl-card:hover .nl-img-frame img {
+      transform: scale(1.03);
+    }
+
+    .category-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 11px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      background-color: var(--accent-gold);
+      color: #fff;
+    }
+
+    .nl-card-body {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .nl-title {
+      font-size: 19px;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .nl-summary {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    .open-nl-btn {
+      background: var(--bg-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-light);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .open-nl-btn:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+      border-color: var(--primary-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 1050px) {
+      .newsletters-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .newsletters-grid {
+        grid-template-columns: 1fr;
+      }
+      .nl-img-frame {
+        height: auto;
+        min-height: 300px;
+      }
+    }
+  </style>
+</Layout>
