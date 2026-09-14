@@ -47,8 +47,8 @@ const rawDefaultPosts = [
   {
     url: "https://www.instagram.com/p/DdQP6HvAOpb/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
     featureImage: "https://docs.sf.org.pk/images/hd_ig_post_37.jpg",
-    caption: "11th September,2026: Fine Art Class at Shakarganj Foundation's Jhang Art Gallery",
-    date: "14 September, 2026"
+    caption: "Fine Art Class at Shakarganj Foundation's Jhang Art Gallery",
+    date: "11 September, 2026"
   },
   {
     url: "https://www.instagram.com/p/DdIh30JDF5d/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
@@ -399,8 +399,8 @@ const postsToDisplay = (customPosts && customPosts.length > 0)
             let extractedDate = parsed[1].trim();
             let fullText = parsed[2].replace(/^"/, '').replace(/"$/, '').trim();
 
-            // Extract date prefix if description starts with a date like "27th July 2026: Summer Calligraphy..."
-            const datePrefixMatch = fullText.match(/^([0-9]{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+\s+[0-9]{4}|[A-Za-z]+\s+[0-9]{1,2}(?:st|nd|rd|th)?,?\s+[0-9]{4})\s*:\s*(.*)/i);
+            // Extract date prefix if description starts with a date like "11th September,2026: Fine Art..." or "27th July 2026: Summer Calligraphy..."
+            const datePrefixMatch = fullText.match(/^([0-9]{1,2}(?:st|nd|rd|th)?\s*[A-Za-z]+(?:[,\s\-]+[0-9]{4})?|[A-Za-z]+\s*[0-9]{1,2}(?:st|nd|rd|th)?(?:[,\s\-]+[0-9]{4})?)\s*[:\-–—]\s*(.*)/i);
             if (datePrefixMatch) {
               extractedDate = datePrefixMatch[1].trim();
               fullText = datePrefixMatch[2].trim();
