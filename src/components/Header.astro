@@ -54,7 +54,10 @@
         <li><a href="/" class="nav-link">Home</a></li>
         
         <li class="has-dropdown">
-          <a href="/about-us" class="nav-link">About Us <span class="arrow">▾</span></a>
+          <a href="/about-us" class="nav-link dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">
+            <span>About Us</span>
+            <span class="arrow">▾</span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="/about-us">Introduction</a></li>
             <li><a href="/mission-vision">Mission & Vision</a></li>
@@ -68,7 +71,10 @@
         </li>
 
         <li class="has-dropdown">
-          <a href="/education" class="nav-link">Our Work <span class="arrow">▾</span></a>
+          <a href="/education" class="nav-link dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">
+            <span>Our Work</span>
+            <span class="arrow">▾</span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="/education">Education</a></li>
             <li><a href="/healthcare">Healthcare</a></li>
@@ -80,7 +86,10 @@
         <li><a href="/whyeducation" class="nav-link">WHY EDUCATION</a></li>
 
         <li class="has-dropdown">
-          <a href="#" class="nav-link">Media <span class="arrow">▾</span></a>
+          <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true">
+            <span>Media</span>
+            <span class="arrow">▾</span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="/activities-events">Activities & Events</a></li>
             <li><a href="/publications">Publications</a></li>
@@ -93,7 +102,7 @@
       </ul>
     </nav>
 
-    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">
+    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation" aria-expanded="false">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -242,23 +251,15 @@
   }
 
   .arrow {
-    font-size: 10px;
-    transition: transform 0.2s;
+    font-size: 11px;
+    display: inline-block;
+    transition: transform 0.25s ease;
+    margin-left: 4px;
   }
 
   /* 🔽 Dropdown Menus */
   .has-dropdown {
     position: relative;
-  }
-
-  .has-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .has-dropdown:hover .arrow {
-    transform: rotate(180deg);
   }
 
   .dropdown-menu {
@@ -303,11 +304,13 @@
   .mobile-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 6px;
+    z-index: 1001;
   }
 
   .mobile-toggle .bar {
@@ -315,23 +318,57 @@
     height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
   }
 
+  /* Desktop hover interaction */
+  @media (min-width: 993px) {
+    .has-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .has-dropdown:hover .arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* 📱 Mobile Responsive Menu & Accordion */
   @media (max-width: 992px) {
     .mobile-toggle {
       display: flex;
     }
 
+    .mobile-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
     .main-nav {
       position: absolute;
-      top: 80px;
+      top: 100%;
       left: 0;
       width: 100%;
+      max-height: calc(100vh - 80px);
+      max-height: calc(100dvh - 80px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       background: #ffffff;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
       display: none;
-      padding: 20px;
+      padding: 14px 20px 36px 20px;
       border-top: 1px solid var(--border-light);
+      z-index: 999;
     }
 
     .main-nav.active {
@@ -341,29 +378,183 @@
     .nav-list {
       flex-direction: column;
       align-items: stretch;
-      gap: 10px;
+      gap: 4px;
     }
 
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      border-radius: var(--radius-sm);
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+    }
+
+    .has-dropdown.open > .nav-link {
+      color: var(--primary-color);
+      background-color: rgba(0, 77, 0, 0.05);
+    }
+
+    .has-dropdown.open > .nav-link .arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Submenus initially in CLOSED state on mobile */
     .dropdown-menu {
+      display: none;
       position: static;
       opacity: 1;
       visibility: visible;
       transform: none;
       box-shadow: none;
       border: none;
-      padding-left: 15px;
+      background-color: #f7faf7;
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 4px 0;
+      margin: 4px 0 8px 12px;
+    }
+
+    /* Accordion open state */
+    .has-dropdown.open > .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--text-dark);
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .dropdown-menu a:hover,
+    .dropdown-menu a:active {
+      color: var(--primary-color);
+      background-color: rgba(0, 77, 0, 0.08);
+      padding-left: 20px;
+    }
+
+    .btn-donate {
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: center;
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 15px;
     }
   }
 </style>
 
 <script>
-  // Mobile menu toggle logic
-  const toggleBtn = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
+  function setupNavigation() {
+    const toggleBtn = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (!toggleBtn || !mainNav) return;
 
-  if (toggleBtn && mainNav) {
-    toggleBtn.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
+    if (toggleBtn.dataset.navInitialized === 'true') return;
+    toggleBtn.dataset.navInitialized = 'true';
+
+    // 1. Mobile menu toggle (hamburger button)
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = mainNav.classList.toggle('active');
+      toggleBtn.classList.toggle('active', isActive);
+      toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    });
+
+    // 2. Mobile accordion toggle for menus with dropdown
+    const dropdownToggles = mainNav.querySelectorAll('.has-dropdown > .dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        // Only intercept on mobile view (<= 992px)
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const parentLi = toggle.closest('.has-dropdown');
+          if (!parentLi) return;
+
+          const isAlreadyOpen = parentLi.classList.contains('open');
+
+          // Close all other open dropdowns ("other to remain close")
+          mainNav.querySelectorAll('.has-dropdown.open').forEach(item => {
+            if (item !== parentLi) {
+              item.classList.remove('open');
+              const otherToggle = item.querySelector('.dropdown-toggle');
+              if (otherToggle) {
+                otherToggle.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
+
+          // Toggle current dropdown
+          if (isAlreadyOpen) {
+            parentLi.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          } else {
+            parentLi.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        }
+      });
+    });
+
+    // 3. Navigatable links: close mobile nav when clicking any actual destination link
+    const leafLinks = mainNav.querySelectorAll('a:not(.dropdown-toggle)');
+    leafLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          mainNav.classList.remove('active');
+          toggleBtn.classList.remove('active');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // 4. Click outside to dismiss mobile menu
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 992 && mainNav.classList.contains('active')) {
+        if (!mainNav.contains(e.target as Node) && !toggleBtn.contains(e.target as Node)) {
+          mainNav.classList.remove('active');
+          toggleBtn.classList.remove('active');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // 5. Reset states on viewport resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992) {
+        mainNav.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        mainNav.querySelectorAll('.has-dropdown.open').forEach(item => {
+          item.classList.remove('open');
+          const toggle = item.querySelector('.dropdown-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
   }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavigation);
+  } else {
+    setupNavigation();
+  }
+  document.addEventListener('astro:page-load', setupNavigation);
 </script>
