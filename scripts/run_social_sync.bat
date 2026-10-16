@@ -10,4 +10,5 @@ set PYTHONIOENCODING=utf-8
 set PYTHONUTF8=1
 
 cd /d "%PROJECT_DIR%"
+git pull --rebase origin main >> logs\runner_stdout.log 2>&1
 "%PYTHON_EXE%" scripts\sync_social_posts.py >> logs\runner_stdout.log 2>&1

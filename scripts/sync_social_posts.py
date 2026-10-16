@@ -93,8 +93,19 @@ def load_env():
     return env_vars
 
 
-def get_latest_post_shortcode_from_profile():
-    """Scrape @shakarganjfoundation profile using Playwright headless Chromium."""
+def git_pull_rebase():
+    """Ensure local repository is up to date with remote origin main."""
+    log("Synchronizing repository with origin main...")
+    res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True)
+    if res.returncode != 0:
+        log(f"Git pull rebase failed:\n{res.stderr}", level="WARNING")
+        return False
+    log("Repository successfully synchronized with origin main.")
+    return True
+
+
+def get_recent_post_shortcodes_from_profile():
+    """Scrape @shakarganjfoundation profile using Playwright headless Chromium and return list of recent post shortcodes."""
     log("Navigating to Instagram profile via Playwright headless browser...")
     try:
         from playwright.sync_api import sync_playwright
@@ -102,6 +113,7 @@ def get_latest_post_shortcode_from_profile():
         log("Error: playwright is not installed. Install via pip install playwright", level="ERROR")
         sys.exit(1)
 
+    shortcodes = []
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context(
@@ -116,17 +128,25 @@ def get_latest_post_shortcode_from_profile():
                 href = link.get_attribute("href") or ""
                 m = re.search(r"/p/([A-Za-z0-9_-]+)/?", href)
                 if m:
-                    shortcode = m.group(1)
-                    browser.close()
-                    log(f"Discovered latest post shortcode from profile: {shortcode}")
-                    return shortcode
+                    code = m.group(1)
+                    if code not in shortcodes:
+                        shortcodes.append(code)
+            browser.close()
+            log(f"Discovered {len(shortcodes)} post shortcodes from profile: {shortcodes}")
+            return shortcodes
         except Exception as e:
             browser.close()
             log(f"Playwright navigation failed: {e}", level="ERROR")
             raise
 
     browser.close()
-    return None
+    return []
+
+
+def get_latest_post_shortcode_from_profile():
+    """Scrape @shakarganjfoundation profile and return the single newest shortcode."""
+    codes = get_recent_post_shortcodes_from_profile()
+    return codes[0] if codes else None
 
 
 def extract_shortcode(url_or_code):
@@ -432,40 +452,23 @@ def commit_and_push(post_num, caption_summary):
     log(f"Committing: {commit_msg}")
     subprocess.run(["git", "commit", "-m", commit_msg], cwd=BASE_DIR, check=True)
 
+    log("Rebasing against origin main before pushing...")
+    subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True)
+
     log("Pushing commit to origin main...")
     push_res = subprocess.run(["git", "push", "origin", "main"], cwd=BASE_DIR, capture_output=True, text=True)
     if push_res.returncode != 0:
         log(f"Git push failed: {push_res.stderr}", level="ERROR")
         raise RuntimeError(f"Git push failed: {push_res.stderr}")
 
-    log("? Successfully pushed to origin main! Cloudflare Pages build triggered.")
+    log(f"✓ Successfully pushed Post {post_num} to origin main! Cloudflare Pages build triggered.")
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Autonomous Instagram Sync Agent for SF-Portal")
-    parser.add_argument("--url", help="Direct Instagram post URL to add", default=None)
-    parser.add_argument("--dry-run", action="store_true", help="Simulate run without modifying files or git push")
-    parser.add_argument("--force", action="store_true", help="Force processing even if shortcode already exists")
-    args = parser.parse_args()
-
-    log("================================================================================")
-    log("Starting Instagram Social Media Sync Execution")
-    log("================================================================================")
-
-    if args.url:
-        shortcode = extract_shortcode(args.url)
-        log(f"Manual input provided: shortcode '{shortcode}'")
-    else:
-        shortcode = get_latest_post_shortcode_from_profile()
-
-    if not shortcode:
-        log("No Instagram post shortcode found. Exiting.", level="WARNING")
-        sys.exit(0)
-
-    if not args.force and is_already_processed(shortcode):
+def process_single_post(shortcode, dry_run=False, force=False):
+    """Process a single post by shortcode: download, upload to R2, update Astro, build, commit & push."""
+    if not force and is_already_processed(shortcode):
         log(f"Post '{shortcode}' is ALREADY present in ActivitiesEvents.astro. Zero action needed (No duplicate).")
-        log("================================================================================")
-        sys.exit(0)
+        return True
 
     log(f"Post '{shortcode}' is NEW! Proceeding with publication pipeline...")
 
@@ -479,10 +482,9 @@ def main():
     log(f"Extracted Caption: {clean_caption}")
     log(f"Best Image URL: {meta['best_img_url']}")
 
-    if args.dry_run:
+    if dry_run:
         log(f"[DRY-RUN] Would download image, upload to R2, insert into ActivitiesEvents.astro, build, and push Post {post_num}.")
-        log("================================================================================")
-        sys.exit(0)
+        return True
 
     meta_path = os.path.join(SCRIPTS_DIR, f"post_{post_num}_meta.json")
     with open(meta_path, "w", encoding="utf-8") as f:
@@ -507,13 +509,61 @@ def main():
     if not build_ok:
         log("BUILD FAILED! Rolling back ActivitiesEvents.astro...", level="ERROR")
         subprocess.run(["git", "checkout", "--", "src/components/ActivitiesEvents.astro"], cwd=BASE_DIR)
-        sys.exit(1)
+        return False
 
     summary_snip = clean_caption[:45] if len(clean_caption) > 45 else clean_caption
     commit_and_push(post_num, summary_snip)
+    return True
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Autonomous Instagram Sync Agent for SF-Portal")
+    parser.add_argument("--url", help="Direct Instagram post URL to add", default=None)
+    parser.add_argument("--dry-run", action="store_true", help="Simulate run without modifying files or git push")
+    parser.add_argument("--force", action="store_true", help="Force processing even if shortcode already exists")
+    args = parser.parse_args()
 
     log("================================================================================")
-    log(f"Execution Complete: Post {post_num} successfully published to production.")
+    log("Starting Instagram Social Media Sync Execution")
+    log("================================================================================")
+
+    # 1. Ensure local git repository is in sync with remote before doing anything
+    git_pull_rebase()
+
+    if args.url:
+        shortcode = extract_shortcode(args.url)
+        log(f"Manual input provided: shortcode '{shortcode}'")
+        shortcodes_to_process = [shortcode]
+    else:
+        recent_codes = get_recent_post_shortcodes_from_profile()
+        if not recent_codes:
+            log("No Instagram post shortcodes found on profile. Exiting.", level="WARNING")
+            sys.exit(0)
+
+        if args.force:
+            shortcodes_to_process = [recent_codes[0]]
+        else:
+            shortcodes_to_process = [c for c in recent_codes if not is_already_processed(c)]
+
+    if not shortcodes_to_process:
+        log("All discovered Instagram posts are ALREADY present in ActivitiesEvents.astro. Zero action needed (No duplicate).")
+        log("================================================================================")
+        sys.exit(0)
+
+    log(f"Discovered {len(shortcodes_to_process)} new post(s) to synchronize: {shortcodes_to_process}")
+
+    # Process in chronological order (oldest among new ones first)
+    success_count = 0
+    for shortcode in reversed(shortcodes_to_process):
+        ok = process_single_post(shortcode, dry_run=args.dry_run, force=args.force)
+        if ok:
+            success_count += 1
+        else:
+            log(f"Failed to process post '{shortcode}'. Halting batch.", level="ERROR")
+            sys.exit(1)
+
+    log("================================================================================")
+    log(f"Batch Execution Complete: {success_count} post(s) successfully published to production.")
     log("================================================================================")
 
 
