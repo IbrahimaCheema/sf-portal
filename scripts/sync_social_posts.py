@@ -157,6 +157,66 @@ def extract_shortcode(url_or_code):
     return url_or_code.strip()
 
 
+
+import hashlib
+
+
+def get_file_hash(filepath):
+    """Compute SHA-256 hash of a file."""
+    h = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def get_existing_posts():
+    """Parse existing post metadata from ActivitiesEvents.astro."""
+    if not os.path.exists(ACTIVITIES_FILE):
+        return []
+    with open(ACTIVITIES_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+    
+    entries = []
+    post_blocks = re.findall(r'\{\s*url:\s*"([^"]+)".*?featureImage:\s*"([^"]+)".*?caption:\s*"([^"]+)".*?date:\s*"([^"]+)"\s*\}', content, re.DOTALL)
+    for url, img, cap, dt in post_blocks:
+        entries.append({
+            "url": url,
+            "featureImage": img,
+            "caption": cap,
+            "date": dt
+        })
+    return entries
+
+
+def is_duplicate_content(caption, date_str):
+    """Check if a post with identical caption and date already exists in the latest posts."""
+    existing = get_existing_posts()
+    norm_incoming_caption = re.sub(r'[^a-zA-Z0-9]', '', caption).lower()
+    for item in existing[:10]:
+        norm_existing_caption = re.sub(r'[^a-zA-Z0-9]', '', item["caption"]).lower()
+        if norm_incoming_caption == norm_existing_caption and date_str == item["date"]:
+            return True
+        if len(norm_incoming_caption) > 25 and norm_incoming_caption == norm_existing_caption:
+            return True
+    return False
+
+
+def is_duplicate_image(local_image_path, post_num):
+    """Check if the downloaded image SHA256 matches any recent post image."""
+    incoming_hash = get_file_hash(local_image_path)
+    for prev_num in range(max(1, post_num - 10), post_num):
+        for candidate_dir in [PUBLIC_IMAGES_DIR, os.path.join(BASE_DIR, "dist", "images")]:
+            prev_file = os.path.join(candidate_dir, f"hd_ig_post_{prev_num}.jpg")
+            if os.path.exists(prev_file):
+                try:
+                    if get_file_hash(prev_file) == incoming_hash:
+                        log(f"Duplicate image hash detected! Matches hd_ig_post_{prev_num}.jpg ({incoming_hash[:12]}...)", level="WARNING")
+                        return True
+                except Exception:
+                    pass
+    return False
+
 def is_already_processed(shortcode):
     """Check if the shortcode is already present in ActivitiesEvents.astro."""
     if not os.path.exists(ACTIVITIES_FILE):
@@ -200,6 +260,11 @@ def fetch_embed_metadata(shortcode):
         raise
 
     # Extract caption
+    # Check if Instagram returned a broken or removed message
+    if "The link to this photo or video may be broken" in content or "post may have been removed" in content:
+        log(f"Instagram embed indicates post '{shortcode}' is broken or removed.", level="WARNING")
+        return None
+
     caption_text = ""
     cap_match = re.search(r'class="Caption"[^>]*>(.*?)</div>', content, re.DOTALL)
     if cap_match:
@@ -476,7 +541,14 @@ def process_single_post(shortcode, dry_run=False, force=False):
     log(f"Target Post Index: {post_num}")
 
     meta = fetch_embed_metadata(shortcode)
+    if not meta or not meta.get("best_img_url"):
+        log(f"Post '{shortcode}' metadata unavailable, broken, or removed from Instagram. Skipping publication.", level="WARNING")
+        return True
     clean_caption, formatted_date = parse_caption_and_date(meta["raw_caption"], meta["datetime"])
+
+    if not force and is_duplicate_content(clean_caption, formatted_date):
+        log(f"Post '{shortcode}' duplicate detected: caption and date match an existing post ('{clean_caption[:40]}...'). Skipping publication.", level="WARNING")
+        return True
 
     log(f"Extracted Date: {formatted_date}")
     log(f"Extracted Caption: {clean_caption}")
