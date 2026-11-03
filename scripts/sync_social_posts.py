@@ -190,14 +190,15 @@ def get_existing_posts():
 
 
 def is_duplicate_content(caption, date_str):
-    """Check if a post with identical caption and date already exists in the latest posts."""
+    """Check if a post with identical caption and date already exists in recent posts."""
     existing = get_existing_posts()
     norm_incoming_caption = re.sub(r'[^a-zA-Z0-9]', '', caption).lower()
-    for item in existing[:10]:
+    norm_incoming_date = re.sub(r'[^a-zA-Z0-9]', '', date_str).lower()
+    for item in existing[:15]:
         norm_existing_caption = re.sub(r'[^a-zA-Z0-9]', '', item["caption"]).lower()
-        if norm_incoming_caption == norm_existing_caption and date_str == item["date"]:
-            return True
-        if len(norm_incoming_caption) > 25 and norm_incoming_caption == norm_existing_caption:
+        norm_existing_date = re.sub(r'[^a-zA-Z0-9]', '', item.get("date", "")).lower()
+        # Content duplicate ONLY when both caption and date match an existing entry
+        if norm_incoming_caption == norm_existing_caption and norm_incoming_date == norm_existing_date:
             return True
     return False
 
@@ -205,7 +206,18 @@ def is_duplicate_content(caption, date_str):
 def is_duplicate_image(local_image_path, post_num):
     """Check if the downloaded image SHA256 matches any recent post image."""
     incoming_hash = get_file_hash(local_image_path)
-    for prev_num in range(max(1, post_num - 10), post_num):
+    for prev_num in range(max(1, post_num - 15), post_num):
+        # Check against stored metadata json
+        meta_file = os.path.join(SCRIPTS_DIR, f"post_{prev_num}_meta.json")
+        if os.path.exists(meta_file):
+            try:
+                with open(meta_file, "r", encoding="utf-8") as f:
+                    prev_meta = json.load(f)
+                    if prev_meta.get("img_hash") == incoming_hash:
+                        log(f"Duplicate image hash detected! Matches Post {prev_num} metadata ({incoming_hash[:12]}...)", level="WARNING")
+                        return True
+            except Exception:
+                pass
         for candidate_dir in [PUBLIC_IMAGES_DIR, os.path.join(BASE_DIR, "dist", "images")]:
             prev_file = os.path.join(candidate_dir, f"hd_ig_post_{prev_num}.jpg")
             if os.path.exists(prev_file):
@@ -533,7 +545,7 @@ def process_single_post(shortcode, dry_run=False, force=False):
     """Process a single post by shortcode: download, upload to R2, update Astro, build, commit & push."""
     if not force and is_already_processed(shortcode):
         log(f"Post '{shortcode}' is ALREADY present in ActivitiesEvents.astro. Zero action needed (No duplicate).")
-        return True
+        return "ALREADY_PROCESSED"
 
     log(f"Post '{shortcode}' is NEW! Proceeding with publication pipeline...")
 
@@ -543,12 +555,12 @@ def process_single_post(shortcode, dry_run=False, force=False):
     meta = fetch_embed_metadata(shortcode)
     if not meta or not meta.get("best_img_url"):
         log(f"Post '{shortcode}' metadata unavailable, broken, or removed from Instagram. Skipping publication.", level="WARNING")
-        return True
+        return "SKIPPED"
     clean_caption, formatted_date = parse_caption_and_date(meta["raw_caption"], meta["datetime"])
 
     if not force and is_duplicate_content(clean_caption, formatted_date):
         log(f"Post '{shortcode}' duplicate detected: caption and date match an existing post ('{clean_caption[:40]}...'). Skipping publication.", level="WARNING")
-        return True
+        return "SKIPPED"
 
     log(f"Extracted Date: {formatted_date}")
     log(f"Extracted Caption: {clean_caption}")
@@ -556,14 +568,21 @@ def process_single_post(shortcode, dry_run=False, force=False):
 
     if dry_run:
         log(f"[DRY-RUN] Would download image, upload to R2, insert into ActivitiesEvents.astro, build, and push Post {post_num}.")
-        return True
+        return "SUCCESS"
+
+    local_image = download_image(meta["best_img_url"], post_num)
+    meta["img_hash"] = get_file_hash(local_image)
+
+    if not force and is_duplicate_image(local_image, post_num):
+        log(f"Post '{shortcode}' duplicate detected: image is identical to a recent post. Skipping publication.", level="WARNING")
+        if os.path.exists(local_image):
+            os.remove(local_image)
+        return "SKIPPED"
 
     meta_path = os.path.join(SCRIPTS_DIR, f"post_{post_num}_meta.json")
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2, ensure_ascii=False)
     log(f"Saved metadata: {meta_path}")
-
-    local_image = download_image(meta["best_img_url"], post_num)
 
     env_vars = load_env()
     r2_url = upload_to_r2(local_image, post_num, env_vars)
@@ -581,11 +600,11 @@ def process_single_post(shortcode, dry_run=False, force=False):
     if not build_ok:
         log("BUILD FAILED! Rolling back ActivitiesEvents.astro...", level="ERROR")
         subprocess.run(["git", "checkout", "--", "src/components/ActivitiesEvents.astro"], cwd=BASE_DIR)
-        return False
+        return "FAILED"
 
     summary_snip = clean_caption[:45] if len(clean_caption) > 45 else clean_caption
     commit_and_push(post_num, summary_snip)
-    return True
+    return "SUCCESS"
 
 
 def main():
@@ -626,16 +645,20 @@ def main():
 
     # Process in chronological order (oldest among new ones first)
     success_count = 0
+    skipped_count = 0
     for shortcode in reversed(shortcodes_to_process):
-        ok = process_single_post(shortcode, dry_run=args.dry_run, force=args.force)
-        if ok:
+        res = process_single_post(shortcode, dry_run=args.dry_run, force=args.force)
+        if res == "SUCCESS":
             success_count += 1
+        elif res in ("SKIPPED", "ALREADY_PROCESSED"):
+            skipped_count += 1
         else:
             log(f"Failed to process post '{shortcode}'. Halting batch.", level="ERROR")
             sys.exit(1)
 
     log("================================================================================")
-    log(f"Batch Execution Complete: {success_count} post(s) successfully published to production.")
+    log(f"Batch Execution Complete: {success_count} post(s) successfully published, {skipped_count} post(s) skipped.")
+    log("================================================================================")
     log("================================================================================")
 
 
